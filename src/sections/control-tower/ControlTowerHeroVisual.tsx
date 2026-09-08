@@ -13,10 +13,10 @@ const NAV: { icon: IconName; label: string }[] = [
 ]
 
 const TILES = [
-  { label: 'Active issues', value: '18', tone: 'error' },
+  { label: 'Active incidents', value: '7', tone: 'error' },
   { label: 'Mean time to resolve', value: '2h 14m', tone: 'default' },
-  { label: 'User impacted', value: '1,250', tone: 'info' },
-  { label: 'System health', value: '98.5%', tone: 'success' },
+  { label: 'Customers impacted', value: '86', tone: 'info' },
+  { label: 'Success rate', value: '96.8%', tone: 'success' },
 ]
 
 export function ControlTowerHeroVisual() {
@@ -73,13 +73,13 @@ export function ControlTowerHeroVisual() {
                 <Donut
                   size={92}
                   thickness={12}
-                  centerValue="18"
-                  centerLabel="active"
+                  centerValue="401"
+                  centerLabel="exceptions"
                   segments={[
-                    { label: 'Payment', value: 39, color: 'var(--viz-4)' },
-                    { label: 'Charger', value: 28, color: 'var(--viz-1)' },
-                    { label: 'App & data', value: 17, color: 'var(--viz-3)' },
-                    { label: 'Other', value: 16, color: 'var(--viz-5)' },
+                    { label: 'Payment', value: 157, color: 'var(--viz-4)' },
+                    { label: 'Charger', value: 112, color: 'var(--viz-1)' },
+                    { label: 'App & data', value: 68, color: 'var(--viz-3)' },
+                    { label: 'Other', value: 64, color: 'var(--viz-5)' },
                   ]}
                 />
               </div>

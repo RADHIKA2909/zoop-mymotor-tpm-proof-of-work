@@ -354,8 +354,8 @@ export function filterReviews(reviews: ReviewSignal[], filter: ReviewFilterValue
 
 export const VOICES_HEADER = {
   eyebrow: 'Representative feedback',
-  title: 'What users are actually saying',
-  lead: 'A few representative comments reveal the moments where the experience feels effortless — and where trust breaks. Paraphrased, not verbatim.',
+  title: 'Representative user feedback',
+  lead: 'A few representative comments reveal where the experience feels effortless — and where trust breaks. These are paraphrased from public reviews.',
 } as const
 
 export const VOICE_IDS = ['r-fast', 'r-charger-mismatch', 'r-money-deducted', 'r-support-refund']

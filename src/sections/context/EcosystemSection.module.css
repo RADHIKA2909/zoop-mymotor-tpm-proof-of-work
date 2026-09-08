@@ -29,11 +29,6 @@
   max-width: 56ch;
 }
 
-.disclaimer {
-  flex: none;
-  margin-top: var(--space-1);
-}
-
 .block {
   display: block;
 }
@@ -46,10 +41,4 @@
   font-size: var(--text-sm);
   color: var(--dark-text-secondary);
   margin-bottom: var(--space-4);
-}
-
-@media (max-width: 640px) {
-  .disclaimer {
-    order: -1;
-  }
 }

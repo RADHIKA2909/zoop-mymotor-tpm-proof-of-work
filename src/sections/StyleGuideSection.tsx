@@ -180,7 +180,7 @@ export function StyleGuideSection() {
         <Row title="Check lists">
           <div className={s.grid2}>
             <CheckList
-              items={['Find & navigate to chargers', 'Check RC, insurance & challan', 'Easy & secure payments']}
+              items={['Find & navigate to chargers', 'Check RC, insurance & challan', 'EV wallet & charging payments']}
             />
             <CheckList
               marker="dash"

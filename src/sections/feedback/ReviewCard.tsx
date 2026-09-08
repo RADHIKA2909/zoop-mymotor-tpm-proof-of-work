@@ -40,7 +40,7 @@ export function ReviewCard({ review }: { review: ReviewSignal }) {
       <p className={s.summary}>{review.summary}</p>
 
       <div className={s.meta}>
-        <span className={s.source}>Google Play + App Store</span>
+        <span className={s.source}>Public app-store review</span>
         <span className={s.theme}>{theme?.name ?? review.themeId}</span>
       </div>
 

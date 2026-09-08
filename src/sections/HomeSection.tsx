@@ -37,7 +37,7 @@ export function HomeSection() {
               </h1>
               <p className={s.thesis}>{CASE_STUDY.thesis}</p>
               <p className={s.intro}>
-                A worked case study on the consumer side of ZOOP Energy —{' '}
+                An independent case study on the consumer side of ZOOP Energy —{' '}
                 <strong>MyMotor</strong>. It starts from real public app reviews,
                 works out where the everyday journey breaks down, and proposes an
                 operational and technical answer: reliable transactions and a
@@ -135,7 +135,7 @@ export function HomeSection() {
                   <h3 className={s.sectionCardTitle}>{section.navLabel}</h3>
                   <p className={s.sectionCardText}>{section.tagline}</p>
                   <div className={s.sectionCardFoot}>
-                    <span>{section.planned.length} planned blocks</span>
+                    <span>{section.planned.length} blocks</span>
                     <Icon name="arrow-right" size={16} />
                   </div>
                 </Link>
@@ -213,7 +213,7 @@ export function HomeSection() {
               </p>
             </div>
             <Button to={SECTIONS[0].path} size="lg" iconRight="arrow-right">
-              Section 01 · Context
+              Start with Context
             </Button>
           </div>
         </Container>

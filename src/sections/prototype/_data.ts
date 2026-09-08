@@ -623,9 +623,9 @@ export const OTHER_SCENARIOS: { scenarioId: ScenarioId; icon: IconName; title: s
 /* ---- Prototype highlights ---------------------------------- */
 
 export const HIGHLIGHTS: { icon: IconName; title: string; desc: string }[] = [
-  { icon: 'activity', title: 'Realistic data', desc: 'Based on common reliability themes from public user feedback, using illustrative data.' },
+  { icon: 'activity', title: 'Illustrative data', desc: 'Based on common reliability themes from public user feedback, using illustrative data.' },
   { icon: 'bolt', title: 'Interactive experience', desc: 'Click, explore and follow a real workflow end to end.' },
-  { icon: 'layers', title: 'Responsive design', desc: 'Designed for desktop, tablet and mobile.' },
+  { icon: 'layers', title: 'Responsive experience', desc: 'Designed to adapt across desktop, tablet and mobile.' },
   { icon: 'lock', title: 'Role-based actions', desc: 'Shows how operational actions can be permission-controlled.' },
 ]
 

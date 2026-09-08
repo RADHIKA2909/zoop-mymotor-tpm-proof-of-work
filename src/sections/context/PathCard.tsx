@@ -55,7 +55,7 @@ export function PathCard({ data }: PathCardProps) {
             aria-expanded={noteOpen}
             onClick={() => setNoteOpen((v) => !v)}
           >
-            Why consumer-only?
+            Why this focus?
           </button>
         )}
       </div>

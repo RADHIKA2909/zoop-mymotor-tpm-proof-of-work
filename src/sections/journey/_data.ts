@@ -53,7 +53,7 @@ export const STAGES: JourneyStage[] = [
     desc: 'Search for chargers near your location or along your route.',
     goal: 'Find a charger I can actually use, close to where I am or where I am going.',
     uncertainty: 'Are the nearby results complete and current?',
-    breakpoint: { tone: 'warning', label: 'Stale availability' },
+    breakpoint: { tone: 'warning', label: 'Potential availability mismatch' },
   },
   {
     num: '02',
@@ -62,7 +62,7 @@ export const STAGES: JourneyStage[] = [
     desc: 'Compare options using availability, distance, connector type, charging speed and other available station information.',
     goal: 'Pick the option most likely to work for my vehicle and my time.',
     uncertainty: 'Is the connector, speed and status information accurate?',
-    breakpoint: { tone: 'warning', label: 'Incomplete / unclear charger information' },
+    breakpoint: { tone: 'warning', label: 'Potential compatibility issue' },
   },
   {
     num: '03',
@@ -71,7 +71,7 @@ export const STAGES: JourneyStage[] = [
     desc: 'Get directions to the selected charger.',
     goal: 'Reach the exact charger without a detour or a dead end.',
     uncertainty: 'Does the pin match the real, accessible location?',
-    breakpoint: { tone: 'error', label: 'Location / access mismatch' },
+    breakpoint: { tone: 'error', label: 'Potential location or access issue' },
   },
   {
     num: '04',
@@ -80,7 +80,7 @@ export const STAGES: JourneyStage[] = [
     desc: 'Reach the charger, verify compatibility and start the charging session through the available MyMotor charging flow.',
     goal: 'Plug in and have charging actually begin.',
     uncertainty: 'Will the session start, and will I know if it does not?',
-    breakpoint: { tone: 'error', label: 'Session fails to start' },
+    breakpoint: { tone: 'error', label: 'Potential session-state failure' },
   },
   {
     num: '05',
@@ -89,16 +89,16 @@ export const STAGES: JourneyStage[] = [
     desc: 'Monitor the live charging session and its status.',
     goal: 'See progress and know when I can leave.',
     uncertainty: 'Is the status I see the real status of the session?',
-    breakpoint: { tone: 'warning', label: 'Session status uncertainty' },
+    breakpoint: { tone: 'warning', label: 'Potential session-status mismatch' },
   },
   {
     num: '06',
     icon: 'check',
-    title: 'Complete',
-    desc: 'Complete the charging flow and retain the relevant transaction and session information.',
+    title: 'Complete & pay',
+    desc: 'Complete the charging session, payment and retain the relevant transaction information.',
     goal: 'End cleanly, pay once, and keep a record.',
     uncertainty: 'Did the payment settle, and is the receipt there if I need it?',
-    breakpoint: { tone: 'error', label: 'Transaction / confirmation uncertainty' },
+    breakpoint: { tone: 'error', label: 'Potential transaction-state mismatch' },
   },
 ]
 
@@ -170,37 +170,37 @@ export const DEPENDENCY_ROWS: DependencyRow[] = [
     icon: 'wifi',
     label: 'Availability data',
     desc: 'Live charger state needs to be current.',
-    risk: { tone: 'warning', text: 'Stale availability' },
+    risk: { tone: 'warning', text: 'Potential availability mismatch' },
   },
   {
     icon: 'file',
     label: 'Charger information',
     desc: 'Location, connector type, pricing and station information.',
-    risk: { tone: 'warning', text: 'Wrong connector / incompatible charger' },
+    risk: { tone: 'warning', text: 'Potential compatibility issue' },
   },
   {
     icon: 'compass',
     label: 'Navigation & location',
     desc: 'Maps, directions and physical charger access.',
-    risk: { tone: 'error', text: 'Location / access issues' },
+    risk: { tone: 'error', text: 'Potential location or access issue' },
   },
   {
     icon: 'cog',
     label: 'Session management',
     desc: 'Charging session start / stop and status.',
-    risk: { tone: 'error', text: 'Session fails to start or stop' },
+    risk: { tone: 'error', text: 'Potential session-state failure' },
   },
   {
     icon: 'wallet',
     label: 'Payments & wallet',
     desc: 'Transaction processing and confirmation.',
-    risk: { tone: 'error', text: 'Transaction state unclear' },
+    risk: { tone: 'error', text: 'Potential transaction-state mismatch' },
   },
   {
     icon: 'headset',
     label: 'Customer support',
     desc: 'Issue resolution when the journey does not complete normally.',
-    risk: { tone: 'warning', text: 'Slow resolution' },
+    risk: { tone: 'warning', text: 'Potential resolution delay' },
   },
 ]
 

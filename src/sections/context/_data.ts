@@ -76,7 +76,7 @@ export const PATHS: PathCardData[] = [
     points: [
       'Find & navigate to chargers',
       'Check RC, insurance & challan',
-      'Easy & secure payments',
+      'EV wallet & charging payments',
       'A smarter, simpler EV experience',
     ],
     cta: {
@@ -192,7 +192,7 @@ export const ECO_NODES: EcoNode[] = [
     id: 'chargers',
     kind: 'chargers',
     label: 'Physical chargers',
-    sublabel: 'Across 3K+ locations in India',
+    sublabel: '3K+ charging stations in India',
     icon: 'plug',
   },
 ]

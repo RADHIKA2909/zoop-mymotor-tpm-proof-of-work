@@ -57,7 +57,7 @@ function NavigateBody() {
         <span className={s.pin} style={{ top: '12%', left: '86%' }} />
       </div>
       <div className={s.card}>
-        <span className={s.cardTitle}>Statiq · ChargeZone</span>
+        <span className={s.cardTitle}>EV charging station</span>
         <span className={s.cardSub}>1.2 km · 4 min · CCS2 · 60 kW · 2/4 available</span>
         <span className={s.cta}>Get Directions</span>
       </div>

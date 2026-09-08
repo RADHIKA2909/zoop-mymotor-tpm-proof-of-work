@@ -24,7 +24,7 @@ export function ThemesGrid({ onViewEvidence }: ThemesGridProps) {
       <Container size="wide">
         <SectionHeader
           eyebrow="Top themes from user reviews"
-          title="What users talk about most"
+          title="Recurring themes from user reviews"
           lead={
             <p>
               Across the reviews I analysed, a few themes repeatedly surfaced —

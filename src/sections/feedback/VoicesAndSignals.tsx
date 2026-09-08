@@ -40,7 +40,7 @@ export function VoicesAndSignals() {
                       <Pill tone={SENTIMENT_TONE[v.sentiment]} size="sm" dot>
                         {THEME_BY_ID[v.themeId]?.name ?? v.themeId}
                       </Pill>
-                      <span>Google Play + App Store · paraphrased</span>
+                      <span>Public app-store review · paraphrased</span>
                     </figcaption>
                   </figure>
                 </ScrollReveal>

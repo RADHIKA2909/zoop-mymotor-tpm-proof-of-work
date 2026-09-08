@@ -398,8 +398,8 @@ capabilities and is NOT claimed to represent ZOOP's internal workflow.**
 - **New shared:** `Icon.tsx` gained `sliders, navigation, bulb, database, eye, quote`.
   No token changes; no Section 1 changes.
 - **Journey stages (proposed model):** 01 Discover · 02 Evaluate · 03 Navigate ·
-  04 Start session · 05 Charge · 06 Complete. Each has a customer goal + potential
-  uncertainty (hover tooltip) and a potential breakpoint (breakpoints mode).
+  04 Start session · 05 Charge · 06 Complete & pay. Each has a customer goal +
+  potential uncertainty (hover tooltip) and a potential breakpoint (breakpoints mode).
 - **Publicly observed (basis, from `PUBLIC_FACTS`):** MyMotor EV Charging Hub —
   finding chargers, real-time availability, live session tracking, connector/speed
   filtering, multi-network charging, single wallet. Rendered as the "One app. Many
@@ -407,9 +407,11 @@ capabilities and is NOT claimed to represent ZOOP's internal workflow.**
 - **Proposed / conceptual / illustrative (labelled in-UI):** the 6-stage journey and
   its mechanics; the 5-step **proposed experience model** with emotional states
   (Curious/Confident/Hopeful/Waiting/Satisfied); the 6-row **conceptual dependency
-  model**; all breakpoints / risk chips (Stale availability, Wrong connector,
-  Location / access issues, Session fails to start/stop, Transaction state unclear,
-  Slow resolution) — carried by the hero pill "Publicly observed + proposed journey
+  model**; all breakpoints / risk chips — all phrased as hypotheticals ("Potential
+  availability mismatch", "Potential compatibility issue", "Potential location or
+  access issue", "Potential session-state failure", "Potential session-status
+  mismatch", "Potential transaction-state mismatch", "Potential resolution delay") —
+  carried by the hero pill "Publicly observed + proposed journey
   model", the two column pills, the breakpoints banner "Illustrative breakpoint model
   — not measured failure rates", `Callout kind="source"` on the app screens, and
   `Callout kind="assumption"` under the dependency column.
@@ -783,6 +785,50 @@ operator workflow tangible. No real customer data, no financial values.
   Sections 1–5 unchanged) · a state-machine smoke (`scripts/proto-smoke.tsx`,
   removed after) rendered ~100 states across all 5 scenarios × every step / modal
   / approval branch — all pass.
+
+---
+
+### Copy + data-consistency pass — 2026-09-08 (post Section 06)
+
+Text-and-illustrative-data-only corrections from a full review of the built case
+study. No layout / component / token / interaction changes.
+
+- **Landing:** hero "A worked case study" → "An independent case study"; card
+  block-count label "N planned blocks" → "N blocks"; bottom CTA "Section 01 ·
+  Context" → "Start with Context".
+- **§1 Context:** removed the duplicate section-level "Conceptual ecosystem"
+  `Pill` in `EcosystemSection` (the label stays on the `DiagramFrame`);
+  "Across 3K+ locations in India" → "3K+ charging stations in India"; consumer
+  card point "Easy & secure payments" → "EV wallet & charging payments" (+ the
+  matching sample in `/styleguide`); freight-card toggle "Why consumer-only?" →
+  "Why this focus?".
+- **§2 Journey:** stage 06 "Complete" → "Complete & pay" (+ desc); all 12
+  breakpoint / dependency-risk labels reworded to "Potential …" hypotheticals;
+  phone-mockup "Statiq · ChargeZone" → "EV charging station" (details kept).
+- **§3 Feedback:** `ThemesGrid` title → "Recurring themes from user reviews";
+  `VOICES_HEADER` title → "Representative user feedback" (+ lead); per-card
+  source label "Google Play + App Store" → "Public app-store review" (no
+  per-review platform data exists; aggregate corpus mentions kept). No new
+  numbers; paraphrase disclosures + credibility labels unchanged.
+- **§4 Reliability:** `TAKEAWAYS_HEADER` 2nd sentence → "…should reduce friction,
+  improve user trust and create a more reliable customer experience.";
+  `JOURNEY_STAGES` renamed + realigned to match §2 (Discover / Evaluate /
+  Navigate / Start session / Charge / Complete) — icons 04–06 → plug / bolt /
+  check; `potentialIssue` for stages 5 & 6 reworded so each concept lands on the
+  correctly-named stage; **risk levels + prioritization unchanged**.
+- **§5 Control Tower:** dashboard `<h2>` → "Proposed Reliability Control Tower";
+  `JOB.lead` "…the right person taking the right action." → "…the right action
+  being taken."; single illustrative dataset — `KPIS` already
+  12,480 / 96.8% / 401 / 7 / 14 / 86; `ISSUES_BY_CATEGORY` → counts
+  157 / 112 / 68 / 44 / 20 (= 401), donut legend shows counts not `%`; hero
+  mockup tiles → Active incidents 7 / Customers impacted 86 / Success rate 96.8%
+  (MTTR kept), mini-donut → 401 exceptions with matching splits; "N users" →
+  "N customers" across transaction / exception / impact / escalation rows (kept
+  "1 customer", "7 searches affected"). `ISSUES_BY_REGION`, `TREND`, `VENDOR_*`
+  and `IMPACT_ROWS.stage` tags left untouched (not in the stated dataset).
+- **§6 Prototype:** highlight "Realistic data" → "Illustrative data";
+  "Responsive design" → "Responsive experience" (+ desc). Disclaimers already
+  consistent.
 
 ---
 

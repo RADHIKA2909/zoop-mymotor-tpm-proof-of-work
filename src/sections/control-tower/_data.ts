@@ -64,7 +64,7 @@ export const PERSONAS: Persona[] = [
 export const JOB = {
   eyebrow: 'The control tower job',
   title: 'What should the team see?',
-  lead: 'A control tower should reduce the time between an issue occurring and the right person taking the right action.',
+  lead: 'A control tower should reduce the time between an issue occurring and the right action being taken.',
   cards: [
     { icon: 'eye', title: 'Detect', desc: 'Surface abnormal transaction, charger or service states early.' },
     { icon: 'layers', title: 'Understand', desc: 'Show what happened, who is affected and where the issue may have originated.' },
@@ -115,11 +115,11 @@ export interface CategorySlice {
 }
 
 export const ISSUES_BY_CATEGORY: CategorySlice[] = [
-  { label: 'Payment', value: 39, color: 'var(--viz-4)' },
-  { label: 'Charger', value: 28, color: 'var(--viz-1)' },
-  { label: 'App & data', value: 17, color: 'var(--viz-3)' },
-  { label: 'Account', value: 11, color: 'var(--viz-5)' },
-  { label: 'Other', value: 5, color: 'var(--viz-6)' },
+  { label: 'Payment', value: 157, color: 'var(--viz-4)' },
+  { label: 'Charger', value: 112, color: 'var(--viz-1)' },
+  { label: 'App & data', value: 68, color: 'var(--viz-3)' },
+  { label: 'Account', value: 44, color: 'var(--viz-5)' },
+  { label: 'Other', value: 20, color: 'var(--viz-6)' },
 ]
 
 export const ISSUES_BY_REGION = [
@@ -226,7 +226,7 @@ export const TXNS: Txn[] = [
     state: 'Data sync delayed',
     dependency: 'Upstream source',
     age: '2h',
-    impact: '12 users',
+    impact: '12 customers',
     status: 'At risk',
     owner: 'Data Ops',
     timeline: [
@@ -250,7 +250,7 @@ export const TXNS: Txn[] = [
     state: 'Session not starting',
     dependency: 'Charging partner',
     age: '15m',
-    impact: '2 users',
+    impact: '2 customers',
     status: 'At risk',
     owner: 'Partner Ops',
     timeline: [
@@ -274,7 +274,7 @@ export const TXNS: Txn[] = [
     state: 'Document download issue',
     dependency: 'Document service',
     age: '3h',
-    impact: '4 users',
+    impact: '4 customers',
     status: 'At risk',
     owner: 'Support',
     timeline: [
@@ -383,7 +383,7 @@ export const EXCEPTIONS: Exception[] = [
     id: 'INC-4020',
     severity: 'P1',
     issue: 'Charger availability mismatch',
-    impact: '3 users',
+    impact: '3 customers',
     dependency: 'Charging partner',
     age: '27m',
     owner: 'Partner Ops',
@@ -402,7 +402,7 @@ export const EXCEPTIONS: Exception[] = [
     id: 'INC-4018',
     severity: 'P2',
     issue: 'Vehicle data stale',
-    impact: '12 users',
+    impact: '12 customers',
     dependency: 'Upstream source',
     age: '2h',
     owner: 'Data Ops',
@@ -413,7 +413,7 @@ export const EXCEPTIONS: Exception[] = [
     id: 'INC-4015',
     severity: 'P2',
     issue: 'Document download issue',
-    impact: '4 users',
+    impact: '4 customers',
     dependency: 'Document service',
     age: '3h',
     owner: 'Support',
@@ -504,7 +504,7 @@ export const IMPACT_ROWS: ImpactRow[] = [
   },
   {
     issue: 'Data freshness',
-    customers: '21 users',
+    customers: '21 customers',
     transactions: '—',
     delay: '—',
     stage: 'POST-JOURNEY',
@@ -633,7 +633,7 @@ export const ESCALATION_ROWS: EscalationRow[] = [
   { type: 'Payment pending', expected: 'Defined by business / vendor SLA', trigger: 'Approaching threshold', owner: 'Payments Ops', state: 'At risk' },
   { type: 'Charging session failure', expected: 'Defined by business / vendor SLA', trigger: 'Customer blocked', owner: 'Partner Ops', state: 'SLA breached' },
   { type: 'Data sync issue', expected: 'Defined by freshness threshold', trigger: 'Freshness threshold exceeded', owner: 'Data Ops', state: 'At risk' },
-  { type: 'Document error', expected: 'Defined by support SLA', trigger: 'Multiple users affected', owner: 'Support', state: 'Normal' },
+  { type: 'Document error', expected: 'Defined by support SLA', trigger: 'Multiple customers affected', owner: 'Support', state: 'Normal' },
 ]
 
 export const ESCALATION_FORMULA = ['Time elapsed', 'Customer impact', 'Issue severity']

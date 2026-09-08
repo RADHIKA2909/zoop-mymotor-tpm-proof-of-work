@@ -64,42 +64,42 @@ export const JOURNEY_STAGES: JourneyRiskStage[] = [
   {
     num: '02',
     icon: 'sliders',
-    title: 'Plan',
-    desc: 'View charger details and decide where to charge.',
+    title: 'Evaluate',
+    desc: 'Compare charger details and decide where to charge.',
     risk: 'moderate',
     potentialIssue: 'Incomplete or outdated charger information.',
   },
   {
     num: '03',
     icon: 'navigation',
-    title: 'Travel',
+    title: 'Navigate',
     desc: 'Navigate to the selected charger.',
     risk: 'lower',
     potentialIssue: 'Location / access mismatch.',
   },
   {
     num: '04',
-    icon: 'bolt',
-    title: 'Charge',
-    desc: 'Start and monitor the charging session.',
+    icon: 'plug',
+    title: 'Start session',
+    desc: 'Start the charging session and confirm the expected state.',
     risk: 'higher',
     potentialIssue: 'Session fails to start, stop or reflect the expected state.',
   },
   {
     num: '05',
-    icon: 'card',
-    title: 'Pay',
-    desc: 'Complete the transaction.',
+    icon: 'bolt',
+    title: 'Charge',
+    desc: 'Monitor the live charging session.',
     risk: 'higher',
-    potentialIssue: 'Transaction becomes stuck or its status is unclear.',
+    potentialIssue: 'Live session status may not match the real state of charging.',
   },
   {
     num: '06',
-    icon: 'file',
-    title: 'Post-journey',
-    desc: 'View history, status or seek support if something went wrong.',
+    icon: 'check',
+    title: 'Complete',
+    desc: 'Complete the transaction and confirm the final state.',
     risk: 'moderate',
-    potentialIssue: 'History / status / support resolution is delayed or unclear.',
+    potentialIssue: 'Transaction becomes stuck, or its final status is unclear.',
   },
 ]
 
@@ -369,7 +369,7 @@ export const TXN_FOCUS = {
 export const TAKEAWAYS_HEADER = {
   eyebrow: 'Key takeaways',
   title: 'What this means for a TPM',
-  lead: 'Reliability is not just a technical problem — it is a product and operational challenge. Solving these issues can significantly improve user trust, satisfaction and long-term adoption.',
+  lead: 'Reliability is not just a technical problem — it is a product and operational challenge. Solving these issues should reduce friction, improve user trust and create a more reliable customer experience.',
 } as const
 
 export interface Takeaway {

@@ -1,6 +1,5 @@
 import { Container } from '@/components/ui/Container'
 import { Eyebrow } from '@/components/ui/Eyebrow'
-import { Pill } from '@/components/ui/Pill'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { ECOSYSTEM_HEADER } from './_data'
 import { EcosystemDiagram } from './EcosystemDiagram'
@@ -22,9 +21,6 @@ export function EcosystemSection() {
             </h2>
             <p className={s.lead}>{ECOSYSTEM_HEADER.lead}</p>
           </div>
-          <Pill tone="assumption" variant="outline" caps size="sm" className={s.disclaimer}>
-            {ECOSYSTEM_HEADER.disclaimer}
-          </Pill>
         </header>
 
         <ScrollReveal className={s.block}>

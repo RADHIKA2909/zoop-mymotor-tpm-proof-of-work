@@ -33,7 +33,7 @@ export function Dashboard({ category, onCategory, window, onWindow }: DashboardP
         <Eyebrow>Real-time issue monitoring</Eyebrow>
         <div className={s.head}>
           <div>
-            <h2 className={s.title}>Reliability Control Tower</h2>
+            <h2 className={s.title}>Proposed Reliability Control Tower</h2>
             <p className={s.sub}>Monitor. Resolve. Improve. — a live view of reliability across the ecosystem.</p>
           </div>
           <div className={s.windows} role="tablist" aria-label="Time window">
@@ -126,7 +126,7 @@ export function Dashboard({ category, onCategory, window, onWindow }: DashboardP
                   <li key={c.label}>
                     <i style={{ background: c.color }} />
                     {c.label}
-                    <span>{c.value}%</span>
+                    <span>{c.value}</span>
                   </li>
                 ))}
               </ul>
