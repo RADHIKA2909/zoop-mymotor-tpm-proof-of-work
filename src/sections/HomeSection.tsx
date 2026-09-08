@@ -30,10 +30,11 @@ export function HomeSection() {
         <Container size="wide">
           <div className={s.heroGrid}>
             <div className={s.heroMain}>
-              <Eyebrow>{CASE_STUDY.org}</Eyebrow>
+              <Eyebrow>Product case study</Eyebrow>
               <h1 className={s.title}>
-                Technical Product Management
-                <span className={s.titleAccent}> Proof of Work</span>
+                {CASE_STUDY.org}
+                <br />
+                <span className={s.titleAccent}>Proof of Work</span>
               </h1>
               <p className={s.thesis}>{CASE_STUDY.thesis}</p>
               <p className={s.intro}>
