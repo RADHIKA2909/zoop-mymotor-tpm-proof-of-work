@@ -431,6 +431,82 @@ capabilities and is NOT claimed to represent ZOOP's internal workflow.**
 
 ---
 
+### Section 03 — Customer Feedback Analysis — COMPLETED (2026-09-08)
+
+**Section 3 is a public-research synthesis. Quantitative review percentages are NOT
+claimed unless calculated from a defined dataset — none was scored. No claim about
+ZOOP's internal architecture, vendors, SLAs, metrics or workflow.**
+
+- **Objective:** public review evidence → recurring themes → reliability signals →
+  prioritized problem statements → *why reliability is the focus of Section 4*.
+- **Route / files:** `/feedback` → `src/sections/feedback/` (folder replaced the
+  flat file; `routes.tsx` + `ssr-smoke.tsx` imports updated; `sections.ts`
+  `feedback.status = 'done'` → landing map + progress 3/6). Bespoke page.
+- **Components (+ co-located `*.module.css`):** `FeedbackSection` (orchestrator,
+  holds the review-filter state) · `FeedbackHero` + `FeedbackHeroVisual` ·
+  `ReviewOverview` (4 qualitative evidence cards, no charts) · `ThemesGrid` (6
+  theme cards) · `ReviewEvidence` + `ReviewCard` (segmented All/Positive/Negative/
+  Reliability filter + theme filter from `ThemesGrid`) · `VoicesAndSignals`
+  (representative paraphrased quotes + uniform keyword chips) · `WorksVsBreaks` ·
+  `KeyInsights` (dark band: 4 insight cards + the "uncertainty, not an API
+  failure" statement + conceptual reliability model) · `ProblemFlow` (NodeFlow +
+  4 problem cards) · `PrioritizationMatrix` (2×2, no scores, 2 highlighted) ·
+  `FeedbackTpmLens` (before/after + Detect/Diagnose/Assign/Recover) ·
+  `FeedbackTransition` → `/reliability`. All copy + the local review dataset in
+  `_data.ts`; hero slot in `_assets.ts`.
+- **New shared:** `Icon.tsx` gained `star, filter, thumb-up, thumb-down, message,
+  grid`. No token changes; no Section 1/2 changes.
+- **Public review sources:** Google Play + Apple App Store (public listings). The
+  only number shown = MyMotor's own stated "4.7 / 25K+ reviews" (from
+  `PUBLIC_FACTS`, `mymotor-site`), in the hero, captioned as their marketing
+  figure — not this analysis.
+- **Review evidence used (OBSERVED, paraphrased — `_data.ts` `REVIEWS`, ~19
+  entries, labelled "representative, not verbatim"):**
+  - *Positive:* fast + easy, all-in-one convenience, accurate/detailed vehicle &
+    RTO info, ad-free, clean UI, real-time challan status, responsive support.
+  - *Problem:* delayed updates; missing tax/permit info; blank-screen on the
+    recent-history vehicle tab; limited map usability; charger coverage/integration
+    requests; charger shown available but not matching on arrival; eChallan payment
+    stuck "in progress"; money deducted while transaction unresolved; government
+    server issue blocking completion → eventual refund; stale previous-owner data
+    after RC/VAHAN update; insurance wrongly "pending"; documents not downloading;
+    wanting clearer contact options; support resolving stuck payments but slowly.
+- **Theme taxonomy (6):** Charger availability & coverage · Payments & transactions
+  · Data accuracy & freshness · Navigation & location · Customer support &
+  resolution · App experience & usability. Each carries a *qualitative* signal
+  ("Reliability-sensitive" / "Recurring" / "Mixed" / "Mostly positive") — no %.
+- **Problem statements (INFERRED / PROPOSED, `_data.ts` `PROBLEMS`):** Charger
+  availability mismatch · Transaction state uncertainty · Data freshness & accuracy
+  · Slow exception resolution. Each = user signal / potential underlying signal /
+  product implication.
+- **Prioritization:** 2×2 (customer/operational impact × reliability signal),
+  problems placed **conceptually with no numeric scores**, *Transaction state
+  uncertainty* + *Charger availability mismatch* highlighted as the Section-4 focus.
+  Labelled "Illustrative — not internal ZOOP data".
+- **Observed vs Inferred vs Proposed:** OBSERVED = public product facts + the
+  paraphrased review signals; INFERRED = the "potential underlying signal" lines +
+  problem framing; PROPOSED/CONCEPTUAL/ILLUSTRATIVE = the reliability model, the
+  matrix, the TPM questions. Labels used selectively (`Callout` / `Pill`), not on
+  every element.
+- **Why reliability becomes the bridge to Section 4:** the review signals cluster
+  on *not being able to tell what state a real-world transaction or service is in*
+  — availability, session, payment, data freshness — and on slow recovery. That is
+  a reliability-visibility problem, which Section 4 models and Section 5 (Control
+  Tower) addresses.
+- **METHODOLOGY RULE:** *Quantitative review percentages are not claimed unless
+  calculated from a defined dataset.* The `_data.ts` `REVIEWS` array stays
+  swap-ready if verbatim quotes are collected later.
+- **Open questions — cannot be answered from public information:** actual
+  transaction failure rate · actual vendor SLAs / performance · actual API
+  architecture · actual charger-state synchronisation mechanism · actual incident
+  ownership / escalation matrix · actual operational TAT.
+- **Dark mode:** the `KeyInsights` band is `data-theme="dark"` + `--dark-*`;
+  everything else generic tokens. `npm run contrast` passes.
+- **To refine later:** verbatim review quotes (currently paraphrased); real hero
+  imagery.
+
+---
+
 ### Working commands
 
 ```

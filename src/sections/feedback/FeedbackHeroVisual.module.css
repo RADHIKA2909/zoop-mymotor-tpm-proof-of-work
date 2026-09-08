@@ -1,0 +1,108 @@
+.wrap {
+  position: relative;
+}
+
+.photo {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  aspect-ratio: 5 / 4;
+}
+
+.panel {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(155deg, var(--brand-green-surface) 0%, #e3eef5 100%);
+  border: 1px solid var(--border-brand);
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+}
+
+[data-theme='dark'] .panel {
+  background: linear-gradient(
+    155deg,
+    var(--dark-accent-surface) 0%,
+    var(--dark-surface-elevated) 100%
+  );
+}
+
+.phone {
+  width: min(230px, 70vw);
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--brand-green-ink);
+  color: var(--brand-green);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-lg);
+}
+
+.name {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.tagline {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+.rating {
+  margin-top: var(--space-3);
+  display: grid;
+  justify-items: center;
+  gap: 0.1rem;
+}
+.ratingValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--status-warning);
+}
+.ratingCount {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+.stores {
+  margin-top: var(--space-2);
+  display: flex;
+  gap: var(--space-2);
+}
+.store {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-sunken);
+  color: var(--text-secondary);
+}
+
+.caption {
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--text-tertiary);
+  text-align: center;
+  max-width: 42ch;
+  margin-inline: auto;
+}

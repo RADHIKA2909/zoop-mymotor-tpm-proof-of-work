@@ -47,6 +47,12 @@ export type IconName =
   | 'database'
   | 'eye'
   | 'quote'
+  | 'star'
+  | 'filter'
+  | 'thumb-up'
+  | 'thumb-down'
+  | 'message'
+  | 'grid'
 
 interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   name: IconName
@@ -295,6 +301,36 @@ const PATHS: Record<IconName, JSX.Element> = {
     <>
       <path d="M7 7C4.5 8 3.5 10 3.5 13v4H9v-6H6c0-2 .5-3 2-3.5L7 7Z" />
       <path d="M18 7c-2.5 1-3.5 3-3.5 6v4H20v-6h-3c0-2 .5-3 2-3.5L18 7Z" />
+    </>
+  ),
+  star: (
+    <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 17l-5.2 2.6 1-5.8L3.5 9.7l5.9-.9L12 3.5Z" />
+  ),
+  filter: <path d="M3 5h18l-7 8v6l-4 2v-8L3 5Z" />,
+  'thumb-up': (
+    <>
+      <path d="M7 10v10H4V10h3Z" />
+      <path d="M7 10l4.5-7c1.4 0 2.3 1.1 2 2.5L13 9h5.5a2 2 0 0 1 2 2.4l-1.4 6A2 2 0 0 1 17 21H7" />
+    </>
+  ),
+  'thumb-down': (
+    <>
+      <path d="M7 14V4H4v10h3Z" />
+      <path d="M7 14l4.5 7c1.4 0 2.3-1.1 2-2.5L13 15h5.5a2 2 0 0 0 2-2.4l-1.4-6A2 2 0 0 0 17 3H7" />
+    </>
+  ),
+  message: (
+    <>
+      <path d="M5 5h14a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4V6a1 1 0 0 1 1-1Z" />
+      <path d="M8 10h8M8 13h5" />
+    </>
+  ),
+  grid: (
+    <>
+      <rect x="4" y="4" width="7" height="7" rx="1.4" />
+      <rect x="13" y="4" width="7" height="7" rx="1.4" />
+      <rect x="4" y="13" width="7" height="7" rx="1.4" />
+      <rect x="13" y="13" width="7" height="7" rx="1.4" />
     </>
   ),
 }

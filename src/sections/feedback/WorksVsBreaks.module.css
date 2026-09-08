@@ -1,0 +1,107 @@
+.section {
+  padding: var(--section-pad-y) 0;
+  background: var(--bg);
+}
+
+.title {
+  font-size: var(--text-3xl);
+  letter-spacing: var(--tracking-tight);
+  max-width: 24ch;
+  margin-bottom: var(--space-7);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-items: stretch;
+}
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col {
+  display: flex;
+}
+.col > * {
+  width: 100%;
+}
+
+.panel {
+  height: 100%;
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.panel[data-tone='works'] {
+  border-color: var(--border-brand);
+  background: var(--brand-green-surface);
+}
+.panel[data-tone='breaks'] {
+  border-color: color-mix(in srgb, var(--status-error) 30%, transparent);
+  background: var(--status-error-surface);
+}
+
+.panelLabel {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  margin-bottom: var(--space-4);
+}
+.panel[data-tone='works'] .panelLabel {
+  color: var(--brand-green-deep);
+}
+.panel[data-tone='breaks'] .panelLabel {
+  color: var(--status-error);
+}
+[data-theme='dark'] .panel[data-tone='breaks'] .panelLabel {
+  color: var(--status-error);
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+}
+
+.markWorks,
+.markBreaks {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-top: 0.05rem;
+}
+.markWorks {
+  background: var(--brand-green);
+  color: var(--brand-green-ink);
+}
+.markBreaks {
+  background: var(--status-error);
+  color: var(--surface);
+}
+
+.insight {
+  margin-top: var(--space-6);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  max-width: 72ch;
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--brand-green);
+}

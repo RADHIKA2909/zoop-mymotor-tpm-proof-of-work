@@ -82,7 +82,7 @@ export const SECTIONS: SectionDef[] = [
     tagline:
       'A structured read of real public app reviews — themes, signals, pain points, severity and customer impact.',
     phase: 'Problem discovery',
-    status: 'planned',
+    status: 'done',
     planned: [
       'Review corpus and method (source, window, how coded) — using evidence provided, no fabricated counts',
       'Themes: RTO / vehicle-data accuracy, challan / payment, real-time updates, documents, EV charging, UX, support, feature requests',
