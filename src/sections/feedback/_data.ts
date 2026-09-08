@@ -27,7 +27,7 @@ export const HERO = {
   statedRating: {
     value: '4.7 ★',
     count: '25K+ reviews',
-    label: "MyMotor's publicly stated rating (mymotor.in) — a marketing figure, not this analysis.",
+    label: "As stated on MyMotor's official website",
   },
 } as const
 

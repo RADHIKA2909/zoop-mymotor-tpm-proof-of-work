@@ -31,15 +31,10 @@ export function FeedbackHeroVisual() {
               <Icon name="star" size={16} /> {HERO.statedRating.value.replace(' ★', '')}
             </span>
             <span className={s.ratingCount}>{HERO.statedRating.count}</span>
-          </div>
-
-          <div className={s.stores}>
-            <span className={s.store}>Google Play</span>
-            <span className={s.store}>App Store</span>
+            <span className={s.ratingNote}>{HERO.statedRating.label}</span>
           </div>
         </div>
       </div>
-      <figcaption className={s.caption}>{HERO.statedRating.label}</figcaption>
     </figure>
   )
 }

@@ -82,27 +82,10 @@
   font-size: var(--text-xs);
   color: var(--text-tertiary);
 }
-
-.stores {
-  margin-top: var(--space-2);
-  display: flex;
-  gap: var(--space-2);
-}
-.store {
+.ratingNote {
+  margin-top: 0.35rem;
   font-size: var(--text-2xs);
-  font-weight: var(--weight-semibold);
-  padding: 0.3rem 0.6rem;
-  border-radius: var(--radius-pill);
-  background: var(--bg-sunken);
-  color: var(--text-secondary);
-}
-
-.caption {
-  margin-top: var(--space-3);
-  font-size: var(--text-xs);
-  line-height: var(--leading-normal);
+  line-height: var(--leading-snug);
   color: var(--text-tertiary);
   text-align: center;
-  max-width: 42ch;
-  margin-inline: auto;
 }
