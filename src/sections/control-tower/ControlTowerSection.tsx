@@ -14,7 +14,6 @@ import { Architecture } from './Architecture'
 import { ControlTowerMetrics } from './ControlTowerMetrics'
 import { BeforeAfter } from './BeforeAfter'
 import { ControlTowerTakeaways } from './ControlTowerTakeaways'
-import { ValidationQuestions } from './ValidationQuestions'
 import { ControlTowerTransition } from './ControlTowerTransition'
 import { DetailDrawer, type DetailEntity } from './DetailDrawer'
 import {
@@ -69,7 +68,6 @@ export function ControlTowerSection() {
       <ControlTowerMetrics />
       <BeforeAfter />
       <ControlTowerTakeaways />
-      <ValidationQuestions />
       <ControlTowerTransition />
 
       <DetailDrawer entity={detail} onClose={() => setDetail(null)} />

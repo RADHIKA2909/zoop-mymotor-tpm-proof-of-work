@@ -622,8 +622,9 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
   `ControlTowerMetrics` (5 metric categories, no
   values + primary outcome / candidate north star) · `BeforeAfter` (reactive vs
   proactive flow) · `ControlTowerTakeaways` (dark band + 4 cards + central
-  insight) · `ValidationQuestions` (10-item list) · `ControlTowerTransition` →
-  `/prototype`. All copy + mock data in `_data.ts`; hero slot in `_assets.ts`.
+  insight) · `ControlTowerTransition` → `/prototype`. All copy + mock data in
+  `_data.ts`; hero slot in `_assets.ts`. (A `ValidationQuestions` block was
+  built then later removed.)
 - **New chart primitives (additive to `src/components/charts/Charts.tsx`):**
   - `LineChart` — small multi-series line chart (`series: {label, data, color?,
     dashed?}[]`, optional `min` / `max`), used for the reliability trend.
@@ -660,12 +661,9 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
 - **Must NOT claim:** "ZOOP's Control Tower has / monitors / uses…"; any real
   ZOOP success or failure rate; real vendor names, APIs or SLAs; a real incident
   log; real operational TATs; real customer data.
-- **Open / validation questions (`VALIDATION_QUESTIONS`):** which transaction
-  states already exist · real-time vs batch events · which vendors expose
-  reliable APIs / webhooks · how reconciliation is handled today · existing
-  vendor SLAs · which teams own each exception · which actions can be automated
-  safely · what customer-facing status can be exposed · what can be stored for
-  audit · what operational workflows already exist.
+- **Open / validation questions:** the equivalent "what I'd validate first" list
+  lives in §6's `ProductionValidation` (`PRODUCTION_QUESTIONS`) — §5's own
+  `ValidationQuestions` panel was later removed to avoid the duplication.
 - **Dark mode:** `ControlTowerHeroVisual` (laptop mockup) + `ControlTowerTakeaways`
   band = `data-theme="dark"` + `--dark-*`. Everything else generic tokens.
   `npm run contrast` passes (unchanged).

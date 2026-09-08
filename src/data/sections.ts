@@ -133,7 +133,7 @@ export const SECTIONS: SectionDef[] = [
       'Vendor & dependency health + a proposed vendor-governance framework; SLA / escalation logic; an 8-step incident workflow',
       'Operator actions, audit trail and control considerations (RBAC, permissioned actions, audit logs); proposed alerting rules',
       'A conceptual control-tower architecture flow (labelled "not internal ZOOP architecture")',
-      'A proposed metrics framework + candidate north star; the reactive → proactive operating-model shift; validation questions',
+      'A proposed metrics framework + candidate north star; the reactive → proactive operating-model shift',
     ],
     absorbs: [
       'Brief §5 — Proposed solution (operational model)',

@@ -776,21 +776,6 @@ export const CENTRAL_INSIGHT = [
   'It should tell us: what happened, who is affected, who owns it, what happens next, and whether the customer has recovered.',
 ]
 
-/* ---- Validation --------------------------------------- */
-
-export const VALIDATION_QUESTIONS = [
-  'Which transaction states are already available?',
-  'Which events are real-time versus batch?',
-  'Which vendors expose reliable APIs / webhooks?',
-  'How is transaction reconciliation currently handled?',
-  'What are the existing vendor SLAs?',
-  'Which teams own each exception?',
-  'Which actions can safely be automated?',
-  'What customer-facing status can be exposed?',
-  'What data can be stored for auditability?',
-  'What operational workflows already exist?',
-]
-
 export const TRANSITION = {
   eyebrow: 'Next: from concept to experience',
   heading: 'A control tower is only useful if people can act through it.',
