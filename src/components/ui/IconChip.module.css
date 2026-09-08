@@ -29,6 +29,6 @@
   color: var(--text-secondary);
 }
 .deep {
-  background: var(--brand-green-deep);
+  background: var(--brand-green-ink);
   color: var(--brand-green);
 }

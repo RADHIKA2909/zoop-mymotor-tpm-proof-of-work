@@ -22,6 +22,15 @@
   overflow: hidden;
 }
 
+/* Keep the panel coherent if the whole site is toggled to dark. */
+[data-theme='dark'] .panel {
+  background: linear-gradient(
+    150deg,
+    var(--dark-accent-surface) 0%,
+    var(--dark-surface-elevated) 100%
+  );
+}
+
 .charger {
   position: absolute;
   left: 8%;

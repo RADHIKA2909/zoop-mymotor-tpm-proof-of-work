@@ -1,13 +1,13 @@
 .wrap {
   margin-top: var(--space-8);
   padding-top: var(--space-7);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--dark-border);
 }
 
 .title {
   font-size: var(--text-2xl);
   letter-spacing: var(--tracking-tight);
-  color: var(--text-inverse);
+  color: var(--dark-text-primary);
   max-width: 24ch;
 }
 
@@ -15,7 +15,7 @@
   margin-top: var(--space-3);
   font-size: var(--text-md);
   line-height: var(--leading-normal);
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-secondary);
   max-width: 64ch;
 }
 

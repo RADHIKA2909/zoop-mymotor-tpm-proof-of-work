@@ -1,6 +1,6 @@
 .section {
-  background: var(--ecosystem-bg);
-  color: var(--text-inverse);
+  background: var(--dark-bg);
+  color: var(--dark-text-primary);
   padding: var(--section-pad-y) 0;
 }
 
@@ -17,7 +17,7 @@
   display: grid;
   font-size: var(--text-3xl);
   letter-spacing: var(--tracking-tight);
-  color: var(--text-inverse);
+  color: var(--dark-text-primary);
   margin-top: var(--space-4);
 }
 
@@ -25,7 +25,7 @@
   margin-top: var(--space-3);
   font-size: var(--text-md);
   line-height: var(--leading-normal);
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-secondary);
   max-width: 56ch;
 }
 
@@ -44,7 +44,7 @@
 
 .questionsIntro {
   font-size: var(--text-sm);
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-secondary);
   margin-bottom: var(--space-4);
 }
 

@@ -11,19 +11,38 @@
   /* ---- Brand (MyMotor-derived) --------------------------------------------- */
   --brand-green: #72c42b;
   --brand-green-strong: #5ea924; /* hover / pressed */
-  --brand-green-deep: #173d24; /* deep green: dark surfaces, text on tint */
-  --brand-green-deeper: #0f2a19; /* near-black forest green console base */
+  --brand-green-deep: #173d24; /* DEEP GREEN AS TEXT — "green text on a green tint".
+                                  Flips to a light green in dark theme. */
+  --brand-green-ink: #173d24; /* DEEP GREEN AS A SURFACE — logo tile, skip link,
+                                 phone frame, "deep" icon chip. Stays dark in both themes. */
+  --brand-green-deeper: #0f2a19; /* near-black forest green */
   --brand-green-surface: #eaf6df; /* light green tint surface */
   --brand-green-surface-strong: #dcefc9;
-  --ecosystem-bg: #0d2418; /* Section 1 dark "bigger picture" band */
   --connector: #72c42b; /* diagram connector lines */
+
+  /* ---- Dark "console" palette (FIXED — see the DARK THEME section below) ---- */
+  /* Always-dark surfaces (the ecosystem band, Control Tower, dark diagrams) use
+     these directly, so they are correct regardless of the active theme. The
+     [data-theme="dark"] block maps the generic tokens onto these same values.
+     Text values are WCAG-checked against --dark-bg (ratios noted). */
+  --dark-bg: #0d2418;
+  --dark-surface: #1a3a25; /* cards on --dark-bg (pair with --dark-border) */
+  --dark-surface-elevated: #244a30; /* hover / nested / drawers */
+  --dark-text-primary: #f1f6ef; /* 14.7:1 on --dark-bg — headings (AAA) */
+  --dark-text-secondary: #bcccb7; /* 9.7:1 — body (AAA) */
+  --dark-text-muted: #a7b9a3; /* labels, captions, meta — AA on every dark surface */
+  --dark-border: #42594a; /* visible hairline (~2.2:1) */
+  --dark-border-strong: #56705d;
+  --dark-accent: #7ccb35; /* MyMotor green tuned for dark — 8.2:1 (AAA-large / AA) */
+  --dark-accent-strong: #93e04f;
+  --dark-accent-surface: #16311f; /* green-tint chip background on dark */
 
   /* ---- Text -------------------------------------------------------------- */
   --text-primary: #182019;
   --text-secondary: #667067;
   --text-tertiary: #8a928a;
-  --text-on-brand: #0e2413; /* text on --brand-green */
-  --text-inverse: #f4f7f1; /* text on dark surfaces */
+  --text-on-brand: #0e2413; /* text on --brand-green (dark ink) */
+  --text-inverse: #f4f7f1; /* LIGHT text on a permanently-dark chip — light in BOTH themes */
   --text-inverse-secondary: #a8b8a6;
 
   /* ---- Surfaces / background ------------------------------------------------ */
@@ -174,66 +193,74 @@
 [data-theme='dark'] {
   color-scheme: dark;
 
-  --brand-green: #84d642;
-  --brand-green-strong: #97e356;
-  --brand-green-deep: #0f2a19;
-  --brand-green-deeper: #0a1f12;
-  --brand-green-surface: #16311f;
-  --brand-green-surface-strong: #1d3f28;
+  /* Brand: same MyMotor green. --brand-green-deep FLIPS to a light green so
+     "green text on a green tint" stays legible; --brand-green-ink stays a dark
+     green surface. */
+  --brand-green: var(--dark-accent);
+  --brand-green-strong: var(--dark-accent-strong);
+  --brand-green-deep: #cfe9b6; /* light green — text on green tint (12:1 on --dark-accent-surface) */
+  --brand-green-ink: #0f2a19; /* dark green surface — logo tile, skip link, phone frame */
+  --brand-green-deeper: #0b2013;
+  --brand-green-surface: var(--dark-accent-surface);
+  --brand-green-surface-strong: #1f4029;
 
-  --text-primary: #eef3ec;
-  --text-secondary: #9db0a0;
-  --text-tertiary: #6f7f71;
-  --text-on-brand: #0c2110;
-  --text-inverse: #182019;
-  --text-inverse-secondary: #667067;
+  /* Text — mapped onto the fixed dark palette. */
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --text-tertiary: var(--dark-text-muted);
+  --text-on-brand: #0b1f0d; /* dark ink on the bright green button */
+  /* --text-inverse / --text-inverse-secondary are intentionally NOT overridden:
+     they mean "light text on a permanently-dark chip" and must stay light. */
 
-  --bg: #0d1912;
-  --bg-sunken: #091209;
-  --surface: #13211a;
-  --surface-2: #182a20;
-  --surface-hover: #1f3327;
+  /* Surfaces. */
+  --bg: var(--dark-bg);
+  --bg-sunken: #0a1f12;
+  --surface: var(--dark-surface);
+  --surface-2: var(--dark-surface-elevated);
+  --surface-hover: #26482f;
 
-  --border: #26382c;
-  --border-strong: #37503f;
-  --border-brand: #2f5a37;
+  /* Lines. */
+  --border: var(--dark-border);
+  --border-strong: var(--dark-border-strong);
+  --border-brand: #3a6a45;
 
-  --status-success: #48b673;
-  --status-success-surface: #123020;
-  --status-warning: #e0a944;
-  --status-warning-surface: #33280f;
-  --status-error: #e56b67;
-  --status-error-surface: #331b1a;
-  --status-info: #5c9be0;
-  --status-info-surface: #10243b;
-  --status-pending: #a99ee6;
-  --status-pending-surface: #1f1b33;
-  --status-neutral: #9db0a0;
-  --status-neutral-surface: #1f3327;
+  /* Status — foregrounds lightened for AA on --dark-bg, surfaces darkened. */
+  --status-success: #55c281;
+  --status-success-surface: #10301e;
+  --status-warning: #e8b75f;
+  --status-warning-surface: #342a10;
+  --status-error: #ee807c;
+  --status-error-surface: #351c1b;
+  --status-info: #6fa9e8;
+  --status-info-surface: #11253c;
+  --status-pending: #b6acee;
+  --status-pending-surface: #201c34;
+  --status-neutral: #a6b8a1;
+  --status-neutral-surface: #23332a;
 
-  --claim-observed: #48b673;
-  --claim-observed-surface: #123020;
-  --claim-inferred: #5c9be0;
-  --claim-inferred-surface: #10243b;
-  --claim-proposed: #84d642;
+  --claim-observed: #55c281;
+  --claim-observed-surface: #10301e;
+  --claim-inferred: #6fa9e8;
+  --claim-inferred-surface: #11253c;
+  --claim-proposed: #8bd646;
   --claim-proposed-surface: #16311f;
-  --claim-assumption: #e0a944;
-  --claim-assumption-surface: #33280f;
-  --claim-source: #9db0a0;
-  --claim-source-surface: #1f3327;
+  --claim-assumption: #e8b75f;
+  --claim-assumption-surface: #342a10;
+  --claim-source: #a6b8a1;
+  --claim-source-surface: #23332a;
 
-  --viz-1: #84d642;
-  --viz-2: #cfe8bd;
-  --viz-3: #5c9be0;
-  --viz-4: #e0a944;
-  --viz-5: #a99ee6;
-  --viz-6: #48b673;
-  --viz-grid: #26382c;
-  --viz-axis: #6f7f71;
+  --viz-1: #7ccb35;
+  --viz-2: #d3ecc0;
+  --viz-3: #6fa9e8;
+  --viz-4: #e8b75f;
+  --viz-5: #b6acee;
+  --viz-6: #55c281;
+  --viz-grid: #2f4238;
+  --viz-axis: #859684;
 
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.5);
-  --shadow-focus: 0 0 0 3px rgba(132, 214, 66, 0.4);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.55);
+  --shadow-focus: 0 0 0 3px rgba(124, 203, 53, 0.4);
 }

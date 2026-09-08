@@ -18,8 +18,8 @@
   gap: 0.4rem;
   padding: var(--space-4);
   border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid var(--dark-border);
+  background: var(--dark-surface);
   text-align: center;
   min-height: 100%;
   align-content: center;
@@ -31,31 +31,31 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--brand-green-surface);
-  color: var(--brand-green);
+  background: var(--dark-accent-surface);
+  color: var(--dark-accent);
 }
 
 .node-app {
-  border-color: var(--brand-green);
-  background: var(--brand-green-surface);
-  box-shadow: 0 0 0 4px rgba(132, 214, 66, 0.12);
+  border-color: var(--dark-accent);
+  background: var(--dark-surface-elevated);
+  box-shadow: 0 0 0 4px rgba(124, 203, 53, 0.14);
 }
 .node-app .nodeIcon {
   width: 52px;
   height: 52px;
-  background: var(--brand-green);
-  color: var(--brand-green-deep);
+  background: var(--dark-accent);
+  color: var(--text-on-brand);
 }
 
 .nodeLabel {
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
-  color: var(--text-inverse);
+  color: var(--dark-text-primary);
 }
 
 .nodeSub {
   font-size: var(--text-xs);
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-secondary);
   max-width: 22ch;
 }
 
@@ -71,10 +71,10 @@
   align-items: center;
   gap: 0.3rem;
   font-size: var(--text-2xs);
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-secondary);
 }
 .stepArrow {
-  color: var(--brand-green);
+  color: var(--dark-accent);
 }
 
 .providers {
@@ -88,16 +88,16 @@
   font-size: var(--text-2xs);
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
-  color: var(--text-inverse-secondary);
+  background: var(--dark-surface-elevated);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text-secondary);
 }
 
 .connector {
   flex: none;
   display: grid;
   place-items: center;
-  color: var(--brand-green);
+  color: var(--dark-accent);
   padding: 0 0.4rem;
 }
 

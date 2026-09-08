@@ -8,7 +8,7 @@
   position: relative;
   border-radius: 2.4rem;
   padding: 0.55rem;
-  background: var(--brand-green-deep);
+  background: var(--brand-green-ink);
   box-shadow: var(--shadow-lg);
 }
 .device.light {

@@ -15,7 +15,7 @@
   z-index: var(--z-toast);
   padding: 0.6rem 1rem;
   border-radius: var(--radius-sm);
-  background: var(--brand-green-deep);
+  background: var(--brand-green-ink);
   color: var(--text-inverse);
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);

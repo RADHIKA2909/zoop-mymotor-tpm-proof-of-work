@@ -53,8 +53,8 @@
 
 /* inverse (on dark surfaces) */
 .inverse .title {
-  color: var(--text-inverse);
+  color: var(--dark-text-primary);
 }
 .inverse .leadCol {
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-secondary);
 }

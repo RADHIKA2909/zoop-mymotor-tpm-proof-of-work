@@ -29,7 +29,7 @@
   width: 1.5em;
   height: 1.5em;
   border-radius: var(--radius-xs);
-  background: var(--brand-green-deep);
+  background: var(--brand-green-ink);
   color: var(--brand-green);
   font-size: 0.8em;
 }

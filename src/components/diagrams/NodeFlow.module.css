@@ -102,15 +102,23 @@
 
 /* dark */
 .dark .node {
-  --node-bg: var(--surface);
-  --node-fg: var(--text-inverse);
-  --node-border: var(--border-strong);
+  --node-bg: var(--dark-surface);
+  --node-fg: var(--dark-text-primary);
+  --node-border: var(--dark-border);
+}
+.dark .sublabel {
+  color: var(--dark-text-muted);
+}
+.dark .tone-brand {
+  --node-bg: var(--dark-accent-surface);
+  --node-border: var(--dark-accent);
+  --node-fg: var(--dark-text-primary);
 }
 .dark .icon {
-  color: var(--brand-green);
+  color: var(--dark-accent);
 }
 .dark .connector {
-  color: var(--brand-green);
+  color: var(--dark-accent);
 }
 
 @media (max-width: 720px) {

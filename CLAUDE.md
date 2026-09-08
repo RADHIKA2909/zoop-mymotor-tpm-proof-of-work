@@ -162,6 +162,25 @@ added, store as typed data in `src/data/` and label every entry `OBSERVED` vs
 - Light-first. A scoped **dark "console"** theme (`[data-theme="dark"]` on a wrapper)
   for the Control Tower + prototype, reusing the same green + Inter system. Optional
   global `ThemeToggle` exists (light-first default, persisted to `localStorage`).
+- **Dark-theme token system** (rebuilt 2026-09-08 — see §21 audit):
+  - `:root` holds a **fixed dark palette**: `--dark-bg` `--dark-surface`
+    `--dark-surface-elevated` `--dark-text-primary` `--dark-text-secondary`
+    `--dark-text-muted` `--dark-border` `--dark-border-strong` `--dark-accent`
+    `--dark-accent-strong` `--dark-accent-surface`. **Always-dark surfaces**
+    (the Section 1 ecosystem band, `DiagramFrame tone="dark"`, `NodeFlow tone="dark"`,
+    future Control Tower) reference these **directly** so they are correct
+    regardless of the active theme.
+  - `[data-theme="dark"]` **maps the generic tokens onto that same palette** (for
+    the global toggle + shared primitives).
+  - `--brand-green-deep` = "deep green **as text** on a green tint" → flips to a
+    light green (`#cfe9b6`) in dark. `--brand-green-ink` = "deep green **as a
+    surface**" (logo tile, skip link, phone frame, `IconChip` deep) → stays dark.
+  - `--text-inverse` / `--text-inverse-secondary` = "light text on a
+    permanently-dark chip" → **light in both themes** (never overridden in the
+    dark block). Do NOT use them for "text on a dark section" — use `--dark-text-*`.
+  - `npm run contrast` (`scripts/contrast-check.mjs`) resolves the token chain and
+    asserts WCAG ratios for every important dark pair. Run it after any dark-token
+    change. All pairs currently ≥ 4.5:1 (text) / ≥ 3:1 (accent).
 - Type: Inter only for UI; Caveat only for occasional accent phrases; mono only for
   identifiers/metrics. Large confident headings, readable (non-condensed) body.
 - 4px spacing base; rounded cards (radius 8–16px); 1–2 shadow levels; content max
@@ -338,6 +357,27 @@ ZOOP architecture is claimed.**
 - **Open item:** `PathCard` freight card has no image (icon-only) — the reference
   shows a truck photo. Left as an asset slot.
 
+### Dark-theme contrast overhaul — 2026-09-08 (post Section 1 review)
+
+Fixed a real bug: `[data-theme="dark"]` was flipping `--text-inverse*` to near-black,
+and the Section 1 ecosystem band used those tokens for all its text → black-on-black.
+
+- Added the fixed `--dark-*` palette to `:root` (see §12). Rewrote the
+  `[data-theme="dark"]` block to map generics onto it. Split `--brand-green-deep`
+  (text) from new `--brand-green-ink` (surface). Stopped overriding `--text-inverse*`
+  in dark.
+- Migrated the always-dark component CSS to `--dark-*`: `EcosystemSection`,
+  `EcosystemDiagram`, `ReliabilityQuestions`, `TpmLens`, `DiagramFrame` `.dark`,
+  `NodeFlow` `.dark`, `SectionHeader` `.inverse`. Surface usages of
+  `--brand-green-deep` → `--brand-green-ink` in `IconChip`, `CaseStudyShell` (skip),
+  `LogoLockup`, `PhoneFrame`. Added a `[data-theme="dark"]` panel override in
+  `HeroVisual`.
+- Latent bugs also fixed for the global toggle: TopNav `.badgeTitle`, `SectionScaffold`
+  pager hover, `HomeSection` `.cta` title, Footer links — all were "deep-green text on
+  a tint that also goes dark".
+- `scripts/contrast-check.mjs` (`npm run contrast`) — 17 WCAG assertions, all pass
+  (text ≥ 4.5:1, accent ≥ 3:1). Light theme untouched.
+
 ---
 
 ### Working commands
@@ -347,6 +387,7 @@ npm install          # deps
 npm run dev           # local dev server
 npm run build         # tsc --noEmit + vite build -> dist/
 npm run preview       # serve the built dist/
+npm run contrast      # WCAG audit of the dark-theme token pairs
 npm run typecheck     # tsc --noEmit only
 ```
 

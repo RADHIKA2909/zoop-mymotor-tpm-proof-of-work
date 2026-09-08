@@ -7,9 +7,9 @@
 }
 
 .dark {
-  background: var(--brand-green-deeper);
-  border-color: var(--border);
-  color: var(--text-inverse);
+  background: color-mix(in srgb, var(--dark-surface) 35%, var(--dark-bg));
+  border-color: var(--dark-border-strong);
+  color: var(--dark-text-primary);
 }
 
 .head {
@@ -54,7 +54,7 @@
   color: var(--text-secondary);
 }
 .dark .legendItem {
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-secondary);
 }
 
 .swatch {
@@ -76,5 +76,5 @@
   color: var(--text-tertiary);
 }
 .dark .caption {
-  color: var(--text-inverse-secondary);
+  color: var(--dark-text-muted);
 }
