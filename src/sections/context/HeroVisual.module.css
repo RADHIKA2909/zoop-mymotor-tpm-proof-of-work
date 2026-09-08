@@ -1,0 +1,88 @@
+.wrap {
+  position: relative;
+}
+
+.photo {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.panel {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(150deg, var(--brand-green-surface) 0%, #dfeef7 100%);
+  border: 1px solid var(--border-brand);
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  overflow: hidden;
+}
+
+.charger {
+  position: absolute;
+  left: 8%;
+  bottom: 0;
+  width: 92px;
+  height: 78%;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(180deg, #21402b 0%, #172d1e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--space-4);
+  gap: var(--space-3);
+}
+
+.chargerHead {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: var(--brand-green-deep);
+}
+
+.chargerBrand {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-inverse);
+}
+
+.chargerCable {
+  position: absolute;
+  right: -18px;
+  top: 40%;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #21402b;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 40px;
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+  transform: rotate(2deg);
+}
+
+@media (max-width: 940px) {
+  .panel {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 520px) {
+  .charger {
+    display: none;
+  }
+  .phone {
+    transform: none;
+  }
+}

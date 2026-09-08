@@ -1,0 +1,153 @@
+.page {
+  padding: var(--space-9) 0 var(--space-10);
+}
+
+.head {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding-bottom: var(--space-7);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-7);
+}
+
+.title {
+  font-size: var(--text-4xl);
+  letter-spacing: var(--tracking-tighter);
+}
+
+.lede {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  max-width: 60ch;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-6);
+  padding: var(--space-7) 0;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 820px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+.rowTitle {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--text-tertiary);
+  position: sticky;
+  top: calc(var(--topnav-height) + var(--space-4));
+  align-self: start;
+}
+
+.rowBody {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--space-4);
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-4);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-3);
+}
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.swatchChip {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  flex: none;
+}
+.swatchLabel {
+  display: grid;
+  font-size: var(--text-sm);
+}
+.swatchLabel code {
+  font-size: var(--text-2xs);
+  color: var(--text-tertiary);
+}
+
+.typeStack {
+  display: grid;
+  gap: var(--space-3);
+}
+.typeDisplay {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tighter);
+}
+.typeH3 {
+  font-size: var(--text-xl);
+}
+.typeBody {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+.typeMono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+.typeScript {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: var(--brand-green-strong);
+}
+
+.miniLabel {
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-3);
+}
+
+.phoneDemo {
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+.phoneDemoTitle {
+  font-weight: var(--weight-bold);
+}
+.phoneDemoText {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}

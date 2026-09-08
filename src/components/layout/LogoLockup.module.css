@@ -1,0 +1,52 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+.sm {
+  font-size: var(--text-sm);
+}
+.md {
+  font-size: var(--text-base);
+}
+
+.zoop {
+  color: var(--text-primary);
+}
+
+.cross {
+  color: var(--text-tertiary);
+  font-weight: var(--weight-regular);
+}
+
+.myMotorMark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: var(--radius-xs);
+  background: var(--brand-green-deep);
+  color: var(--brand-green);
+  font-size: 0.8em;
+}
+
+.myMotor {
+  color: var(--brand-green-strong);
+}
+
+.inverse .zoop {
+  color: var(--text-inverse);
+}
+.inverse .myMotor {
+  color: var(--brand-green);
+}
+
+@media (max-width: 520px) {
+  .myMotor {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+}
+
+.dot {
+  --dot: var(--status-neutral);
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot);
+  flex: none;
+}
+
+.pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--dot);
+  opacity: 0.35;
+  animation: ring 1.8s var(--ease-out) infinite;
+}
+
+@keyframes ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.success {
+  --dot: var(--status-success);
+}
+.warning {
+  --dot: var(--status-warning);
+}
+.error {
+  --dot: var(--status-error);
+}
+.info {
+  --dot: var(--status-info);
+}
+.pending {
+  --dot: var(--status-pending);
+}
+.neutral {
+  --dot: var(--status-neutral);
+}
+
+.label {
+  color: var(--text-primary);
+}

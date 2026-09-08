@@ -1,0 +1,52 @@
+.wrap {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+}
+
+.device {
+  position: relative;
+  border-radius: 2.4rem;
+  padding: 0.55rem;
+  background: var(--brand-green-deep);
+  box-shadow: var(--shadow-lg);
+}
+.device.light {
+  background: #d9ded6;
+}
+.device.dark {
+  background: var(--brand-green-deeper);
+}
+
+.sm {
+  width: 200px;
+}
+.md {
+  width: 260px;
+}
+
+.notch {
+  position: absolute;
+  top: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.screen {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: var(--surface);
+  aspect-ratio: 9 / 19;
+}
+
+.caption {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-align: center;
+}

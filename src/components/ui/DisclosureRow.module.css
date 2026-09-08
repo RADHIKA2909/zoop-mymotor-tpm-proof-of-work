@@ -1,0 +1,49 @@
+.row {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.row + .row {
+  margin-top: var(--space-2);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-4);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.chevron {
+  flex: none;
+  color: var(--text-tertiary);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.open .chevron {
+  transform: rotate(90deg);
+  color: var(--brand-green-strong);
+}
+
+.summary {
+  flex: 1;
+  min-width: 0;
+}
+
+.meta {
+  flex: none;
+}
+
+.content {
+  padding: 0 var(--space-4) var(--space-4) calc(var(--space-4) + 16px + var(--space-3));
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+.content :where(p) + p {
+  margin-top: var(--space-2);
+}

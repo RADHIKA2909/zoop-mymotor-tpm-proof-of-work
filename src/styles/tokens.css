@@ -1,0 +1,239 @@
+/* =============================================================================
+   DESIGN TOKENS — single source of truth for the whole proof of work.
+   Palette is DERIVED from the public MyMotor website/app. These are working
+   design tokens, NOT claimed official ZOOP / MyMotor brand values.
+   Change a value here and the entire case study re-themes.
+   ============================================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* ---- Brand (MyMotor-derived) --------------------------------------------- */
+  --brand-green: #72c42b;
+  --brand-green-strong: #5ea924; /* hover / pressed */
+  --brand-green-deep: #173d24; /* deep green: dark surfaces, text on tint */
+  --brand-green-deeper: #0f2a19; /* near-black forest green console base */
+  --brand-green-surface: #eaf6df; /* light green tint surface */
+  --brand-green-surface-strong: #dcefc9;
+  --ecosystem-bg: #0d2418; /* Section 1 dark "bigger picture" band */
+  --connector: #72c42b; /* diagram connector lines */
+
+  /* ---- Text -------------------------------------------------------------- */
+  --text-primary: #182019;
+  --text-secondary: #667067;
+  --text-tertiary: #8a928a;
+  --text-on-brand: #0e2413; /* text on --brand-green */
+  --text-inverse: #f4f7f1; /* text on dark surfaces */
+  --text-inverse-secondary: #a8b8a6;
+
+  /* ---- Surfaces / background ------------------------------------------------ */
+  --bg: #f7f8f5;
+  --bg-sunken: #eef1ea;
+  --surface: #ffffff;
+  --surface-2: #fafbf8;
+  --surface-hover: #f3f6f0;
+
+  /* ---- Lines ------------------------------------------------------------- */
+  --border: #e2e6e0;
+  --border-strong: #cdd4c9;
+  --border-brand: #b7dd93;
+
+  /* ---- Status ---------------------------------------------------------- */
+  --status-success: #2e9b55;
+  --status-success-surface: #e3f4e9;
+  --status-warning: #d99a24;
+  --status-warning-surface: #faf0da;
+  --status-error: #d9534f;
+  --status-error-surface: #fbe7e6;
+  --status-info: #4285d4;
+  --status-info-surface: #e4eefb;
+  --status-pending: #7c72c8;
+  --status-pending-surface: #ecebf8;
+  --status-neutral: #667067;
+  --status-neutral-surface: #edf0ec;
+
+  /* ---- Claim labels (OBSERVED / INFERRED / PROPOSED / ASSUMPTION / SOURCE) - */
+  --claim-observed: #2e9b55;
+  --claim-observed-surface: #e3f4e9;
+  --claim-inferred: #4285d4;
+  --claim-inferred-surface: #e4eefb;
+  --claim-proposed: #5ea924;
+  --claim-proposed-surface: #eaf6df;
+  --claim-assumption: #d99a24;
+  --claim-assumption-surface: #faf0da;
+  --claim-source: #667067;
+  --claim-source-surface: #edf0ec;
+
+  /* ---- Data-viz series (used by hand-built SVG charts) -------------------- */
+  --viz-1: #72c42b;
+  --viz-2: #173d24;
+  --viz-3: #4285d4;
+  --viz-4: #d99a24;
+  --viz-5: #7c72c8;
+  --viz-6: #2e9b55;
+  --viz-grid: #e2e6e0;
+  --viz-axis: #8a928a;
+
+  /* ---- Typography ------------------------------------------------------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas,
+    'Liberation Mono', monospace;
+  --font-script: 'Caveat', 'Segoe Script', 'Bradley Hand', cursive;
+
+  --text-2xs: 0.6875rem; /* 11px */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-md: 1.0625rem; /* 17px — body lead */
+  --text-lg: 1.25rem; /* 20px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 1.875rem; /* 30px */
+  --text-3xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.6rem + 2.8vw, 3.25rem);
+  --text-5xl: clamp(2.75rem, 1.9rem + 4vw, 4.25rem);
+
+  --leading-tight: 1.12;
+  --leading-snug: 1.28;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.018em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-caps: 0.09em; /* eyebrows / overlines */
+
+  /* ---- Spacing (4px base) --------------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 5rem;
+  --space-11: 6.5rem;
+  --space-12: 8rem;
+
+  /* ---- Radius ---------------------------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Shadow (restrained) ------------------------------------------------ */
+  --shadow-xs: 0 1px 2px rgba(24, 32, 25, 0.05);
+  --shadow-sm: 0 1px 3px rgba(24, 32, 25, 0.06), 0 1px 2px rgba(24, 32, 25, 0.04);
+  --shadow-md: 0 6px 16px rgba(24, 32, 25, 0.08), 0 2px 6px rgba(24, 32, 25, 0.05);
+  --shadow-lg: 0 18px 40px rgba(24, 32, 25, 0.12),
+    0 6px 12px rgba(24, 32, 25, 0.06);
+  --shadow-focus: 0 0 0 3px rgba(114, 196, 43, 0.35);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --content-max: 1120px;
+  --content-wide: 1280px;
+  --content-prose: 720px;
+  --topnav-height: 68px;
+  --section-pad-y: clamp(3.5rem, 2rem + 7vw, 6.5rem);
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 2.5rem);
+
+  /* ---- Z-index ------------------------------------------------------- */
+  --z-base: 1;
+  --z-sticky: 50;
+  --z-topnav: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  /* ---- Motion ------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 130ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+}
+
+/* =============================================================================
+   DARK "CONSOLE" THEME
+   Scoped: put data-theme="dark" on any wrapper (a full section, the Control
+   Tower, a prototype screen). Reuses the SAME green + Inter system.
+   ============================================================================= */
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --brand-green: #84d642;
+  --brand-green-strong: #97e356;
+  --brand-green-deep: #0f2a19;
+  --brand-green-deeper: #0a1f12;
+  --brand-green-surface: #16311f;
+  --brand-green-surface-strong: #1d3f28;
+
+  --text-primary: #eef3ec;
+  --text-secondary: #9db0a0;
+  --text-tertiary: #6f7f71;
+  --text-on-brand: #0c2110;
+  --text-inverse: #182019;
+  --text-inverse-secondary: #667067;
+
+  --bg: #0d1912;
+  --bg-sunken: #091209;
+  --surface: #13211a;
+  --surface-2: #182a20;
+  --surface-hover: #1f3327;
+
+  --border: #26382c;
+  --border-strong: #37503f;
+  --border-brand: #2f5a37;
+
+  --status-success: #48b673;
+  --status-success-surface: #123020;
+  --status-warning: #e0a944;
+  --status-warning-surface: #33280f;
+  --status-error: #e56b67;
+  --status-error-surface: #331b1a;
+  --status-info: #5c9be0;
+  --status-info-surface: #10243b;
+  --status-pending: #a99ee6;
+  --status-pending-surface: #1f1b33;
+  --status-neutral: #9db0a0;
+  --status-neutral-surface: #1f3327;
+
+  --claim-observed: #48b673;
+  --claim-observed-surface: #123020;
+  --claim-inferred: #5c9be0;
+  --claim-inferred-surface: #10243b;
+  --claim-proposed: #84d642;
+  --claim-proposed-surface: #16311f;
+  --claim-assumption: #e0a944;
+  --claim-assumption-surface: #33280f;
+  --claim-source: #9db0a0;
+  --claim-source-surface: #1f3327;
+
+  --viz-1: #84d642;
+  --viz-2: #cfe8bd;
+  --viz-3: #5c9be0;
+  --viz-4: #e0a944;
+  --viz-5: #a99ee6;
+  --viz-6: #48b673;
+  --viz-grid: #26382c;
+  --viz-axis: #6f7f71;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.5);
+  --shadow-focus: 0 0 0 3px rgba(132, 214, 66, 0.4);
+}

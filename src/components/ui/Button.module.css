@@ -1,0 +1,104 @@
+.btn {
+  --btn-fg: var(--text-on-brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* sizes */
+.sm {
+  font-size: var(--text-xs);
+  padding: 0.5rem 0.9rem;
+}
+.md {
+  font-size: var(--text-sm);
+  padding: 0.7rem 1.25rem;
+}
+.lg {
+  font-size: var(--text-base);
+  padding: 0.9rem 1.6rem;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* primary */
+.primary {
+  background: var(--brand-green);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-xs);
+}
+.primary:hover {
+  background: var(--brand-green-strong);
+}
+
+/* secondary — outline */
+.secondary {
+  background: var(--surface);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.secondary:hover {
+  border-color: var(--brand-green);
+  color: var(--brand-green-deep);
+  background: var(--brand-green-surface);
+}
+
+/* ghost — subtle fill */
+.ghost {
+  background: var(--brand-green-surface);
+  color: var(--brand-green-deep);
+}
+.ghost:hover {
+  background: var(--brand-green-surface-strong);
+}
+
+/* link — inline text action with the reference's tracked-caps treatment */
+.link {
+  background: none;
+  border: none;
+  border-radius: var(--radius-xs);
+  padding: 0.15rem 0.1rem;
+  color: var(--brand-green-strong);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--text-xs);
+  gap: var(--space-2);
+}
+.link:hover {
+  color: var(--brand-green-deep);
+}
+.link:active {
+  transform: none;
+}
+
+[data-theme='dark'] .link {
+  color: var(--brand-green);
+}
+[data-theme='dark'] .secondary {
+  background: var(--surface);
+}

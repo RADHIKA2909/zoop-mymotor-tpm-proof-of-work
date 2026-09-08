@@ -1,0 +1,17 @@
+.wrap {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  padding: var(--space-11) 0;
+  max-width: 46ch;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  letter-spacing: var(--tracking-tight);
+}
+
+.text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+}

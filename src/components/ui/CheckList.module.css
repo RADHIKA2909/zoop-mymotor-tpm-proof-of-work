@@ -1,0 +1,69 @@
+.list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.twoCol {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-5);
+}
+
+@media (max-width: 560px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--text-secondary);
+}
+
+.marker {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-top: 0.05rem;
+}
+
+.brand .marker {
+  background: var(--brand-green-surface);
+  color: var(--brand-green-strong);
+}
+.muted .marker {
+  background: var(--bg-sunken);
+  color: var(--text-tertiary);
+}
+
+.list[data-marker='dot'] .marker {
+  width: 6px;
+  height: 6px;
+  margin-top: 0.5rem;
+  background: var(--brand-green);
+}
+.muted.list[data-marker='dot'] .marker {
+  background: var(--text-tertiary);
+}
+
+.list[data-marker='dash'] .marker::before {
+  content: '';
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.list[data-marker='dash'] .marker {
+  background: none;
+  color: var(--text-tertiary);
+}
+
+.text {
+  min-width: 0;
+}

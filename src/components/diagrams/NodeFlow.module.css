@@ -1,0 +1,128 @@
+.flow {
+  display: flex;
+  gap: 0;
+}
+.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.column {
+  flex-direction: column;
+}
+
+.segment {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.column .segment {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.node {
+  --node-bg: var(--surface);
+  --node-fg: var(--text-primary);
+  --node-border: var(--border-strong);
+  flex: 1;
+  display: grid;
+  gap: 0.2rem;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--node-border);
+  background: var(--node-bg);
+  color: var(--node-fg);
+  text-align: center;
+  min-height: 100%;
+  align-content: center;
+  justify-items: center;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  color: var(--brand-green-strong);
+  margin-bottom: 0.2rem;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.sublabel {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+.tone-brand {
+  --node-bg: var(--brand-green-surface);
+  --node-border: var(--border-brand);
+  --node-fg: var(--brand-green-deep);
+}
+.tone-muted {
+  --node-bg: var(--surface-2);
+  --node-border: var(--border);
+  --node-fg: var(--text-secondary);
+}
+.tone-alert {
+  --node-bg: var(--status-warning-surface);
+  --node-border: color-mix(in srgb, var(--status-warning) 45%, transparent);
+  --node-fg: var(--text-primary);
+}
+
+.connector {
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--text-tertiary);
+  padding: 0 0.5rem;
+}
+.column .connector {
+  padding: 0.5rem 0;
+  transform: rotate(90deg);
+}
+.connector-line::before,
+.connector-dashed::before {
+  content: '';
+  width: 20px;
+  height: 0;
+  border-top: 2px solid currentColor;
+}
+.connector-dashed::before {
+  border-top-style: dashed;
+}
+
+/* dark */
+.dark .node {
+  --node-bg: var(--surface);
+  --node-fg: var(--text-inverse);
+  --node-border: var(--border-strong);
+}
+.dark .icon {
+  color: var(--brand-green);
+}
+.dark .connector {
+  color: var(--brand-green);
+}
+
+@media (max-width: 720px) {
+  .row {
+    flex-direction: column;
+  }
+  .row .segment {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .row .connector {
+    padding: 0.4rem 0;
+    transform: rotate(90deg);
+  }
+}

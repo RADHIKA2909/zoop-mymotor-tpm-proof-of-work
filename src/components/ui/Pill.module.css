@@ -1,0 +1,95 @@
+.pill {
+  --pill-fg: var(--status-neutral);
+  --pill-bg: var(--status-neutral-surface);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.size-sm {
+  font-size: var(--text-2xs);
+  padding: 0.28rem 0.55rem;
+}
+.size-md {
+  font-size: var(--text-xs);
+  padding: 0.4rem 0.7rem;
+}
+
+.caps {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+
+/* ---- variants ---- */
+.variant-soft {
+  background: var(--pill-bg);
+  color: var(--pill-fg);
+}
+.variant-outline {
+  background: transparent;
+  color: var(--pill-fg);
+  border-color: color-mix(in srgb, var(--pill-fg) 35%, transparent);
+}
+.variant-solid {
+  background: var(--pill-fg);
+  color: var(--surface);
+}
+
+/* ---- tones ---- */
+.tone-neutral {
+  --pill-fg: var(--status-neutral);
+  --pill-bg: var(--status-neutral-surface);
+}
+.tone-brand {
+  --pill-fg: var(--brand-green-strong);
+  --pill-bg: var(--brand-green-surface);
+}
+.tone-success,
+.tone-observed {
+  --pill-fg: var(--status-success);
+  --pill-bg: var(--status-success-surface);
+}
+.tone-warning,
+.tone-assumption {
+  --pill-fg: var(--status-warning);
+  --pill-bg: var(--status-warning-surface);
+}
+.tone-error {
+  --pill-fg: var(--status-error);
+  --pill-bg: var(--status-error-surface);
+}
+.tone-info,
+.tone-inferred {
+  --pill-fg: var(--status-info);
+  --pill-bg: var(--status-info-surface);
+}
+.tone-pending {
+  --pill-fg: var(--status-pending);
+  --pill-bg: var(--status-pending-surface);
+}
+.tone-proposed {
+  --pill-fg: var(--claim-proposed);
+  --pill-bg: var(--claim-proposed-surface);
+}
+.tone-source {
+  --pill-fg: var(--claim-source);
+  --pill-bg: var(--claim-source-surface);
+}
+
+.variant-solid.tone-proposed,
+.variant-solid.tone-brand {
+  color: var(--text-on-brand);
+}

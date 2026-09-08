@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+.smoke
+*.local
+.vercel
+.DS_Store
+.vite
+
+# editor
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

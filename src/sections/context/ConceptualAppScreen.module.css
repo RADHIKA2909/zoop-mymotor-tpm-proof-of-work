@@ -1,0 +1,170 @@
+.screen {
+  --ink: #182019;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8ef 100%);
+  padding: 0.6rem 0.7rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.62rem;
+  color: var(--ink);
+}
+
+.statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  font-weight: 600;
+  padding: 0 0.2rem;
+}
+.signal {
+  width: 16px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--ink);
+  opacity: 0.5;
+}
+
+.appbar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #173d24;
+  color: #72c42b;
+  font-weight: 800;
+  font-size: 0.6rem;
+}
+.wordmark {
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.searchField {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e2e6e0;
+  color: #8a928a;
+}
+
+.map {
+  position: relative;
+  flex: 1;
+  min-height: 96px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e7f2dd 0%, #d7e9f2 100%);
+  border: 1px solid #e2e6e0;
+}
+.pin {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50% 50% 50% 0;
+  background: #72c42b;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+.me {
+  position: absolute;
+  top: 46%;
+  left: 44%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4285d4;
+  box-shadow: 0 0 0 3px rgba(66, 133, 212, 0.25);
+}
+.mapCard {
+  position: absolute;
+  left: 0.4rem;
+  right: 0.4rem;
+  bottom: 0.4rem;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e6e0;
+}
+.mapCardTitle {
+  font-weight: 700;
+  font-size: 0.62rem;
+}
+.mapCardSub {
+  color: #667067;
+  font-size: 0.55rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+.action {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  padding: 0.4rem 0.2rem;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #eef1ea;
+}
+.actionIcon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #eaf6df;
+  color: #5ea924;
+}
+.actionLabel {
+  font-size: 0.5rem;
+  color: #667067;
+}
+
+.homeCard {
+  position: relative;
+  margin-top: auto;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 10px;
+  background: #eaf6df;
+  border: 1px solid #dcefc9;
+}
+.homeCardTitle {
+  font-weight: 700;
+  font-size: 0.66rem;
+  color: #173d24;
+}
+.homeCardSub {
+  font-size: 0.55rem;
+  color: #667067;
+}
+.homeLeaf {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #5ea924;
+}

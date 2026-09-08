@@ -1,0 +1,28 @@
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  margin-bottom: var(--space-4);
+}
+
+.brand {
+  color: var(--brand-green-strong);
+}
+.muted {
+  color: var(--text-tertiary);
+}
+.inverse {
+  color: var(--brand-green);
+}
+
+.number {
+  font-variant-numeric: tabular-nums;
+}
+
+.sep {
+  opacity: 0.5;
+}
