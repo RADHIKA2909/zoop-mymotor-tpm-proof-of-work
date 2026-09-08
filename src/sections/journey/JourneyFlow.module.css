@@ -1,0 +1,109 @@
+.section {
+  padding: var(--section-pad-y) 0;
+  background: var(--bg);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-tight);
+  max-width: 30ch;
+}
+.titleMuted {
+  color: var(--text-tertiary);
+  font-weight: var(--weight-semibold);
+}
+
+/* ---- toggle ---- */
+.toggle {
+  display: inline-flex;
+  padding: 0.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  flex: none;
+}
+.toggleBtn {
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+.toggleBtn:hover {
+  color: var(--text-primary);
+}
+.toggleBtnActive {
+  background: var(--surface);
+  color: var(--brand-green-deep);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ---- breakpoint banner ---- */
+.banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-5);
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: var(--status-warning-surface);
+  border: 1px solid color-mix(in srgb, var(--status-warning) 40%, transparent);
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+.banner svg {
+  color: var(--status-warning);
+  flex: none;
+}
+
+/* ---- track ---- */
+.track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.cell {
+  display: flex;
+  align-items: flex-start;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.connector {
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--brand-green);
+  padding-top: 14px;
+}
+
+@media (max-width: 720px) {
+  .track {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .cell {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .connector {
+    align-self: center;
+    padding: 0.15rem 0;
+    transform: rotate(90deg);
+  }
+}

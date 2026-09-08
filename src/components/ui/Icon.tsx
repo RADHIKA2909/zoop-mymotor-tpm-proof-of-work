@@ -41,6 +41,12 @@ export type IconName =
   | 'network'
   | 'search'
   | 'compass'
+  | 'sliders'
+  | 'navigation'
+  | 'bulb'
+  | 'database'
+  | 'eye'
+  | 'quote'
 
 interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   name: IconName
@@ -255,6 +261,40 @@ const PATHS: Record<IconName, JSX.Element> = {
     <>
       <circle cx="12" cy="12" r="8.5" />
       <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" />
+    </>
+  ),
+  sliders: (
+    <>
+      <path d="M4 8h10M18 8h2M4 16h4M12 16h8" />
+      <circle cx="16" cy="8" r="2" />
+      <circle cx="10" cy="16" r="2" />
+    </>
+  ),
+  navigation: <path d="M4 11 20 4l-7 16-2-7-7-2Z" />,
+  bulb: (
+    <>
+      <path d="M9 18h6" />
+      <path d="M10 21h4" />
+      <path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z" />
+    </>
+  ),
+  database: (
+    <>
+      <ellipse cx="12" cy="6" rx="7" ry="3" />
+      <path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6" />
+      <path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" />
+    </>
+  ),
+  eye: (
+    <>
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  quote: (
+    <>
+      <path d="M7 7C4.5 8 3.5 10 3.5 13v4H9v-6H6c0-2 .5-3 2-3.5L7 7Z" />
+      <path d="M18 7c-2.5 1-3.5 3-3.5 6v4H20v-6h-3c0-2 .5-3 2-3.5L18 7Z" />
     </>
   ),
 }

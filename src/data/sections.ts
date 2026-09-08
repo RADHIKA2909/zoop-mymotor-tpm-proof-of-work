@@ -64,7 +64,7 @@ export const SECTIONS: SectionDef[] = [
     tagline:
       'Mapping the end-to-end journeys and marking every point where failure, delay or uncertainty can enter.',
     phase: 'Problem discovery',
-    status: 'planned',
+    status: 'done',
     planned: [
       'Vehicle / service journey map (discover → check info → select action → transaction → external API → result → receipt → history / support)',
       'EV charging journey map (discover charger → check availability → navigate → start → monitor → pay → receipt / history)',

@@ -1,0 +1,68 @@
+.section {
+  padding: var(--space-8) 0;
+  background: var(--bg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--brand-green-surface);
+  border: 1px solid var(--border-brand);
+}
+
+.title {
+  font-size: var(--text-xl);
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-green-deep);
+}
+
+.body {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-primary);
+  max-width: 52ch;
+}
+
+.quote {
+  display: grid;
+  gap: var(--space-3);
+  align-content: center;
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.quoteMark {
+  color: var(--brand-green);
+}
+
+.quoteText {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.quoteLabel {
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--text-tertiary);
+}

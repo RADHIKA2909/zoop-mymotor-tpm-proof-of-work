@@ -380,6 +380,57 @@ and the Section 1 ecosystem band used those tokens for all its text → black-on
 
 ---
 
+### Section 02 — User Journey — COMPLETED (2026-09-08)
+
+**The journey model is a product-thinking model based on publicly observable MyMotor
+capabilities and is NOT claimed to represent ZOOP's internal workflow.**
+
+- **Route / files:** `/journey` → `src/sections/journey/` (folder replaced the flat
+  file; `routes.tsx` import updated; `sections.ts` `journey.status = 'done'` → landing
+  map + progress now 2/6). Bespoke light-mode page (own hero + own CTA).
+- **Components (each + co-located `*.module.css`):** `JourneySection` (orchestrator) ·
+  `JourneyHero` + `JourneyHeroVisual` (conceptual charging scene: ZOOP pillar + EV
+  silhouette + route arc) · `JourneyFlow` + `JourneyStage` (6-stage timeline + local
+  `ModeToggle`) · `AppShowcase` + `JourneyAppScreen` (find / navigate / session) ·
+  `BreakMap` + `RiskChip` · `MomentThatMatters` · `TpmQuestions` (uses `FeatureCard`) ·
+  `JourneyTransition`. Copy in `_data.ts`; image slots in `_assets.ts`
+  (`heroScene`, `showcaseFigure` — both conceptual).
+- **New shared:** `Icon.tsx` gained `sliders, navigation, bulb, database, eye, quote`.
+  No token changes; no Section 1 changes.
+- **Journey stages (proposed model):** 01 Discover · 02 Evaluate · 03 Navigate ·
+  04 Start session · 05 Charge · 06 Complete. Each has a customer goal + potential
+  uncertainty (hover tooltip) and a potential breakpoint (breakpoints mode).
+- **Publicly observed (basis, from `PUBLIC_FACTS`):** MyMotor EV Charging Hub —
+  finding chargers, real-time availability, live session tracking, connector/speed
+  filtering, multi-network charging, single wallet. Rendered as the "One app. Many
+  networks." card with a "Publicly observed" pill.
+- **Proposed / conceptual / illustrative (labelled in-UI):** the 6-stage journey and
+  its mechanics; the 5-step **proposed experience model** with emotional states
+  (Curious/Confident/Hopeful/Waiting/Satisfied); the 6-row **conceptual dependency
+  model**; all breakpoints / risk chips (Stale availability, Wrong connector,
+  Location / access issues, Session fails to start/stop, Transaction state unclear,
+  Slow resolution) — carried by the hero pill "Publicly observed + proposed journey
+  model", the two column pills, the breakpoints banner "Illustrative breakpoint model
+  — not measured failure rates", `Callout kind="source"` on the app screens, and
+  `Callout kind="assumption"` under the dependency column.
+- **The pull-quote** ("A great EV charging experience feels effortless…") is labelled
+  "Working design principle" — no fabricated attribution.
+- **Interactions:** `ModeToggle` (Happy path ⇄ Breakpoints) reveals per-stage risk
+  markers + issue captions + the disclaimer banner in place (no layout switch —
+  confirmed with user); stage hover/focus tooltip; phone hover; dependency-row +
+  risk-chip hover; `ScrollReveal` on blocks; CTA → `/feedback`.
+- **Responsive:** hero 2-col → stacked < 940px (right script hidden on mobile);
+  timeline horizontal → vertical cards < 720px (tooltips inline on mobile); app
+  showcase 3-up → column < 560px; BreakMap 2-col → 1-col < 860px; TPM 4 → 2 → 1.
+- **Dark mode:** Section 2 uses only generic tokens → maps via the fixed `--dark-*`
+  palette. `npm run contrast` still passes; `JourneyHeroVisual` has a
+  `[data-theme="dark"]` panel override.
+- **To replace / refine later:** real EV-charging hero photo; real MyMotor
+  screenshots for the 3 journey screens; the `showcaseFigure` slot (currently the
+  side card has no photo).
+
+---
+
 ### Working commands
 
 ```

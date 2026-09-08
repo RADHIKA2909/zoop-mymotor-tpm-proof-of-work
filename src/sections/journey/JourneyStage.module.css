@@ -1,0 +1,205 @@
+.stage {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.stage:hover,
+.stage:focus-visible {
+  background: var(--surface-hover);
+}
+
+.node {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: var(--brand-green-ink);
+  margin-bottom: 0.25rem;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.stage:hover .node,
+.stage:focus-visible .node {
+  transform: translateY(-2px);
+}
+
+.num {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-green-ink);
+  color: var(--brand-green);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+}
+
+.desc {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-secondary);
+  max-width: 22ch;
+}
+
+/* ---- breakpoint caption ---- */
+.breakpoint {
+  --bp: var(--status-warning);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--bp) 40%, transparent);
+  background: color-mix(in srgb, var(--bp) 12%, transparent);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
+  text-align: left;
+  max-width: 24ch;
+}
+.tone-warning {
+  --bp: var(--status-warning);
+}
+.tone-error {
+  --bp: var(--status-error);
+}
+.breakDot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bp);
+  margin-top: 0.25rem;
+}
+.breakKicker {
+  display: block;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--bp);
+  margin-bottom: 0.1rem;
+}
+
+/* ---- hover tooltip ---- */
+.tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: min(240px, 72vw);
+  z-index: var(--z-sticky);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--brand-green-ink);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    visibility 0s linear var(--duration-fast);
+}
+.stage:hover .tooltip,
+.stage:focus-visible .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0s;
+}
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: var(--brand-green-ink);
+}
+
+.tipRow {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-inverse);
+}
+.tipRow + .tipRow {
+  margin-top: var(--space-2);
+}
+.tipLabel {
+  display: block;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-green);
+  margin-bottom: 0.15rem;
+}
+
+@media (max-width: 720px) {
+  .stage {
+    display: block;
+    text-align: left;
+    padding: var(--space-4);
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .stage:hover,
+  .stage:focus-visible {
+    background: var(--surface);
+    border-color: var(--brand-green);
+  }
+  .node {
+    margin-bottom: var(--space-3);
+  }
+  .desc {
+    max-width: none;
+  }
+  .breakpoint {
+    max-width: none;
+    margin-top: var(--space-3);
+  }
+  .tooltip {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: var(--space-3);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    box-shadow: none;
+  }
+  .tooltip::before {
+    display: none;
+  }
+}
