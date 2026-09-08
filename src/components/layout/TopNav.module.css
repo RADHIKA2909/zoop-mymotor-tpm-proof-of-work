@@ -80,24 +80,16 @@
 
 .badge {
   display: grid;
-  gap: 0.1rem;
-  text-align: right;
-  padding: 0.35rem 0.75rem;
+  place-items: center;
+  text-align: center;
+  padding: 0.5rem 0.9rem;
   border: 1px solid var(--border-brand);
   border-radius: var(--radius-pill);
   background: var(--brand-green-surface);
 }
 
-.badgeTitle {
-  font-size: var(--text-2xs);
-  font-weight: var(--weight-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  color: var(--brand-green-deep);
-}
-
 .badgeSub {
-  font-size: 0.62rem;
+  font-size: var(--text-xs);
   color: var(--text-secondary);
 }
 

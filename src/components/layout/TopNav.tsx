@@ -34,7 +34,6 @@ export function TopNav() {
 
         <div className={s.right}>
           <div className={s.badge}>
-            <span className={s.badgeTitle}>TPM Proof of Work</span>
             <span className={s.badgeSub}>Building a more reliable EV future</span>
           </div>
           <ThemeToggle className={s.themeToggle} />
