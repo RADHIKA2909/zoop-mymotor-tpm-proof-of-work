@@ -712,38 +712,6 @@ export const ARCH_CONSUMERS = 'Ops · Product · Support · Partner teams'
 export const ARCH_SIDE_OUTPUT = 'Customer communication'
 export const ARCH_LABEL = 'Conceptual Control Tower architecture — NOT internal ZOOP architecture.'
 
-export interface Component {
-  icon: IconName
-  title: string
-  desc: string
-}
-
-export const COMPONENTS: Component[] = [
-  { icon: 'activity', title: 'Events', desc: 'Transaction state changes, API responses, session events, vendor signals.' },
-  { icon: 'refresh', title: 'State reconciliation', desc: 'Compare expected state with actual state.' },
-  { icon: 'cog', title: 'Rule engine', desc: 'Detect abnormal conditions.' },
-  { icon: 'alert', title: 'Incident service', desc: 'Create, assign and track exceptions.' },
-  { icon: 'gauge', title: 'Vendor monitoring', desc: 'Track partner reliability.' },
-  { icon: 'bell', title: 'Notification', desc: 'Escalate issues to the right team.' },
-  { icon: 'file', title: 'Audit log', desc: 'Maintain traceability.' },
-  { icon: 'trend', title: 'Analytics', desc: 'Identify recurring patterns and trends.' },
-]
-
-export const COMPONENTS_LABEL = 'Conceptual system components'
-
-export const DATA_MODEL = {
-  entities: ['Transaction', 'Incident', 'Vendor', 'Journey', 'Customer impact', 'SLA', 'Audit event'],
-  relations: [
-    'Transaction → may create → Incident',
-    'Incident → has → Owner',
-    'Incident → may involve → Vendor',
-    'Incident → impacts → Customer / Journey',
-    'Incident → governed by → SLA',
-    'Incident → generates → Audit events',
-  ],
-  label: 'Conceptual data model',
-} as const
-
 /* ---- Metrics --------------------------------------------- */
 
 export const METRIC_CATEGORIES: { title: string; metrics: string[] }[] = [

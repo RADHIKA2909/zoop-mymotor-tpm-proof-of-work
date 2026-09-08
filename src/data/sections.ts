@@ -132,7 +132,7 @@ export const SECTIONS: SectionDef[] = [
       'Customer-impact prioritisation and a worked, conceptual incident diagnosis',
       'Vendor & dependency health + a proposed vendor-governance framework; SLA / escalation logic; an 8-step incident workflow',
       'Operator actions, audit trail and control considerations (RBAC, permissioned actions, audit logs); proposed alerting rules',
-      'A conceptual control-tower architecture, system components and data model (labelled "not internal ZOOP architecture")',
+      'A conceptual control-tower architecture flow (labelled "not internal ZOOP architecture")',
       'A proposed metrics framework + candidate north star; the reactive → proactive operating-model shift; validation questions',
     ],
     absorbs: [

@@ -617,8 +617,9 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
   "when to escalate" `DataTable` + `Time elapsed + Customer impact + Issue
   severity` formula) · `OperatorActions` (action list w/ permission-controlled
   tags; audit-log `Timeline`; control-considerations panel) · `Alerting` (4 IF/THEN
-  rule cards) · `Architecture` (`DiagramFrame` conceptual flow + 8 system-component
-  cards + conceptual data model) · `ControlTowerMetrics` (5 metric categories, no
+  rule cards) · `Architecture` (`DiagramFrame` conceptual flow only — the
+  "system components" + "data model" panels were later removed) ·
+  `ControlTowerMetrics` (5 metric categories, no
   values + primary outcome / candidate north star) · `BeforeAfter` (reactive vs
   proactive flow) · `ControlTowerTakeaways` (dark band + 4 cards + central
   insight) · `ValidationQuestions` (10-item list) · `ControlTowerTransition` →
@@ -646,8 +647,8 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
   scorecards + governance framework, the SLA / escalation logic + formula, the
   8-step incident workflow, the operator action set + audit trail + control
   considerations (RBAC, permissioned actions, audit logs, tenant isolation,
-  no-PII, authz), the alerting rules, the architecture + system components + data
-  model, the metrics framework + candidate north star ("customer-impacting
+  no-PII, authz), the alerting rules, the conceptual architecture flow,
+  the metrics framework + candidate north star ("customer-impacting
   transaction exception rate"), and the reactive→proactive operating model. Each
   carries a `proposed` / `assumption` `Pill` or `Callout`.
 - **ILLUSTRATIVE-DATA POLICY:** realistic placeholder values (KPIs, trend series,
