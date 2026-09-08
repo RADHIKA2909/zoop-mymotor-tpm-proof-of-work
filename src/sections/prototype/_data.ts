@@ -673,27 +673,6 @@ export const CENTRAL_QUOTE = {
   label: 'Proposed product principle',
 }
 
-/* ---- Production validation ------------------------------ */
-
-export const PRODUCTION_QUESTIONS = [
-  'Which real transaction events are available?',
-  'Which systems expose real-time state?',
-  'Which vendors support webhooks or APIs?',
-  'What are the actual SLA thresholds?',
-  'Who owns each incident?',
-  'Which actions require approval?',
-  'What customer-facing states are safe to expose?',
-  'What data needs to be audited?',
-  'How should retry / reconciliation actually work?',
-  'What existing operational tooling should this integrate with?',
-]
-
-export const PROTOTYPE_LIMITATIONS: { label: string; detail: string }[] = [
-  { label: 'Interactive here', detail: 'Scenario selection, stepper, incident detail, tabs, owner assignment, escalation, provider contact, customer status, resolution, RCA and the audit log.' },
-  { label: 'Simulated', detail: 'All data, timestamps, provider responses and state transitions are local mock data — nothing calls a real system.' },
-  { label: 'Needs a backend in production', detail: 'Real event ingestion, transaction-state reconciliation, vendor APIs / webhooks, SLA timers, RBAC and a durable audit store.' },
-]
-
 /* ---- Final takeaways (dark) --------------------------- */
 
 export const FINAL_TAKEAWAYS = {

@@ -8,7 +8,6 @@ import { PrototypeHighlights } from './PrototypeHighlights'
 import { DesignPrinciples } from './DesignPrinciples'
 import { ControlTowerMapping } from './ControlTowerMapping'
 import { WhatThisShows } from './WhatThisShows'
-import { ProductionValidation } from './ProductionValidation'
 import { FinalTakeaways } from './FinalTakeaways'
 import { CaseStudySummary } from './CaseStudySummary'
 import { PrototypeClosing } from './PrototypeClosing'
@@ -39,7 +38,6 @@ export function PrototypeSection() {
       <DesignPrinciples />
       <ControlTowerMapping />
       <WhatThisShows />
-      <ProductionValidation />
       <FinalTakeaways />
       <CaseStudySummary />
       <PrototypeClosing />

@@ -161,7 +161,7 @@ export const SECTIONS: SectionDef[] = [
       'A live illustrative audit log, a resolution state and an RCA / closure step',
       'Four further scenarios (charger, vehicle data, high-impact, vendor)',
       'Prototype highlights, design principles, the Control Tower → prototype mapping',
-      'Production-validation questions and a full case-study recap',
+      'What the prototype demonstrates and a full case-study recap',
     ],
     absorbs: [
       'Brief §11 — Interactive prototype',

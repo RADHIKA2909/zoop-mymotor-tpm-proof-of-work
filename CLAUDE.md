@@ -661,9 +661,9 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
 - **Must NOT claim:** "ZOOP's Control Tower has / monitors / uses…"; any real
   ZOOP success or failure rate; real vendor names, APIs or SLAs; a real incident
   log; real operational TATs; real customer data.
-- **Open / validation questions:** the equivalent "what I'd validate first" list
-  lives in §6's `ProductionValidation` (`PRODUCTION_QUESTIONS`) — §5's own
-  `ValidationQuestions` panel was later removed to avoid the duplication.
+- **Open / validation questions:** §5's `ValidationQuestions` panel and §6's
+  `ProductionValidation` panel were both built then later removed — the case
+  study no longer surfaces a "what I'd validate first" list in-UI.
 - **Dark mode:** `ControlTowerHeroVisual` (laptop mockup) + `ControlTowerTakeaways`
   band = `data-theme="dark"` + `--dark-*`. Everything else generic tokens.
   `npm run contrast` passes (unchanged).
@@ -736,18 +736,13 @@ operator workflow tangible. No real customer data, no financial values.
   Partner Operations, Customer Support}, fictional `HH:MM` timestamps. No real
   names, identifiers, financial values or customer data. Every data view carries
   an "illustrative / conceptual — not internal ZOOP" `Callout` or `Pill`.
-- **What is interactive vs simulated vs needs-a-backend** (`PROTOTYPE_LIMITATIONS`,
-  shown in-page): interactive = scenario selection, stepper, incident detail,
-  tabs, owner assignment, escalation, provider contact, customer status,
-  resolution, RCA, audit log, role selector, reset; simulated = all data,
-  timestamps, provider responses and state transitions (local state only);
-  needs a backend in production = real event ingestion, transaction-state
-  reconciliation, vendor APIs / webhooks, SLA timers, RBAC, a durable audit store.
-- **What to validate with ZOOP (`PRODUCTION_QUESTIONS`, 10):** which real
-  transaction events exist · which systems expose real-time state · which vendors
-  support webhooks / APIs · actual SLA thresholds · incident ownership · which
-  actions need approval · safe customer-facing states · what must be audited ·
-  how retry / reconciliation should work · which existing tooling to integrate.
+- **What is interactive vs simulated vs needs-a-backend** (context, no longer a
+  UI panel): interactive = scenario selection, stepper, incident detail, tabs,
+  owner assignment, escalation, provider contact, customer status, resolution,
+  RCA, audit log, role selector, reset; simulated = all data, timestamps,
+  provider responses and state transitions (local state only); a real build
+  would need event ingestion, transaction-state reconciliation, vendor APIs /
+  webhooks, SLA timers, RBAC and a durable audit store.
 - **OBSERVED:** the consumer journeys, transaction-heavy product, reliance on
   external charging / payment / data partners, and the specific failure points —
   all carried from §3 public review evidence + public MyMotor product facts.
@@ -760,7 +755,7 @@ operator workflow tangible. No real customer data, no financial values.
 - **Other static blocks:** `OtherScenarios` (4 cards → select + scroll),
   `PrototypeHighlights` (4), `DesignPrinciples` (5), `ControlTowerMapping`
   (§5 concept → §6 screen, 8 rows), `WhatThisShows` (4 takeaways + the
-  "a good product … helps you solve it" central quote), `ProductionValidation`,
+  "a good product … helps you solve it" central quote),
   `FinalTakeaways` (dark band), `CaseStudySummary` (01→06 recap, links to each
   route), `PrototypeClosing` ("Building products that work when the real world
   gets messy." + Back to overview / View prototype again).
