@@ -53,6 +53,10 @@ export type IconName =
   | 'thumb-down'
   | 'message'
   | 'grid'
+  | 'target'
+  | 'link'
+  | 'flag'
+  | 'gauge'
 
 interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   name: IconName
@@ -331,6 +335,32 @@ const PATHS: Record<IconName, JSX.Element> = {
       <rect x="13" y="4" width="7" height="7" rx="1.4" />
       <rect x="4" y="13" width="7" height="7" rx="1.4" />
       <rect x="13" y="13" width="7" height="7" rx="1.4" />
+    </>
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="12" cy="12" r="1" />
+    </>
+  ),
+  link: (
+    <>
+      <path d="M10 14a4 4 0 0 0 5.5.4l3-3a4 4 0 0 0-5.6-5.6l-1.7 1.7" />
+      <path d="M14 10a4 4 0 0 0-5.5-.4l-3 3a4 4 0 0 0 5.6 5.6l1.7-1.7" />
+    </>
+  ),
+  flag: (
+    <>
+      <path d="M5 21V4" />
+      <path d="M5 4h12l-2.5 4L17 12H5" />
+    </>
+  ),
+  gauge: (
+    <>
+      <path d="M4 15a8 8 0 0 1 16 0" />
+      <path d="m12 15 4-4" />
+      <circle cx="12" cy="15" r="1.4" />
     </>
   ),
 }

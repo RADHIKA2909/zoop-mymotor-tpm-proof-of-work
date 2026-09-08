@@ -1,0 +1,125 @@
+.wrap {
+  position: relative;
+}
+
+.photo {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  aspect-ratio: 5 / 4;
+}
+
+.panel {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(155deg, var(--brand-green-surface) 0%, #e3eef5 100%);
+  border: 1px solid var(--border-brand);
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  overflow: hidden;
+}
+
+[data-theme='dark'] .panel {
+  background: linear-gradient(
+    155deg,
+    var(--dark-accent-surface) 0%,
+    var(--dark-surface-elevated) 100%
+  );
+}
+
+.pillar {
+  align-self: stretch;
+  width: 74px;
+  flex: none;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #21402b 0%, #16281d 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--space-4);
+  gap: var(--space-2);
+}
+.pillarHead {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: var(--brand-green-ink);
+}
+.pillarBrand {
+  font-size: 0.6rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  color: #f4f7f1;
+}
+
+.phone {
+  width: min(210px, 60vw);
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--brand-green-ink);
+  color: var(--brand-green);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-md);
+}
+.name {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+}
+.tagline {
+  font-size: var(--text-2xs);
+  color: var(--text-tertiary);
+  text-align: center;
+}
+.features {
+  margin-top: var(--space-2);
+  display: grid;
+  gap: 0.4rem;
+  width: 100%;
+}
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--text-2xs);
+  color: var(--text-secondary);
+}
+.featureIcon {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-xs);
+  background: var(--brand-green-surface);
+  color: var(--brand-green-strong);
+}
+
+@media (max-width: 940px) {
+  .panel {
+    min-height: 320px;
+  }
+}
+@media (max-width: 420px) {
+  .pillar {
+    display: none;
+  }
+}

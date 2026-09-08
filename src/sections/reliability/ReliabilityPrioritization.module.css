@@ -1,6 +1,7 @@
 .section {
   padding: var(--section-pad-y) 0;
-  background: var(--bg);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
 }
 
 .title {
@@ -32,15 +33,15 @@
 .side {
   padding: var(--space-5);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-brand);
-  background: var(--brand-green-surface);
+  border: 1px solid color-mix(in srgb, var(--status-error) 25%, var(--border));
+  background: var(--status-error-surface);
 }
 .sideTitle {
   font-size: var(--text-2xs);
   font-weight: var(--weight-bold);
   text-transform: uppercase;
   letter-spacing: var(--tracking-caps);
-  color: var(--brand-green-strong);
+  color: var(--status-error);
   margin-bottom: var(--space-3);
 }
 .sideList {
@@ -51,7 +52,7 @@
 .sideList li {
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
-  color: var(--brand-green-deep);
+  color: var(--text-primary);
   padding-left: 1rem;
   position: relative;
 }
@@ -63,14 +64,14 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--brand-green);
+  background: var(--status-error);
 }
 .sideNote {
   font-size: var(--text-xs);
   line-height: var(--leading-normal);
   color: var(--text-secondary);
 }
-.matrixPill {
+.sidePill {
   margin-top: var(--space-3);
 }
 
@@ -78,5 +79,5 @@
   margin-top: var(--space-5);
   font-size: var(--text-xs);
   color: var(--text-tertiary);
-  max-width: 80ch;
+  max-width: 84ch;
 }

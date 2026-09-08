@@ -507,6 +507,65 @@ ZOOP's internal architecture, vendors, SLAs, metrics or workflow.**
 
 ---
 
+### Section 04 — Reliability Analysis — COMPLETED (2026-09-08)
+
+**Public-research based. No ZOOP-internal data. Risk levels are qualitative and
+illustrative — never measured failure rates. Root causes are INFERRED; every
+framework / model / diagram is PROPOSED / CONCEPTUAL. Nothing here is ZOOP's
+internal system.**
+
+- **Objective:** convert Section 3's feedback signals into a structured reliability
+  analysis — where reliability can break down, why (potential causes), the customer
+  impact, which problems to focus on, and why transaction reliability deserves the
+  deepest look — ending with the question Section 5 (Control Tower) answers.
+- **Route / files:** `/reliability` → `src/sections/reliability/` (folder replaced
+  the flat file; `routes.tsx` + `ssr-smoke.tsx` imports updated). Bespoke page.
+- **IA change:** the `sections.ts` `reliability` entry was retitled
+  **"Reliability Analysis"** and rescoped — brief §5 / §8 / §9 / §10 (proposed
+  solution / PRD / RCA / metrics) **moved to §5 Control Tower / §6 Prototype**.
+  `status: 'done'` → landing map + progress 4/6.
+- **Components (+ co-located `*.module.css`):** `ReliabilitySection` (orchestrator) ·
+  `ReliabilityHero` + `ReliabilityHeroVisual` · `JourneyRisk` (6-stage flow +
+  qualitative risk pills + hover tooltips + Lower/Moderate/Higher legend) ·
+  `ThreeWayAnalysis` (signals / inferred causes / impact — 3 col) · `ReliabilityGap`
+  (expected vs actual + conceptual system dependency via `NodeFlow`) ·
+  `ExceptionModel` (7-step Event→Detect→Classify→Assign→Escalate→Resolve→Communicate
+  with the payment worked example) · `OpportunityAreas` (4 cards) ·
+  `ReliabilityPrioritization` (uses the shared `PriorityPlot`) · `TransactionFocus`
+  (Customer intent → … → Trust impact chain) · `TpmTakeaways` (dark band + 4 cards
+  + the central "visible, understandable, recoverable" insight + Prevent→Detect→
+  Diagnose→Resolve→Recover) · `ReliabilityTransition` → `/control-tower`. All copy in
+  `_data.ts`; hero slot in `_assets.ts`.
+- **Shared extraction:** `src/components/diagrams/PriorityPlot.tsx` (+ `.module.css`)
+  — data-agnostic 2×2 scatter, lifted from Section 3's matrix. Section 3's
+  `feedback/PrioritizationMatrix` refactored to use it; **visual output preserved**
+  (verified via build + SSR smoke — `/feedback` size unchanged). Now backs both the
+  §3 and §4 prioritization visuals.
+- **New icons:** `target, link, flag, gauge`. No token changes; no Section 1/2 changes.
+- **OBSERVED:** the journey stages + the 5 reliability signals + the 4 customer
+  impacts, all grounded in Section 3's public review evidence and the public MyMotor
+  product facts.
+- **INFERRED:** the 5 potential root causes (external dependencies, data sync,
+  transaction complexity, limited real-time visibility, support/escalation flow) —
+  `Callout kind="inferred"` "not internal ZOOP data".
+- **PROPOSED / CONCEPTUAL:** the expected-vs-actual reliability framework; the
+  conceptual system-dependency chain; the exception-management model; the
+  opportunity areas; the prioritization (`PriorityPlot`, no scores — Transaction
+  state uncertainty + Charger availability mismatch highlighted red as priority
+  focus); the transaction-reliability product hypothesis; the 4 TPM takeaways +
+  central insight. Each carries a `proposed` / `assumption` `Pill` or `Callout`.
+- **Prioritization outcome:** the two problems carried into §5 = **transaction
+  state uncertainty** and **charger availability mismatch**.
+- **Open questions — cannot be answered from public information:** actual
+  transaction / charger failure rates · which external vendors are in each journey ·
+  actual vendor SLAs / performance · how transaction states are reconciled · how
+  charger availability is updated · which team owns each exception · the actual
+  escalation matrix · existing monitoring infrastructure · actual operational TATs.
+- **Dark mode:** `TpmTakeaways` band = `data-theme="dark"` + `--dark-*`. Everything
+  else generic tokens. `npm run contrast` passes.
+
+---
+
 ### Working commands
 
 ```

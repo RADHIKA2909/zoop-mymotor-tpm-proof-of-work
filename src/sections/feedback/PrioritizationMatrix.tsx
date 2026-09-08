@@ -1,7 +1,7 @@
-import { cn } from '@/lib/cn'
 import { Container } from '@/components/ui/Container'
 import { Pill } from '@/components/ui/Pill'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import { PriorityPlot } from '@/components/diagrams/PriorityPlot'
 import { MATRIX_HEADER, MATRIX_POINTS } from './_data'
 import s from './PrioritizationMatrix.module.css'
 
@@ -13,27 +13,24 @@ export function PrioritizationMatrix() {
         <p className={s.lead}>{MATRIX_HEADER.lead}</p>
 
         <ScrollReveal className={s.layout}>
-          <div className={s.plotWrap}>
-            <span className={s.yAxis}>{MATRIX_HEADER.yAxis} →</span>
-            <div className={s.plot}>
-              <span className={cn(s.quadLabel, s.qTopRight)}>Investigate first</span>
-              <span className={cn(s.quadLabel, s.qTopLeft)}>Watch</span>
-              <span className={cn(s.quadLabel, s.qBottomLeft)}>Monitor</span>
-              <span className={cn(s.quadLabel, s.qBottomRight)}>Improve</span>
-
-              {MATRIX_POINTS.map((p) => (
-                <div
-                  key={p.id}
-                  className={cn(s.point, p.highlight && s.pointHi)}
-                  style={{ left: `${p.x}%`, bottom: `${p.y}%` }}
-                >
-                  <span className={s.dot} />
-                  <span className={s.pointLabel}>{p.label}</span>
-                </div>
-              ))}
-            </div>
-            <span className={s.xAxis}>{MATRIX_HEADER.xAxis} →</span>
-          </div>
+          <PriorityPlot
+            xAxisLabel={MATRIX_HEADER.xAxis}
+            yAxisLabel={MATRIX_HEADER.yAxis}
+            quadrantLabels={{
+              topRight: 'Investigate first',
+              topLeft: 'Watch',
+              bottomLeft: 'Monitor',
+              bottomRight: 'Improve',
+            }}
+            points={MATRIX_POINTS.map((p) => ({
+              id: p.id,
+              label: p.label,
+              x: p.x,
+              y: p.y,
+              tone: p.highlight ? 'brand' : 'neutral',
+              emphasis: p.highlight,
+            }))}
+          />
 
           <div className={s.side}>
             <p className={s.sideTitle}>What we investigate next</p>

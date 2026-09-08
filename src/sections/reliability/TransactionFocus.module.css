@@ -1,0 +1,77 @@
+.section {
+  padding: var(--section-pad-y) 0;
+  background: var(--bg);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-tight);
+  max-width: 30ch;
+}
+
+.chain {
+  margin-top: var(--space-6);
+  max-width: 640px;
+  display: grid;
+}
+
+.step {
+  display: grid;
+  justify-items: center;
+}
+
+.stepRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+@media (max-width: 480px) {
+  .stepRow {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
+
+.stepLabel {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-green-strong);
+}
+
+.stepValue {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.stepArrow {
+  display: grid;
+  place-items: center;
+  color: var(--brand-green);
+  padding: 0.25rem 0;
+}
+
+.statementRow {
+  margin-top: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--brand-green);
+}
+.statement {
+  flex: 1 1 340px;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
