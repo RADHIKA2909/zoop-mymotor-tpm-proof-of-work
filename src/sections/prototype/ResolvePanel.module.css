@@ -1,0 +1,101 @@
+.panel {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.pending {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-strong);
+  background: var(--surface-2);
+}
+.pendingTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+}
+.pendingBlurb {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 56ch;
+}
+
+.success {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-brand);
+  background: var(--brand-green-surface);
+}
+.disc {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: #0c2110;
+}
+.title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--brand-green-deep);
+}
+.sub {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 46ch;
+}
+
+.summary {
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: grid;
+  gap: var(--space-3);
+}
+.summaryLabel {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-green-strong);
+}
+.summaryText {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+.defs {
+  display: grid;
+  gap: 0;
+}
+.defs > div {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: var(--space-3);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-sm);
+}
+.defs > div:last-child {
+  border-bottom: 0;
+}
+.defs dt {
+  color: var(--text-tertiary);
+}
+.defs dd {
+  color: var(--text-primary);
+  font-weight: var(--weight-medium);
+}
+
+.next {
+  justify-self: start;
+}

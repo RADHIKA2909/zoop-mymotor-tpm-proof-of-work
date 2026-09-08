@@ -11,7 +11,7 @@ import { JourneySection } from '../src/sections/journey/JourneySection'
 import { FeedbackSection } from '../src/sections/feedback/FeedbackSection'
 import { ReliabilitySection } from '../src/sections/reliability/ReliabilitySection'
 import { ControlTowerSection } from '../src/sections/control-tower/ControlTowerSection'
-import { PrototypeSection } from '../src/sections/PrototypeSection'
+import { PrototypeSection } from '../src/sections/prototype/PrototypeSection'
 import { StyleGuideSection } from '../src/sections/StyleGuideSection'
 import { NotFoundSection } from '../src/sections/NotFoundSection'
 

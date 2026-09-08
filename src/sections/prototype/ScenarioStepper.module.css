@@ -1,0 +1,74 @@
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  overflow-x: auto;
+  padding: var(--space-2) 0;
+  scrollbar-width: thin;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  white-space: nowrap;
+}
+.step:hover {
+  border-color: var(--border-strong);
+}
+.marker {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  color: var(--text-tertiary);
+}
+.label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+}
+
+.done .marker {
+  background: var(--status-success-surface);
+  border-color: var(--status-success);
+  color: var(--status-success);
+}
+.done .label {
+  color: var(--text-primary);
+}
+
+.active {
+  border-color: var(--brand-green);
+  background: var(--brand-green-surface);
+}
+.active .marker {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: #0c2110;
+}
+.active .label {
+  color: var(--brand-green-deep);
+}
+
+.sep {
+  color: var(--border-strong);
+  flex: none;
+  margin: 0 0.1rem;
+}

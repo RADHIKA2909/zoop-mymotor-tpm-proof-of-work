@@ -669,6 +669,123 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
 
 ---
 
+### Section 06 — Interactive Prototype — COMPLETED (2026-09-08)
+
+**⚠️ PROPOSED / CONCEPTUAL prototype — the prototype is illustrative and does not
+represent ZOOP's internal software, architecture, workflow, vendor integration,
+SLA, metrics or transaction data.** Every incident ID (`INC-104xx`), transaction
+ID (`TX-104xx`), provider name (`Provider A/B/C`), team, timestamp and
+customer-facing message is fictional and exists only to make the proposed
+operator workflow tangible. No real customer data, no financial values.
+
+- **Objective:** turn the conceptual Reliability Control Tower (§5) into a
+  working, clickable operator workflow — **detect → investigate → act → resolve →
+  learn** — the case study's move from "here is what should be built" to "here is
+  how the experience could work". Strongest proof-of-work section.
+- **Route / files:** `/prototype` → `src/sections/prototype/` (folder replaced the
+  flat `SectionScaffold` + `Placeholder`; `routes.tsx` + `ssr-smoke.tsx` imports
+  updated; flat `src/sections/PrototypeSection.tsx` deleted). Bespoke page.
+- **IA:** `sections.ts` `prototype` entry keeps the title "Interactive Prototype",
+  refreshed `tagline` / `phase` / `planned` / `absorbs` (Brief §11 + "demonstrates
+  §5 solution / §8 PRD-as-flow / §9 RCA in practice"), `status: 'done'` → landing
+  map + progress **6/6 (case study complete)**.
+- **Prototype scenario:** conceptual **payment status mismatch** (`INC-10482`,
+  payment pending despite the transaction being initiated) — chosen because
+  payment / transaction uncertainty was a recurring reliability signal in the
+  §3 public review analysis. Plus 4 lighter scenarios: charger availability
+  mismatch (`INC-10479`), vehicle data delay (`INC-10471`), high-impact payments
+  degradation (`INC-10488`), regional vendor errors (`INC-10465`). All 5 are
+  selectable in the stepper; each carries its own overview / timeline /
+  diagnostics / customer-impact / related-transaction data; the shared action
+  mechanics run against the selected scenario.
+- **User flow / stepper:** 01 Detect (incident list + severity/status filters) →
+  02 Investigate (incident detail: `Overview` / `Timeline` / `Customer impact` /
+  `Diagnostics` / `Related` tabs) → 03 Take action (owner assignment, contact
+  provider, escalate, update customer status, retry, mark resolved) → 04 Resolve
+  (large success state + resolution summary) → 05 Learn (RCA fields + closure
+  card `Detected → … → RCA captured`).
+- **Interaction model:** one `useReducer` in `PrototypeSection`; `_state.ts` holds
+  `PrototypeState` / `PrototypeAction` / `reducer` / `initialState(scenario)` /
+  `stepDone()`. State is in-memory only — resets on unmount and via the explicit
+  **"Reset scenario"** control. No backend, no persistence.
+- **Conceptual incident state model:** `Open → Assigned → Investigating →
+  Escalated → Resolved → Closed` (Escalated optional). Labelled conceptual; not
+  ZOOP's real transaction states.
+- **Proposed role / permission model (`ROLES`):** Control Tower Operator · Team
+  Lead · Support · Product. A **request → approve** flow for financially
+  sensitive actions: clicking "Retry transaction" as the Operator sets an
+  "Approval requested" state + audit event; switching the role selector to
+  **Team Lead** reveals **Approve / Reject**. Demonstrates safe-action design
+  (§37) actively, not just a disabled tag.
+- **Action model + audit trail:** direct actions (assign / note / contact
+  provider / escalate / update customer status / mark resolved) run immediately;
+  each mutating action appends to a live **illustrative audit log**
+  (`AUDIT_TIMES` fixed ascending fictional timestamps). Escalation, provider
+  contact and customer-status updates open `Modal` dialogs (simulated — nothing
+  is sent).
+- **Customer communication:** the customer-status modal shows a live preview of
+  the customer-facing message before it is applied; the Customer-impact tab then
+  reflects the operator's update.
+- **RCA workflow:** the Learn step surfaces root-cause category / what happened /
+  prevention / related improvement per scenario; "Add to RCA" / "Create product
+  improvement" / "Link related incident" fire `CAPTURE_RCA` (idempotent) → status
+  `Closed` + the closure card.
+- **Mock-data conventions:** incident IDs `INC-104xx`, transaction IDs `TX-104xx`,
+  providers `Provider A/B/C`, teams = {Payments Ops, Charging Ops, Data Ops,
+  Partner Operations, Customer Support}, fictional `HH:MM` timestamps. No real
+  names, identifiers, financial values or customer data. Every data view carries
+  an "illustrative / conceptual — not internal ZOOP" `Callout` or `Pill`.
+- **What is interactive vs simulated vs needs-a-backend** (`PROTOTYPE_LIMITATIONS`,
+  shown in-page): interactive = scenario selection, stepper, incident detail,
+  tabs, owner assignment, escalation, provider contact, customer status,
+  resolution, RCA, audit log, role selector, reset; simulated = all data,
+  timestamps, provider responses and state transitions (local state only);
+  needs a backend in production = real event ingestion, transaction-state
+  reconciliation, vendor APIs / webhooks, SLA timers, RBAC, a durable audit store.
+- **What to validate with ZOOP (`PRODUCTION_QUESTIONS`, 10):** which real
+  transaction events exist · which systems expose real-time state · which vendors
+  support webhooks / APIs · actual SLA thresholds · incident ownership · which
+  actions need approval · safe customer-facing states · what must be audited ·
+  how retry / reconciliation should work · which existing tooling to integrate.
+- **OBSERVED:** the consumer journeys, transaction-heavy product, reliance on
+  external charging / payment / data partners, and the specific failure points —
+  all carried from §3 public review evidence + public MyMotor product facts.
+- **INFERRED:** the possible diagnostic signals in each scenario
+  (`Callout kind="inferred"` "not confirmed ZOOP architecture").
+- **PROPOSED / CONCEPTUAL / ILLUSTRATIVE:** the entire prototype — the workflow,
+  the incident state model, the role model + approval flow, the action set, the
+  audit log, the severity handling, the RCA / closure flow, every screen and
+  every data value.
+- **Other static blocks:** `OtherScenarios` (4 cards → select + scroll),
+  `PrototypeHighlights` (4), `DesignPrinciples` (5), `ControlTowerMapping`
+  (§5 concept → §6 screen, 8 rows), `WhatThisShows` (4 takeaways + the
+  "a good product … helps you solve it" central quote), `ProductionValidation`,
+  `FinalTakeaways` (dark band), `CaseStudySummary` (01→06 recap, links to each
+  route), `PrototypeClosing` ("Building products that work when the real world
+  gets messy." + Back to overview / View prototype again).
+- **Components:** `PrototypeSection` (orchestrator) · `PrototypeHero` +
+  `PrototypeHeroVisual` (light laptop + phone conceptual mockup, generic tokens) ·
+  `PrototypeIntro` · `PrototypeStage` (`id="prototype-app"`) + `ScenarioBar`
+  (scenario `<select>` + role tabs + reset) + `ScenarioStepper` + `DetectPanel` +
+  `IncidentDetailPanel` + `ActionPanel` + `ResolvePanel` + `LearnPanel` +
+  `AuditLogPanel` (sticky rail) + `StageModals` · then the static blocks above.
+  Data + copy in `_data.ts`, reducer in `_state.ts`, `STATUS_TONE` + `scrollToApp`
+  in `_shared.ts`, hero slot in `_assets.ts`.
+- **Reused primitives only** — `Tabs` (controlled, `variant="pill"`), `Modal`,
+  `DataTable`, `Timeline`, `Callout`, `Pill`, `Button`, `Eyebrow`, `Container`,
+  `ScrollReveal`, `Icon`. **No new shared components, no new icons, no new chart
+  primitives, no token changes.**
+- **Dark mode:** light-primary; hero visual + interactive stage use generic
+  tokens (map via the fixed `--dark-*` palette). `FinalTakeaways` is the one
+  `data-theme="dark"` band. `npm run contrast` passes unchanged.
+- **Verification:** `tsc --noEmit` clean · `vite build` clean · `npm run contrast`
+  all-pass · route smoke (9 routes; `/prototype` ~53 KB vs the ~10 KB placeholder;
+  Sections 1–5 unchanged) · a state-machine smoke (`scripts/proto-smoke.tsx`,
+  removed after) rendered ~100 states across all 5 scenarios × every step / modal
+  / approval branch — all pass.
+
+---
+
 ### Working commands
 
 ```

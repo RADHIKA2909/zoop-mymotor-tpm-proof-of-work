@@ -6,7 +6,7 @@ import { JourneySection } from '@/sections/journey/JourneySection'
 import { FeedbackSection } from '@/sections/feedback/FeedbackSection'
 import { ReliabilitySection } from '@/sections/reliability/ReliabilitySection'
 import { ControlTowerSection } from '@/sections/control-tower/ControlTowerSection'
-import { PrototypeSection } from '@/sections/PrototypeSection'
+import { PrototypeSection } from '@/sections/prototype/PrototypeSection'
 import { StyleGuideSection } from '@/sections/StyleGuideSection'
 import { NotFoundSection } from '@/sections/NotFoundSection'
 

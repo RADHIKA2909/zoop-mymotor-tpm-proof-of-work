@@ -1,0 +1,155 @@
+.panel {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.head .stepTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+.head .stepBlurb {
+  margin-top: 0.2rem;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: var(--space-5);
+}
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.block {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+.blockLabel {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-green-strong);
+}
+
+.selectWrap {
+  position: relative;
+  display: block;
+}
+.select {
+  width: 100%;
+  appearance: none;
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
+}
+.selectIcon {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+.ownerState {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: grid;
+  gap: 0.4rem;
+}
+.actionRow {
+  display: grid;
+  gap: 0.4rem;
+}
+.action {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+.action:hover:not(:disabled) {
+  border-color: var(--brand-green);
+  background: var(--brand-green-surface);
+}
+.action:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.action > span:first-of-type {
+  flex: 1;
+}
+.actionDone {
+  border-color: var(--status-success);
+  background: var(--status-success-surface);
+}
+.doneMark {
+  color: var(--status-success);
+  flex: none;
+}
+
+.approval {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding: 0.6rem 0.75rem;
+  margin-left: 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--status-warning);
+  background: var(--status-warning-surface);
+  font-size: var(--text-xs);
+}
+.approval[data-state='approved'] {
+  border-style: solid;
+  border-color: var(--status-success);
+  background: var(--status-success-surface);
+}
+.approval[data-state='rejected'] {
+  border-style: solid;
+  border-color: var(--status-error);
+  background: var(--status-error-surface);
+}
+.approvalText {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+.approvalBtns {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+.approvalHint {
+  color: var(--text-tertiary);
+}
+
+.note {
+  margin-top: 0;
+}
+.resolveCta {
+  justify-self: start;
+}
