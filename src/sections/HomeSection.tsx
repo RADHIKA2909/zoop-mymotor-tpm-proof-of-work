@@ -3,7 +3,6 @@ import { Container } from '@/components/ui/Container'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { Pill } from '@/components/ui/Pill'
 import { Button } from '@/components/ui/Button'
-import { CheckList } from '@/components/ui/CheckList'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Icon } from '@/components/ui/Icon'
 import { CLAIM_META, CLAIM_ORDER } from '@/data/claims'
@@ -142,41 +141,6 @@ export function HomeSection() {
                 </Link>
               </ScrollReveal>
             ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ---------- Scope ---------- */}
-      <section className={s.band}>
-        <Container size="wide">
-          <div className={s.scopeGrid}>
-            <ScrollReveal className={s.scopeCol}>
-              <Eyebrow>What this is</Eyebrow>
-              <h3 className={s.scopeTitle}>A TPM thinking out loud, end to end.</h3>
-              <CheckList
-                items={[
-                  'Public user evidence read and themed before any solution is chosen',
-                  'One problem prioritized with an explicit scoring rationale',
-                  'A proposed solution taken down to PRD, workflows and acceptance criteria',
-                  'An operations control tower with vendor, SLA and incident thinking',
-                  'A metrics framework and a rollout / UAT / monitoring plan',
-                ]}
-              />
-            </ScrollReveal>
-            <ScrollReveal className={s.scopeCol} delay={80}>
-              <Eyebrow tone="muted">What it deliberately avoids</Eyebrow>
-              <h3 className={s.scopeTitle}>Guessing at things it cannot know.</h3>
-              <CheckList
-                marker="dash"
-                tone="muted"
-                items={[
-                  'No invented review counts, ratings or research statistics',
-                  "No claims about ZOOP's real architecture, vendors or SLAs",
-                  'No fake precision — targets are stated as targets',
-                  'Proposed diagrams are always labelled "not internal architecture"',
-                ]}
-              />
-            </ScrollReveal>
           </div>
         </Container>
       </section>

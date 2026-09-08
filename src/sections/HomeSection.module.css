@@ -262,25 +262,6 @@
   color: var(--brand-green-strong);
 }
 
-/* ---------- Scope ---------- */
-.scopeGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-7);
-}
-@media (max-width: 780px) {
-  .scopeGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.scopeTitle {
-  font-size: var(--text-xl);
-  letter-spacing: var(--tracking-tight);
-  margin-bottom: var(--space-4);
-  max-width: 24ch;
-}
-
 /* ---------- Sources ---------- */
 .sources {
   padding: var(--section-pad-y) 0;
