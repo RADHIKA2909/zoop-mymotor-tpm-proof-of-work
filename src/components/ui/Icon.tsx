@@ -57,6 +57,9 @@ export type IconName =
   | 'link'
   | 'flag'
   | 'gauge'
+  | 'bell'
+  | 'lock'
+  | 'server'
 
 interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
   name: IconName
@@ -361,6 +364,26 @@ const PATHS: Record<IconName, JSX.Element> = {
       <path d="M4 15a8 8 0 0 1 16 0" />
       <path d="m12 15 4-4" />
       <circle cx="12" cy="15" r="1.4" />
+    </>
+  ),
+  bell: (
+    <>
+      <path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2.5h-15L6 16Z" />
+      <path d="M10 19a2 2 0 0 0 4 0" />
+    </>
+  ),
+  lock: (
+    <>
+      <rect x="5" y="11" width="14" height="9" rx="2" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+      <path d="M12 15v2" />
+    </>
+  ),
+  server: (
+    <>
+      <rect x="4" y="4" width="16" height="7" rx="1.5" />
+      <rect x="4" y="13" width="16" height="7" rx="1.5" />
+      <path d="M8 7.5h.01M8 16.5h.01" />
     </>
   ),
 }

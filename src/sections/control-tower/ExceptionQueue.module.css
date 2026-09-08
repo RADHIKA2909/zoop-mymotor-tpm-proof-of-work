@@ -1,0 +1,114 @@
+.section {
+  padding: var(--section-pad-y) 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-4);
+}
+
+.filters {
+  display: inline-flex;
+  padding: 0.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+}
+.filterBtn {
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+}
+.filterBtn:hover {
+  color: var(--text-primary);
+}
+.filterBtnActive {
+  background: var(--surface);
+  color: var(--brand-green-deep);
+  box-shadow: var(--shadow-xs);
+}
+
+.issue {
+  font-weight: var(--weight-semibold);
+}
+.action {
+  font-size: var(--text-xs);
+  color: var(--brand-green-strong);
+  font-weight: var(--weight-semibold);
+}
+
+.note {
+  margin-top: var(--space-4);
+}
+
+.model {
+  margin-top: var(--space-7);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.modelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+.modelTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.sevGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+@media (max-width: 760px) {
+  .sevGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.sevCard {
+  --c: var(--status-neutral);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-top: 3px solid var(--c);
+}
+.sevCard[data-tone='error'] {
+  --c: var(--status-error);
+}
+.sevCard[data-tone='warning'] {
+  --c: var(--status-warning);
+}
+.sevCard[data-tone='info'] {
+  --c: var(--status-info);
+}
+.sevLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--c);
+}
+.sevDesc {
+  margin-top: 0.3rem;
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+.dimsTitle {
+  margin: var(--space-5) 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}

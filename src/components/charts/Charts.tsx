@@ -229,3 +229,152 @@ export function Donut({
     </div>
   )
 }
+
+/* ---- LineChart ---- */
+
+interface LineSeries {
+  label: string
+  data: number[]
+  color?: string
+  /** Render as a dashed comparison line. */
+  dashed?: boolean
+}
+
+interface LineChartProps {
+  series: LineSeries[]
+  width?: number
+  height?: number
+  /** Force the y-axis floor / ceiling. Defaults to data min/max with padding. */
+  min?: number
+  max?: number
+  className?: string
+  ariaLabel?: string
+}
+
+export function LineChart({
+  series,
+  width = 480,
+  height = 160,
+  min,
+  max,
+  className,
+  ariaLabel = 'Trend',
+}: LineChartProps) {
+  const id = useId()
+  const all = series.flatMap((s2) => s2.data)
+  if (all.length < 2) return null
+  const lo = min ?? Math.min(...all)
+  const hi = max ?? Math.max(...all)
+  const span = hi - lo || 1
+  const padX = 6
+  const padY = 10
+  const innerW = width - padX * 2
+  const innerH = height - padY * 2
+  const len = Math.max(...series.map((s2) => s2.data.length))
+
+  const toPath = (data: number[], close = false) => {
+    const stepX = innerW / (data.length - 1)
+    const pts = data.map((d, i) => {
+      const x = padX + i * stepX
+      const y = padY + innerH * (1 - (d - lo) / span)
+      return [x, y] as const
+    })
+    const line = pts
+      .map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)}`)
+      .join(' ')
+    return close ? `${line} L${padX + innerW} ${padY + innerH} L${padX} ${padY + innerH} Z` : line
+  }
+
+  return (
+    <svg
+      className={cn(s.lineChart, className)}
+      viewBox={`0 0 ${width} ${height}`}
+      role="img"
+      aria-label={ariaLabel}
+      preserveAspectRatio="none"
+    >
+      {[0, 0.5, 1].map((t) => (
+        <line
+          key={t}
+          x1={padX}
+          x2={width - padX}
+          y1={padY + innerH * t}
+          y2={padY + innerH * t}
+          stroke="var(--viz-grid)"
+          strokeWidth={1}
+        />
+      ))}
+      {series.map((s2, si) => {
+        const color = s2.color ?? `var(--viz-${(si % 6) + 1})`
+        return (
+          <g key={s2.label}>
+            {si === 0 && !s2.dashed && (
+              <>
+                <defs>
+                  <linearGradient id={`lc-${id}-${si}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={color} stopOpacity="0.16" />
+                    <stop offset="100%" stopColor={color} stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d={toPath(s2.data, true)} fill={`url(#lc-${id}-${si})`} />
+              </>
+            )}
+            <path
+              d={toPath(s2.data)}
+              fill="none"
+              stroke={color}
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeDasharray={s2.dashed ? '5 5' : undefined}
+              opacity={s2.dashed ? 0.65 : 1}
+            />
+          </g>
+        )
+      })}
+      <line x1={padX} x2={padX} y1={padY} y2={padY + innerH} stroke="var(--viz-axis)" strokeWidth={1} />
+      <text x={width / 2} y={height - 1} className={s.lineAxisNote} textAnchor="middle">
+        {len} points · illustrative
+      </text>
+    </svg>
+  )
+}
+
+/* ---- HBars ---- */
+
+interface HBarRow {
+  label: string
+  value: number
+  /** Display string for the trailing value (e.g. "32%" or "42"). */
+  display?: string
+  color?: string
+}
+
+interface HBarsProps {
+  rows: HBarRow[]
+  max?: number
+  className?: string
+}
+
+export function HBars({ rows, max, className }: HBarsProps) {
+  const ceiling = max ?? (Math.max(...rows.map((r) => r.value)) || 1)
+  return (
+    <ul className={cn(s.hbars, className)}>
+      {rows.map((r, i) => (
+        <li className={s.hbarRow} key={r.label}>
+          <span className={s.hbarLabel}>{r.label}</span>
+          <span className={s.hbarTrack}>
+            <span
+              className={s.hbarFill}
+              style={{
+                width: `${Math.max(4, (r.value / ceiling) * 100)}%`,
+                background: r.color ?? `var(--viz-${(i % 6) + 1})`,
+              }}
+            />
+          </span>
+          <span className={s.hbarValue}>{r.display ?? r.value}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}

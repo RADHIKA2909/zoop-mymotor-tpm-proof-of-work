@@ -5,6 +5,63 @@
   overflow: visible;
 }
 
+/* ---- LineChart ---- */
+.lineChart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.lineAxisNote {
+  font-size: 8px;
+  fill: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---- HBars ---- */
+.hbars {
+  display: grid;
+  gap: 0.55rem;
+}
+.hbarRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.4fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+}
+.hbarLabel {
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hbarTrack {
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--viz-grid);
+  overflow: hidden;
+}
+.hbarFill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+.hbarValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  min-width: 2.5ch;
+  text-align: right;
+}
+
+@media (max-width: 520px) {
+  .hbarRow {
+    grid-template-columns: minmax(0, 1fr) 1.6fr auto;
+  }
+}
+
 /* ---- MiniBars ---- */
 .miniBars {
   display: flex;

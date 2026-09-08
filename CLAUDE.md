@@ -566,6 +566,109 @@ internal system.**
 
 ---
 
+### Section 05 — Reliability Control Tower — COMPLETED (2026-09-08)
+
+**⚠️ Illustrative operational data — NOT internal ZOOP data.** This is the ONE
+section where realistic placeholder values are sanctioned (section guide §8, §34)
+— used ONLY to make the proposed interface legible. Every data view carries a
+visible "not internal ZOOP data" label. Transaction / incident IDs (`TX-…`,
+`INC-…`), provider names (`Provider A/B/C`), owners, timestamps and audit events
+are all fictional. No real customer data. The Control Tower itself, its
+architecture, data model, workflows, severity model, escalation logic, alert
+rules, metrics framework and vendor-governance framework are all a **PROPOSED /
+CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
+
+- **Objective:** take Section 4's reliability failure points and design a proposed
+  operational model — how a TPM gives ops / product / support / partner teams the
+  visibility to **detect → understand → act → learn** on reliability issues in a
+  transaction-heavy B2C EV ecosystem. The most "TPM" section: dashboard concept,
+  transaction + exception monitoring, severity model, customer-impact
+  prioritisation, incident diagnosis, vendor scorecards, SLA / escalation logic,
+  incident workflow, operator actions + audit, alerting, a conceptual architecture
+  + data model, a metrics framework, the reactive→proactive shift, and validation
+  questions — ending with a CTA into Section 6 (the interactive prototype).
+- **Route / files:** `/control-tower` → `src/sections/control-tower/` (folder
+  replaced the flat placeholder; `routes.tsx` + `ssr-smoke.tsx` imports updated;
+  flat `src/sections/ControlTowerSection.tsx` deleted). Bespoke page.
+- **IA change:** `sections.ts` `control-tower` entry retitled **"Reliability
+  Control Tower"**, refreshed tagline / phase / planned / absorbs (now also
+  absorbs brief §5 proposed solution + §10 metrics), `status: 'done'` → landing
+  map + progress **5/6**.
+- **Orchestrator state:** `ControlTowerSection` holds `category`
+  (`All / Charging / Payments / Vehicle data / Support`), `timeWindow`
+  (`1h / 24h / 7d / 30d`) and the open detail entity
+  (`{kind: 'transaction'|'incident'|'vendor', id} | null`) → one shared
+  `DetailDrawer`. The exception-severity filter is local to `ExceptionQueue`.
+- **Components (+ co-located `*.module.css`):** `ControlTowerSection` ·
+  `ControlTowerHero` + `ControlTowerHeroVisual` (dark laptop-framed conceptual
+  dashboard mockup) · `ControlTowerJob` (Detect/Understand/Act/Learn `FeatureCard`s
+  + proposed 4-persona user model) · `Dashboard` (KPI row = 6 `KpiCard` + tiny
+  `Sparkline`; `LineChart` reliability trend current vs previous; `Donut` issues by
+  category; `HBars` issues by region; persistent illustrative-data `Callout`;
+  category tabs + time-window control) · `TransactionMonitoring` (`DataTable` →
+  `DetailDrawer`; proposed transaction state model) · `ExceptionQueue` (P0–P3
+  filter; `DataTable` → `DetailDrawer`; proposed severity model + dimensions) ·
+  `CustomerImpact` (3 illustrative impact rows) · `DiagnosisSection` +
+  `DiagnosisCard` (worked conceptual incident diagnosis; card reused inside the
+  drawer) · `VendorHealth` (`DataTable` → `DetailDrawer`; 4 metric `KpiCard`s;
+  proposed vendor-governance framework) · `IncidentWorkflow` (8-step workflow +
+  "when to escalate" `DataTable` + `Time elapsed + Customer impact + Issue
+  severity` formula) · `OperatorActions` (action list w/ permission-controlled
+  tags; audit-log `Timeline`; control-considerations panel) · `Alerting` (4 IF/THEN
+  rule cards) · `Architecture` (`DiagramFrame` conceptual flow + 8 system-component
+  cards + conceptual data model) · `ControlTowerMetrics` (5 metric categories, no
+  values + primary outcome / candidate north star) · `BeforeAfter` (reactive vs
+  proactive flow) · `ControlTowerTakeaways` (dark band + 4 cards + central
+  insight) · `ValidationQuestions` (10-item list) · `ControlTowerTransition` →
+  `/prototype`. All copy + mock data in `_data.ts`; hero slot in `_assets.ts`.
+- **New chart primitives (additive to `src/components/charts/Charts.tsx`):**
+  - `LineChart` — small multi-series line chart (`series: {label, data, color?,
+    dashed?}[]`, optional `min` / `max`), used for the reliability trend.
+  - `HBars` — horizontal labelled bars with a trailing value (`rows: {label,
+    value, display?, color?}[]`), used for issues-by-region.
+  - `.module.css` additions for both; existing `Sparkline` / `MiniBars` /
+    `GaugeArc` / `Donut` untouched.
+- **New icons:** `bell, lock, server`. No token changes; no Section 1–4 changes;
+  light theme unchanged.
+- **OBSERVED:** the consumer journeys, transaction-heavy nature of the product,
+  reliance on external charging / payment / data partners, and the specific
+  failure points (payment pending, charger availability mismatch, stale vehicle
+  data, document errors) — all carried forward from Section 3's public review
+  evidence and public MyMotor product facts.
+- **INFERRED:** the potential signals / causes in every diagnosis card (provider
+  delay, missing callback, reconciliation lag, stale availability feed, upstream
+  latency) — `Callout kind="inferred"` + `DIAGNOSIS_LABEL`.
+- **PROPOSED / CONCEPTUAL:** the entire Control Tower — the detect/understand/
+  act/learn job, the user model, the dashboard, the transaction state model, the
+  P0–P3 severity model + dimensions, customer-impact prioritisation, the vendor
+  scorecards + governance framework, the SLA / escalation logic + formula, the
+  8-step incident workflow, the operator action set + audit trail + control
+  considerations (RBAC, permissioned actions, audit logs, tenant isolation,
+  no-PII, authz), the alerting rules, the architecture + system components + data
+  model, the metrics framework + candidate north star ("customer-impacting
+  transaction exception rate"), and the reactive→proactive operating model. Each
+  carries a `proposed` / `assumption` `Pill` or `Callout`.
+- **ILLUSTRATIVE-DATA POLICY:** realistic placeholder values (KPIs, trend series,
+  category / region splits, ~8 transactions, ~6 incidents, 3 vendors, audit
+  timestamps) are used only to make the interface legible. `_data.ts` header +
+  every data view in the UI carry a "not internal ZOOP data" label; IDs, provider
+  names, owners and timestamps are fictional; drawer actions are disabled and
+  labelled "permission-controlled".
+- **Must NOT claim:** "ZOOP's Control Tower has / monitors / uses…"; any real
+  ZOOP success or failure rate; real vendor names, APIs or SLAs; a real incident
+  log; real operational TATs; real customer data.
+- **Open / validation questions (`VALIDATION_QUESTIONS`):** which transaction
+  states already exist · real-time vs batch events · which vendors expose
+  reliable APIs / webhooks · how reconciliation is handled today · existing
+  vendor SLAs · which teams own each exception · which actions can be automated
+  safely · what customer-facing status can be exposed · what can be stored for
+  audit · what operational workflows already exist.
+- **Dark mode:** `ControlTowerHeroVisual` (laptop mockup) + `ControlTowerTakeaways`
+  band = `data-theme="dark"` + `--dark-*`. Everything else generic tokens.
+  `npm run contrast` passes (unchanged).
+
+---
+
 ### Working commands
 
 ```
