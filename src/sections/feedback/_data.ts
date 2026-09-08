@@ -432,7 +432,7 @@ export const POS_PAIN = {
 
 export const INSIGHTS_HEADER = {
   eyebrow: 'What this means',
-  title: 'Key takeaways for a TPM',
+  title: 'Key takeaways',
   lead: 'The reviews point beyond isolated bugs. They reveal moments where users lose confidence because the product cannot clearly communicate the current state of a real-world transaction or service.',
 } as const
 
