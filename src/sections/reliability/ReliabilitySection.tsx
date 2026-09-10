@@ -1,8 +1,6 @@
 import { ReliabilityHero } from './ReliabilityHero'
 import { ThreeWayAnalysis } from './ThreeWayAnalysis'
-import { ReliabilityGap } from './ReliabilityGap'
 import { ExceptionModel } from './ExceptionModel'
-import { OpportunityAreas } from './OpportunityAreas'
 import { ReliabilityPrioritization } from './ReliabilityPrioritization'
 import { TransactionFocus } from './TransactionFocus'
 import { TpmTakeaways } from './TpmTakeaways'
@@ -26,9 +24,7 @@ export function ReliabilitySection() {
     <article>
       <ReliabilityHero />
       <ThreeWayAnalysis />
-      <ReliabilityGap />
       <ExceptionModel />
-      <OpportunityAreas />
       <ReliabilityPrioritization />
       <TransactionFocus />
       <TpmTakeaways />

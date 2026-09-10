@@ -529,10 +529,9 @@ internal system.**
   `status: 'done'` → landing map + progress 4/6.
 - **Components (+ co-located `*.module.css`):** `ReliabilitySection` (orchestrator) ·
   `ReliabilityHero` + `ReliabilityHeroVisual` · `ThreeWayAnalysis` (signals /
-  inferred causes / impact — 3 col) · `ReliabilityGap`
-  (expected vs actual + conceptual system dependency via `NodeFlow`) ·
+  inferred causes / impact — 3 col) ·
   `ExceptionModel` (7-step Event→Detect→Classify→Assign→Escalate→Resolve→Communicate
-  with the payment worked example) · `OpportunityAreas` (4 cards) ·
+  with the payment worked example) ·
   `ReliabilityPrioritization` (uses the shared `PriorityPlot`) · `TransactionFocus`
   (Customer intent → … → Trust impact chain) · `TpmTakeaways` (dark band + 4 cards
   + the central "visible, understandable, recoverable" insight + Prevent→Detect→
@@ -550,12 +549,13 @@ internal system.**
 - **INFERRED:** the 5 potential root causes (external dependencies, data sync,
   transaction complexity, limited real-time visibility, support/escalation flow) —
   `Callout kind="inferred"` "not internal ZOOP data".
-- **PROPOSED / CONCEPTUAL:** the expected-vs-actual reliability framework; the
-  conceptual system-dependency chain; the exception-management model; the
-  opportunity areas; the prioritization (`PriorityPlot`, no scores — Transaction
-  state uncertainty + Charger availability mismatch highlighted red as priority
-  focus); the transaction-reliability product hypothesis; the 4 TPM takeaways +
-  central insight. Each carries a `proposed` / `assumption` `Pill` or `Callout`.
+- **PROPOSED / CONCEPTUAL:** the exception-management model; the prioritization
+  (`PriorityPlot`, no scores — Transaction state uncertainty + Charger
+  availability mismatch highlighted red as priority focus); the
+  transaction-reliability product hypothesis; the 4 TPM takeaways + central
+  insight. Each carries a `proposed` / `assumption` `Pill` or `Callout`.
+  (The `JourneyRisk`, `ReliabilityGap` and `OpportunityAreas` blocks were built
+  then removed in later trims.)
 - **Prioritization outcome:** the two problems carried into §5 = **transaction
   state uncertainty** and **charger availability mismatch**.
 - **Open questions — cannot be answered from public information:** actual

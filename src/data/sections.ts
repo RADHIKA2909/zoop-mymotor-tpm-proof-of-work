@@ -104,9 +104,8 @@ export const SECTIONS: SectionDef[] = [
     status: 'done',
     planned: [
       'Three-way analysis — reliability signals / inferred root causes / customer impact',
-      'The reliability gap: expected state vs actual state → uncertainty',
       'A proposed exception-management model (detect → classify → assign → escalate → resolve → communicate)',
-      'Reliability opportunity areas + an illustrative prioritization',
+      'An illustrative prioritization of the reliability problems',
       'Why transaction reliability deserves the deepest look → hand-off to the Control Tower',
     ],
     absorbs: [

@@ -152,32 +152,6 @@ export const ANALYSIS_HEADERS = {
   impact: { eyebrow: 'Impact on users', title: 'Why it matters', lead: 'Reliability issues create real friction and can affect trust, usage and overall satisfaction.' },
 } as const
 
-/* ---- Reliability gap --------------------------------------------- */
-
-export const GAP = {
-  title: 'The reliability gap is not always a failure.',
-  subtitle: 'It is often a gap between what the customer was told and what is actually true.',
-  pairs: [
-    { expected: 'Charger available', actual: 'Charger unavailable' },
-    { expected: 'Session active', actual: 'Session not started' },
-    { expected: 'Payment successful', actual: 'Payment pending' },
-    { expected: 'Vehicle information current', actual: 'Information outdated' },
-  ],
-  outcome: 'Customer sees the gap → uncertainty.',
-  statement:
-    'Reliability is not only about preventing failures. It is also about knowing when reality differs from what the customer was told.',
-  frameworkLabel: 'Proposed reliability framework',
-  dependency: [
-    'Customer',
-    'MyMotor',
-    'External service / network',
-    'Transaction',
-    'Status',
-    'Customer communication',
-  ],
-  dependencyLabel: 'Conceptual system dependency — internal services / APIs are not specified.',
-} as const
-
 /* ---- Exception management model -------------------------------- */
 
 export interface ExceptionStep {
@@ -200,48 +174,6 @@ export const EXCEPTION = {
   ] as ExceptionStep[],
   label: "Proposed exception management model — not ZOOP's current workflow.",
 } as const
-
-/* ---- Opportunity areas -------------------------------------- */
-
-export interface Opportunity {
-  num: string
-  icon: IconName
-  title: string
-  desc: string
-}
-
-export const OPPORTUNITY_HEADER = {
-  eyebrow: 'Reliability opportunity areas',
-  title: 'Where I see the biggest opportunities',
-  lead: 'Based on the journey and feedback analysis, these are the problem areas I would investigate first.',
-} as const
-
-export const OPPORTUNITIES: Opportunity[] = [
-  {
-    num: '01',
-    icon: 'plug',
-    title: 'Charger availability',
-    desc: 'Improve the accuracy and freshness of charger-state information.',
-  },
-  {
-    num: '02',
-    icon: 'card',
-    title: 'Transaction visibility',
-    desc: 'Make payment and charging states clearer and easier to reconcile.',
-  },
-  {
-    num: '03',
-    icon: 'database',
-    title: 'Data freshness',
-    desc: 'Improve confidence in information coming from connected systems.',
-  },
-  {
-    num: '04',
-    icon: 'headset',
-    title: 'Exception handling',
-    desc: 'Detect, route and resolve failures faster with clear ownership.',
-  },
-]
 
 /* ---- Prioritization -------------------------------------- */
 
