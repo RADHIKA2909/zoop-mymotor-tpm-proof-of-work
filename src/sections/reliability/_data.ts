@@ -229,7 +229,7 @@ export const TAKEAWAYS: Takeaway[] = [
   {
     num: '04',
     icon: 'gauge',
-    title: 'Enable better operations',
+    title: 'Enable better recovery',
     desc: 'Give teams the data and signals needed to proactively prevent issues.',
   },
 ]
