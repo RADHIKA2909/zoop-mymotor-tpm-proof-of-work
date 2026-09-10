@@ -175,33 +175,6 @@ export const EXCEPTION = {
   label: "Proposed exception management model — not ZOOP's current workflow.",
 } as const
 
-/* ---- Prioritization -------------------------------------- */
-
-export const PRIORITY_HEADER = {
-  eyebrow: 'Prioritization (illustrative)',
-  title: 'Which problems should we focus on?',
-  lead: 'Not every reliability issue deserves the same investment. I would prioritize based on customer impact and the strength of the reliability signal.',
-  xAxis: 'Customer impact',
-  yAxis: 'Reliability signal',
-  note: 'Illustrative prioritization based on public feedback signals — not internal ZOOP data. No numerical scores, incident volumes or failure rates are claimed.',
-} as const
-
-export const PRIORITY_POINTS: {
-  id: string
-  label: string
-  x: number
-  y: number
-  tone: 'error' | 'warning' | 'success'
-  emphasis?: boolean
-}[] = [
-  { id: 'transaction', label: 'Transaction state uncertainty', x: 84, y: 84, tone: 'error', emphasis: true },
-  { id: 'charger', label: 'Charger availability mismatch', x: 74, y: 70, tone: 'error', emphasis: true },
-  { id: 'data', label: 'Data freshness', x: 55, y: 52, tone: 'warning' },
-  { id: 'exception', label: 'Exception resolution', x: 40, y: 36, tone: 'success' },
-]
-
-export const PRIORITY_FOCUS = ['Transaction state uncertainty', 'Charger availability mismatch']
-
 /* ---- Why transaction reliability ------------------------ */
 
 export const TXN_FOCUS = {

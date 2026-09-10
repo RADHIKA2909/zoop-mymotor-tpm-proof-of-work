@@ -531,17 +531,16 @@ internal system.**
   `ReliabilityHero` + `ReliabilityHeroVisual` · `ThreeWayAnalysis` (signals /
   inferred causes / impact — 3 col) ·
   `ExceptionModel` (7-step Event→Detect→Classify→Assign→Escalate→Resolve→Communicate
-  with the payment worked example) ·
-  `ReliabilityPrioritization` (uses the shared `PriorityPlot`) · `TransactionFocus`
+  with the payment worked example) · `TransactionFocus`
   (Customer intent → … → Trust impact chain) · `TpmTakeaways` (dark band + 4 cards
   + the central "visible, understandable, recoverable" insight + Prevent→Detect→
   Diagnose→Resolve→Recover) · `ReliabilityTransition` → `/control-tower`. All copy in
   `_data.ts`; hero slot in `_assets.ts`.
 - **Shared extraction:** `src/components/diagrams/PriorityPlot.tsx` (+ `.module.css`)
   — data-agnostic 2×2 scatter, lifted from Section 3's matrix. Section 3's
-  `feedback/PrioritizationMatrix` refactored to use it; **visual output preserved**
-  (verified via build + SSR smoke — `/feedback` size unchanged). Now backs both the
-  §3 and §4 prioritization visuals.
+  `feedback/PrioritizationMatrix` refactored to use it (visual output preserved).
+  (§4 had a second `PriorityPlot` visual — `ReliabilityPrioritization` — which was
+  later removed; the shared component still backs the §3 matrix.)
 - **New icons:** `target, link, flag, gauge`. No token changes; no Section 1/2 changes.
 - **OBSERVED:** the journey stages + the 5 reliability signals + the 4 customer
   impacts, all grounded in Section 3's public review evidence and the public MyMotor
@@ -549,15 +548,14 @@ internal system.**
 - **INFERRED:** the 5 potential root causes (external dependencies, data sync,
   transaction complexity, limited real-time visibility, support/escalation flow) —
   `Callout kind="inferred"` "not internal ZOOP data".
-- **PROPOSED / CONCEPTUAL:** the exception-management model; the prioritization
-  (`PriorityPlot`, no scores — Transaction state uncertainty + Charger
-  availability mismatch highlighted red as priority focus); the
+- **PROPOSED / CONCEPTUAL:** the exception-management model; the
   transaction-reliability product hypothesis; the 4 TPM takeaways + central
   insight. Each carries a `proposed` / `assumption` `Pill` or `Callout`.
-  (The `JourneyRisk`, `ReliabilityGap` and `OpportunityAreas` blocks were built
-  then removed in later trims.)
-- **Prioritization outcome:** the two problems carried into §5 = **transaction
-  state uncertainty** and **charger availability mismatch**.
+  (The `JourneyRisk`, `ReliabilityGap`, `OpportunityAreas` and
+  `ReliabilityPrioritization` blocks were built then removed in later trims.)
+- **Prioritization outcome (still referenced narratively in §5):** the two
+  problems carried forward = **transaction state uncertainty** and **charger
+  availability mismatch**.
 - **Open questions — cannot be answered from public information:** actual
   transaction / charger failure rates · which external vendors are in each journey ·
   actual vendor SLAs / performance · how transaction states are reconciled · how
