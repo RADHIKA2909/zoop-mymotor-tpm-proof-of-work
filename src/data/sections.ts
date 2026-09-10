@@ -99,11 +99,10 @@ export const SECTIONS: SectionDef[] = [
     navLabel: 'Reliability',
     title: 'Reliability Analysis',
     tagline:
-      'Turning the customer feedback into a structured reliability analysis — journey failure points, potential root causes, customer impact, and the problems worth solving.',
+      'Turning the customer feedback into a structured reliability analysis — reliability signals, potential root causes, customer impact, and the problems worth solving.',
     phase: 'Prioritization',
     status: 'done',
     planned: [
-      'Journey failure points with qualitative, illustrative risk levels',
       'Three-way analysis — reliability signals / inferred root causes / customer impact',
       'The reliability gap: expected state vs actual state → uncertainty',
       'A proposed exception-management model (detect → classify → assign → escalate → resolve → communicate)',

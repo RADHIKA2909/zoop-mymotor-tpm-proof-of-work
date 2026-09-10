@@ -1,5 +1,4 @@
 import { ReliabilityHero } from './ReliabilityHero'
-import { JourneyRisk } from './JourneyRisk'
 import { ThreeWayAnalysis } from './ThreeWayAnalysis'
 import { ReliabilityGap } from './ReliabilityGap'
 import { ExceptionModel } from './ExceptionModel'
@@ -26,7 +25,6 @@ export function ReliabilitySection() {
   return (
     <article>
       <ReliabilityHero />
-      <JourneyRisk />
       <ThreeWayAnalysis />
       <ReliabilityGap />
       <ExceptionModel />

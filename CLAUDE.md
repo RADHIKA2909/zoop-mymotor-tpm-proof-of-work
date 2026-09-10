@@ -528,9 +528,8 @@ internal system.**
   solution / PRD / RCA / metrics) **moved to §5 Control Tower / §6 Prototype**.
   `status: 'done'` → landing map + progress 4/6.
 - **Components (+ co-located `*.module.css`):** `ReliabilitySection` (orchestrator) ·
-  `ReliabilityHero` + `ReliabilityHeroVisual` · `JourneyRisk` (6-stage flow +
-  qualitative risk pills + hover tooltips + Lower/Moderate/Higher legend) ·
-  `ThreeWayAnalysis` (signals / inferred causes / impact — 3 col) · `ReliabilityGap`
+  `ReliabilityHero` + `ReliabilityHeroVisual` · `ThreeWayAnalysis` (signals /
+  inferred causes / impact — 3 col) · `ReliabilityGap`
   (expected vs actual + conceptual system dependency via `NodeFlow`) ·
   `ExceptionModel` (7-step Event→Detect→Classify→Assign→Escalate→Resolve→Communicate
   with the payment worked example) · `OpportunityAreas` (4 cards) ·
@@ -806,11 +805,11 @@ study. No layout / component / token / interaction changes.
   per-review platform data exists; aggregate corpus mentions kept). No new
   numbers; paraphrase disclosures + credibility labels unchanged.
 - **§4 Reliability:** `TAKEAWAYS_HEADER` 2nd sentence → "…should reduce friction,
-  improve user trust and create a more reliable customer experience.";
-  `JOURNEY_STAGES` renamed + realigned to match §2 (Discover / Evaluate /
-  Navigate / Start session / Charge / Complete) — icons 04–06 → plug / bolt /
-  check; `potentialIssue` for stages 5 & 6 reworded so each concept lands on the
-  correctly-named stage; **risk levels + prioritization unchanged**.
+  improve user trust and create a more reliable customer experience." (The
+  `JourneyRisk` "Where reliability matters across the journey" 6-stage block was
+  briefly realigned to match §2, then removed entirely in a later trim — along
+  with `JOURNEY_STAGES` / `JOURNEY_HEADER` / `RISK_META`.) Prioritization
+  (`PriorityPlot`) unchanged.
 - **§5 Control Tower:** dashboard `<h2>` → "Proposed Reliability Control Tower";
   `JOB.lead` "…the right person taking the right action." → "…the right action
   being taken."; single illustrative dataset — `KPIS` already
