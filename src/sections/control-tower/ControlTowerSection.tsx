@@ -4,15 +4,10 @@ import { ControlTowerJob } from './ControlTowerJob'
 import { Dashboard } from './Dashboard'
 import { TransactionMonitoring } from './TransactionMonitoring'
 import { ExceptionQueue } from './ExceptionQueue'
-import { CustomerImpact } from './CustomerImpact'
 import { DiagnosisSection } from './DiagnosisSection'
 import { VendorHealth } from './VendorHealth'
-import { IncidentWorkflow } from './IncidentWorkflow'
-import { OperatorActions } from './OperatorActions'
-import { Alerting } from './Alerting'
 import { Architecture } from './Architecture'
 import { ControlTowerMetrics } from './ControlTowerMetrics'
-import { BeforeAfter } from './BeforeAfter'
 import { ControlTowerTakeaways } from './ControlTowerTakeaways'
 import { ControlTowerTransition } from './ControlTowerTransition'
 import { DetailDrawer, type DetailEntity } from './DetailDrawer'
@@ -31,13 +26,12 @@ import {
  * visibility to detect -> understand -> act -> learn on reliability issues in a
  * transaction-heavy B2C EV ecosystem.
  *
- * ⚠️ Illustrative operational data — NOT internal ZOOP data. Per the section guide,
- * realistic placeholder values are used ONLY to make the proposed interface
- * legible; every data view carries a visible "not internal ZOOP data" label.
- * Transaction / incident IDs, provider names, owners and timestamps are fictional.
- * The control tower, its architecture, data model, workflows, severity model,
- * escalation logic, alert rules, metrics and vendor framework are all a proposed
- * concept — not an existing ZOOP system.
+ * ⚠️ Illustrative operational data — NOT internal ZOOP data. Realistic placeholder
+ * values are used ONLY to make the proposed interface legible; every data view
+ * carries a visible "not internal ZOOP data" label. Transaction / incident IDs,
+ * provider names, owners and timestamps are fictional. The control tower, its
+ * architecture, severity model, escalation logic, metrics and vendor framework
+ * are all a proposed concept — not an existing ZOOP system.
  */
 export function ControlTowerSection() {
   const [category, setCategory] = useState<Category>(CATEGORY_FILTERS[0])
@@ -58,15 +52,10 @@ export function ControlTowerSection() {
         onOpen={(id) => setDetail({ kind: 'transaction', id })}
       />
       <ExceptionQueue onOpen={(id) => setDetail({ kind: 'incident', id })} />
-      <CustomerImpact />
       <DiagnosisSection />
       <VendorHealth onOpen={(id) => setDetail({ kind: 'vendor', id })} />
-      <IncidentWorkflow />
-      <OperatorActions />
-      <Alerting />
       <Architecture />
       <ControlTowerMetrics />
-      <BeforeAfter />
       <ControlTowerTakeaways />
       <ControlTowerTransition />
 

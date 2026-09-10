@@ -338,19 +338,6 @@ export const TXNS: Txn[] = [
   },
 ]
 
-export const TXN_STATE_MODEL = {
-  main: ['Initiated', 'Processing', 'Success'],
-  branches: [
-    'Processing → Failed',
-    'Processing → Pending',
-    'Pending → Resolved',
-    'Pending → Escalated',
-  ],
-  statement:
-    'Every transaction should have a known current state — including when something goes wrong.',
-  label: 'Proposed transaction state model',
-} as const
-
 /* ---- Exceptions -------------------------------------------------- */
 
 export type Severity = 'P0' | 'P1' | 'P2' | 'P3'
@@ -471,48 +458,6 @@ export const SEVERITY_DIMENSIONS = [
 
 export const SEVERITY_LABEL = 'Proposed incident severity model — not ZOOP’s actual incident levels.'
 
-/* ---- Customer impact ---------------------------------------------- */
-
-export interface ImpactRow {
-  issue: string
-  customers: string
-  transactions: string
-  delay: string
-  stage: string
-  status: string
-  statusTone: StatusTone
-}
-
-export const IMPACT_ROWS: ImpactRow[] = [
-  {
-    issue: 'Payment pending',
-    customers: '3 customers',
-    transactions: '3 transactions',
-    delay: '18 min average delay',
-    stage: 'PAY',
-    status: 'Customer-visible',
-    statusTone: 'error',
-  },
-  {
-    issue: 'Charger availability mismatch',
-    customers: '7 searches affected',
-    transactions: '—',
-    delay: '—',
-    stage: 'DISCOVER',
-    status: 'Customer-visible',
-    statusTone: 'warning',
-  },
-  {
-    issue: 'Data freshness',
-    customers: '21 customers',
-    transactions: '—',
-    delay: '—',
-    stage: 'POST-JOURNEY',
-    status: 'Low urgency',
-    statusTone: 'success',
-  },
-]
-
 /* ---- Diagnosis (shared shape) ----------------------------------- */
 
 export interface Diagnosis {
@@ -606,20 +551,7 @@ export const VENDOR_FRAMEWORK = [
 export const VENDOR_FRAMEWORK_NOTE =
   'A vendor should not be evaluated only on uptime. Reliability needs to be measured across the full customer journey.'
 
-/* ---- Incident workflow ---------------------------------------- */
-
-export const WORKFLOW_STEPS: { num: string; title: string; desc: string; tone: StatusTone }[] = [
-  { num: '01', title: 'Detect', desc: 'Monitoring identifies an abnormal state.', tone: 'info' },
-  { num: '02', title: 'Triage', desc: 'Determine severity and customer impact.', tone: 'info' },
-  { num: '03', title: 'Assign', desc: 'Route to the responsible team or vendor.', tone: 'info' },
-  { num: '04', title: 'Investigate', desc: 'Check transaction state, dependency health and recent changes.', tone: 'warning' },
-  { num: '05', title: 'Escalate', desc: 'Trigger SLA-based escalation if unresolved.', tone: 'warning' },
-  { num: '06', title: 'Resolve', desc: 'Recover, reconcile, retry, refund or restore service.', tone: 'success' },
-  { num: '07', title: 'Communicate', desc: 'Give the customer accurate status and next steps.', tone: 'success' },
-  { num: '08', title: 'Learn', desc: 'Capture RCA and prevent recurrence.', tone: 'neutral' },
-]
-
-export const WORKFLOW_LABEL = 'Proposed incident management workflow'
+/* ---- Escalation logic ---------------------------------------- */
 
 export interface EscalationRow {
   type: string
@@ -639,29 +571,7 @@ export const ESCALATION_ROWS: EscalationRow[] = [
 export const ESCALATION_FORMULA = ['Time elapsed', 'Customer impact', 'Issue severity']
 export const ESCALATION_LABEL = 'Proposed escalation logic'
 
-/* ---- Operator actions + audit -------------------------------- */
-
-export interface OperatorAction {
-  icon: IconName
-  label: string
-  restricted?: boolean
-}
-
-export const OPERATOR_ACTIONS: OperatorAction[] = [
-  { icon: 'eye', label: 'View incident' },
-  { icon: 'user', label: 'Assign owner' },
-  { icon: 'network', label: 'Contact vendor' },
-  { icon: 'refresh', label: 'Retry / reprocess', restricted: true },
-  { icon: 'check', label: 'Mark acknowledged' },
-  { icon: 'arrow-up-right', label: 'Escalate' },
-  { icon: 'message', label: 'Add internal note' },
-  { icon: 'headset', label: 'Update customer status' },
-  { icon: 'flag', label: 'Resolve', restricted: true },
-  { icon: 'file', label: 'Close with RCA' },
-]
-
-export const OPERATOR_NOTE =
-  'Destructive or financially sensitive actions should require appropriate authorization and audit logging.';
+/* ---- Audit log (incident detail drawer) --------------------- */
 
 export const AUDIT_LOG = [
   { time: '10:42', label: 'Incident created', tone: 'info' as StatusTone },
@@ -672,29 +582,6 @@ export const AUDIT_LOG = [
   { time: '10:57', label: 'Incident resolved', tone: 'success' as StatusTone },
   { time: '11:02', label: 'RCA added', tone: 'neutral' as StatusTone },
 ]
-
-export const AUDIT_NOTE =
-  'For a transaction-heavy product, auditability matters for accountability, incident review and compliance.'
-
-export const CONTROL_CONSIDERATIONS = [
-  'Role-based access control',
-  'Permission-controlled actions',
-  'Audit logs on every action',
-  'Tenant / data isolation where applicable',
-  'No sensitive customer information in dashboards',
-  'Authorization for financial or destructive actions',
-]
-
-/* ---- Alerting ----------------------------------------------- */
-
-export const ALERT_RULES = [
-  { ifText: 'A payment stays pending beyond a threshold', thenText: 'Create an exception' },
-  { ifText: 'A provider’s success rate drops below a threshold', thenText: 'Raise a vendor alert' },
-  { ifText: 'Charger availability-mismatch signals increase', thenText: 'Investigate provider / data freshness' },
-  { ifText: 'Multiple customers are affected by the same dependency', thenText: 'Create an incident and escalate' },
-]
-
-export const ALERT_LABEL = 'Proposed alerting rules — generic thresholds, not ZOOP values.'
 
 /* ---- Architecture ------------------------------------------ */
 
@@ -729,31 +616,6 @@ export const NORTH_STAR = {
   candidate: 'Customer-impacting transaction exception rate',
   supporting: ['Success rate', 'Time to detect', 'Time to resolve', 'SLA adherence', 'Repeat incident rate', 'Customer support contacts'],
   label: 'Proposed metric framework — not ZOOP’s official North Star.',
-} as const
-
-/* ---- Before / after ------------------------------------ */
-
-export const BEFORE_AFTER = {
-  title: 'From reactive support to proactive operations.',
-  before: [
-    'Customer reports issue',
-    'Support investigates',
-    'Team identifies dependency',
-    'Vendor contacted',
-    'Issue resolved',
-    'Limited learning',
-  ],
-  after: [
-    'System detects issue',
-    'Impact identified',
-    'Owner assigned',
-    'Vendor / dependency identified',
-    'SLA tracked',
-    'Resolution coordinated',
-    'Customer updated',
-    'RCA captured',
-    'Pattern monitored',
-  ],
 } as const
 
 /* ---- Takeaways (dark) --------------------------------- */

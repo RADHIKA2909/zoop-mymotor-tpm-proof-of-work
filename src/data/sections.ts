@@ -119,18 +119,17 @@ export const SECTIONS: SectionDef[] = [
     navLabel: 'Control Tower',
     title: 'Reliability Control Tower',
     tagline:
-      'A proposed operational model for turning reliability issues into action — detect, understand, act, learn — with a conceptual dashboard, transaction and exception monitoring, a severity model, vendor scorecards, incident workflow, a conceptual architecture and a metrics framework.',
+      'A proposed operational model for turning reliability issues into action — detect, understand, act, learn — with a conceptual dashboard, transaction and exception monitoring, a severity + escalation model, vendor scorecards, a conceptual architecture and a metrics framework.',
     phase: 'Proposed solution → Operational workflow → Technical design → Metrics',
     status: 'done',
     planned: [
       'The control-tower job — detect / understand / act / learn — and a proposed user model (ops, product, support, vendor management)',
       'Conceptual reliability dashboard — KPI header, reliability trend, issues by category and region (illustrative data, labelled "not internal ZOOP data")',
-      'Transaction monitoring + a proposed transaction state model; an exception queue + a proposed P0–P3 severity model',
-      'Customer-impact prioritisation and a worked, conceptual incident diagnosis',
-      'Vendor & dependency health + a proposed vendor-governance framework; SLA / escalation logic; an 8-step incident workflow',
-      'Operator actions, audit trail and control considerations (RBAC, permissioned actions, audit logs); proposed alerting rules',
+      'Transaction monitoring; an exception queue with a proposed P0–P3 severity model and compact escalation logic (SLA threshold, customer impact, issue severity, owner)',
+      'A worked, conceptual incident diagnosis (expected vs actual state, signals, dependency, owner, next action)',
+      'Vendor & dependency health + a proposed vendor-governance framework',
       'A conceptual control-tower architecture flow (labelled "not internal ZOOP architecture")',
-      'A proposed metrics framework + candidate north star; the reactive → proactive operating-model shift',
+      'A proposed metrics framework + candidate north star',
     ],
     absorbs: [
       'Brief §5 — Proposed solution (operational model)',

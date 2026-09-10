@@ -574,19 +574,18 @@ section where realistic placeholder values are sanctioned (section guide §8, §
 visible "not internal ZOOP data" label. Transaction / incident IDs (`TX-…`,
 `INC-…`), provider names (`Provider A/B/C`), owners, timestamps and audit events
 are all fictional. No real customer data. The Control Tower itself, its
-architecture, data model, workflows, severity model, escalation logic, alert
-rules, metrics framework and vendor-governance framework are all a **PROPOSED /
-CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
+architecture, severity model, escalation logic, metrics framework and
+vendor-governance framework are all a **PROPOSED / CONCEPTUAL** design for this
+proof of work — not an existing ZOOP system.
 
 - **Objective:** take Section 4's reliability failure points and design a proposed
   operational model — how a TPM gives ops / product / support / partner teams the
   visibility to **detect → understand → act → learn** on reliability issues in a
-  transaction-heavy B2C EV ecosystem. The most "TPM" section: dashboard concept,
-  transaction + exception monitoring, severity model, customer-impact
-  prioritisation, incident diagnosis, vendor scorecards, SLA / escalation logic,
-  incident workflow, operator actions + audit, alerting, a conceptual architecture
-  + data model, a metrics framework, the reactive→proactive shift, and validation
-  questions — ending with a CTA into Section 6 (the interactive prototype).
+  transaction-heavy B2C EV ecosystem. After later trims the section keeps its
+  strongest signals: the dashboard concept, transaction + exception monitoring,
+  the severity + escalation model, incident diagnosis, vendor scorecards, a
+  conceptual architecture flow, and a metrics framework — ending with a CTA into
+  Section 6 (the interactive prototype).
 - **Route / files:** `/control-tower` → `src/sections/control-tower/` (folder
   replaced the flat placeholder; `routes.tsx` + `ssr-smoke.tsx` imports updated;
   flat `src/sections/ControlTowerSection.tsx` deleted). Bespoke page.
@@ -606,23 +605,25 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
   `Sparkline`; `LineChart` reliability trend current vs previous; `Donut` issues by
   category; `HBars` issues by region; persistent illustrative-data `Callout`;
   category tabs + time-window control) · `TransactionMonitoring` (`DataTable` →
-  `DetailDrawer`; proposed transaction state model) · `ExceptionQueue` (P0–P3
-  filter; `DataTable` → `DetailDrawer`; proposed severity model + dimensions) ·
-  `CustomerImpact` (3 illustrative impact rows) · `DiagnosisSection` +
-  `DiagnosisCard` (worked conceptual incident diagnosis; card reused inside the
+  `DetailDrawer`) · `ExceptionQueue` (P0–P3 filter; `DataTable` → `DetailDrawer`;
+  two compact sub-blocks: the proposed P0–P3 severity model + dimensions, and the
+  escalation logic — SLA threshold / trigger / owner / state `DataTable` +
+  `Time elapsed + Customer impact + Issue severity` formula) · `DiagnosisSection`
+  + `DiagnosisCard` (worked conceptual incident diagnosis; card reused inside the
   drawer) · `VendorHealth` (`DataTable` → `DetailDrawer`; 4 metric `KpiCard`s;
-  proposed vendor-governance framework) · `IncidentWorkflow` (8-step workflow +
-  "when to escalate" `DataTable` + `Time elapsed + Customer impact + Issue
-  severity` formula) · `OperatorActions` (action list w/ permission-controlled
-  tags; audit-log `Timeline`; control-considerations panel) · `Alerting` (4 IF/THEN
-  rule cards) · `Architecture` (`DiagramFrame` conceptual flow only — the
-  "system components" + "data model" panels were later removed) ·
-  `ControlTowerMetrics` (5 metric categories, no
-  values + primary outcome / candidate north star) · `BeforeAfter` (reactive vs
-  proactive flow) · `ControlTowerTakeaways` (dark band + 4 cards + central
-  insight) · `ControlTowerTransition` → `/prototype`. All copy + mock data in
-  `_data.ts`; hero slot in `_assets.ts`. (A `ValidationQuestions` block was
-  built then later removed.)
+  proposed vendor-governance framework) · `Architecture` (`DiagramFrame`
+  conceptual flow only) · `ControlTowerMetrics` (5 metric categories, no
+  values + primary outcome / candidate north star) · `ControlTowerTakeaways`
+  (dark band + 4 cards + central insight) · `ControlTowerTransition` →
+  `/prototype`. All copy + mock data in `_data.ts`; hero slot in `_assets.ts`.
+  **A later structural trim removed** `ValidationQuestions`, the
+  `Architecture` "system components" + "data model" panels, the
+  `TransactionMonitoring` transaction-state-model sub-block, `CustomerImpact`,
+  the `IncidentWorkflow` 8-step workflow (its escalation table moved into
+  `ExceptionQueue`), `OperatorActions` (+ its audit-log / control-considerations —
+  `AUDIT_LOG` is still used by the incident `DetailDrawer`), `Alerting`, and
+  `BeforeAfter`. `DetailDrawer` is unchanged (transaction timeline + diagnosis;
+  incident diagnosis + audit log; vendor reliability + recent incidents).
 - **New chart primitives (additive to `src/components/charts/Charts.tsx`):**
   - `LineChart` — small multi-series line chart (`series: {label, data, color?,
     dashed?}[]`, optional `min` / `max`), used for the reliability trend.
@@ -641,15 +642,15 @@ CONCEPTUAL** design for this proof of work — not an existing ZOOP system.
   delay, missing callback, reconciliation lag, stale availability feed, upstream
   latency) — `Callout kind="inferred"` + `DIAGNOSIS_LABEL`.
 - **PROPOSED / CONCEPTUAL:** the entire Control Tower — the detect/understand/
-  act/learn job, the user model, the dashboard, the transaction state model, the
-  P0–P3 severity model + dimensions, customer-impact prioritisation, the vendor
-  scorecards + governance framework, the SLA / escalation logic + formula, the
-  8-step incident workflow, the operator action set + audit trail + control
-  considerations (RBAC, permissioned actions, audit logs, tenant isolation,
-  no-PII, authz), the alerting rules, the conceptual architecture flow,
-  the metrics framework + candidate north star ("customer-impacting
-  transaction exception rate"), and the reactive→proactive operating model. Each
-  carries a `proposed` / `assumption` `Pill` or `Callout`.
+  act/learn job, the user model, the dashboard, the P0–P3 severity model +
+  dimensions, the SLA / escalation logic + formula, the vendor scorecards +
+  governance framework, the incident-diagnosis frame, the conceptual
+  architecture flow, and the metrics framework + candidate north star
+  ("customer-impacting transaction exception rate"). Each carries a `proposed` /
+  `assumption` `Pill` or `Callout`. (A later trim removed the transaction state
+  model, customer-impact section, the 8-step incident workflow, the operator
+  action set + control considerations, the alerting rules and the
+  reactive→proactive before/after — see the component list above.)
 - **ILLUSTRATIVE-DATA POLICY:** realistic placeholder values (KPIs, trend series,
   category / region splits, ~8 transactions, ~6 incidents, 3 vendors, audit
   timestamps) are used only to make the interface legible. `_data.ts` header +
