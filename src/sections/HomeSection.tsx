@@ -7,7 +7,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Icon } from '@/components/ui/Icon'
 import { CLAIM_META, CLAIM_ORDER } from '@/data/claims'
 import { NARRATIVE_FLOW, SECTIONS } from '@/data/sections'
-import { CASE_STUDY, DISCLAIMER, SOURCES } from '@/data/company'
+import { CASE_STUDY } from '@/data/company'
 import s from './HomeSection.module.css'
 
 const STATUS_LABEL: Record<string, string> = {
@@ -142,27 +142,6 @@ export function HomeSection() {
               </ScrollReveal>
             ))}
           </div>
-        </Container>
-      </section>
-
-      {/* ---------- Sources ---------- */}
-      <section className={s.sources}>
-        <Container size="wide">
-          <ScrollReveal>
-            <Eyebrow>Built from</Eyebrow>
-            <h2 className={s.bandTitle}>Public sources only.</h2>
-          </ScrollReveal>
-          <ul className={s.sourceList}>
-            {SOURCES.map((source) => (
-              <li key={source.id}>
-                <a href={source.url} target="_blank" rel="noreferrer noopener" className={s.sourceLink}>
-                  <Icon name="external" size={15} />
-                  <span>{source.label}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className={s.sourceNote}>{DISCLAIMER}</p>
         </Container>
       </section>
 
