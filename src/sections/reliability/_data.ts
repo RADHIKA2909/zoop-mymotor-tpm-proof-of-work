@@ -180,15 +180,15 @@ export const EXCEPTION = {
 export const TXN_FOCUS = {
   title: 'Why transaction reliability deserves deeper investigation',
   chain: [
-    { label: 'Customer intent', value: '“Start charging.”' },
-    { label: 'System action', value: 'Session / transaction initiated.' },
-    { label: 'Expected state', value: 'Charging active.' },
-    { label: 'Potential reality', value: 'Pending / failed / unknown.' },
+    { label: 'Customer intent', value: 'Complete charging & pay.' },
+    { label: 'System action', value: 'Charging completed, payment initiated.' },
+    { label: 'Expected state', value: 'Payment successful, transaction confirmed.' },
+    { label: 'Potential reality', value: 'Pending / Failed / Unknown.' },
     { label: 'Customer question', value: '“Did it work?”' },
-    { label: 'Trust impact', value: 'Confidence in relying on the product drops.' },
+    { label: 'Trust impact', value: 'Confidence in the product drops.' },
   ],
   statement:
-    'One unresolved transaction can create more friction than several missing convenience features.',
+    'The key problem is knowing the actual transaction state — and communicating it clearly to the customer.',
   label: 'Proposed product hypothesis — not a measured business result.',
 } as const
 
