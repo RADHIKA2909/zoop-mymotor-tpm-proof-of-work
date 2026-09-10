@@ -751,28 +751,32 @@ operator workflow tangible. No real customer data, no financial values.
   the incident state model, the role model + approval flow, the action set, the
   audit log, the severity handling, the RCA / closure flow, every screen and
   every data value.
-- **Other static blocks:** `OtherScenarios` (4 cards → select + scroll),
-  `PrototypeHighlights` (4), `DesignPrinciples` (5), `ControlTowerMapping`
-  (§5 concept → §6 screen, 8 rows), `WhatThisShows` (4 takeaways + the
-  "a good product … helps you solve it" central quote),
-  `FinalTakeaways` (dark band), `CaseStudySummary` (01→06 recap, links to each
-  route), `PrototypeClosing` ("Building products that work when the real world
-  gets messy." + Back to overview / View prototype again).
+- **Static blocks (after a later structural trim):** `OtherScenarios` (4 cards →
+  select + scroll; the explanatory paragraph was removed), `PrototypeHighlights`
+  (one merged section "What this prototype demonstrates" = the 4 highlight cards
+  + the 5 design principles), `PrototypeClosing` ("Building products that work
+  when the real world gets messy." + Back to overview / View prototype again).
+  **Removed in that trim:** `DesignPrinciples` (merged into `PrototypeHighlights`),
+  `ControlTowerMapping` (§5→§6 mapping table), `WhatThisShows`
+  ("From analysis to a working experience" + central quote), `FinalTakeaways`
+  ("A more reliable EV future" dark band), `CaseStudySummary` (01→06 recap) —
+  plus `ProductionValidation` removed earlier.
 - **Components:** `PrototypeSection` (orchestrator) · `PrototypeHero` +
   `PrototypeHeroVisual` (light laptop + phone conceptual mockup, generic tokens) ·
   `PrototypeIntro` · `PrototypeStage` (`id="prototype-app"`) + `ScenarioBar`
   (scenario `<select>` + role tabs + reset) + `ScenarioStepper` + `DetectPanel` +
   `IncidentDetailPanel` + `ActionPanel` + `ResolvePanel` + `LearnPanel` +
-  `AuditLogPanel` (sticky rail) + `StageModals` · then the static blocks above.
-  Data + copy in `_data.ts`, reducer in `_state.ts`, `STATUS_TONE` + `scrollToApp`
-  in `_shared.ts`, hero slot in `_assets.ts`.
+  `AuditLogPanel` (sticky rail) + `StageModals` · `OtherScenarios` ·
+  `PrototypeHighlights` · `PrototypeClosing`. Data + copy in `_data.ts`, reducer
+  in `_state.ts`, `STATUS_TONE` + `scrollToApp` in `_shared.ts`, hero slot in
+  `_assets.ts`.
 - **Reused primitives only** — `Tabs` (controlled, `variant="pill"`), `Modal`,
   `DataTable`, `Timeline`, `Callout`, `Pill`, `Button`, `Eyebrow`, `Container`,
   `ScrollReveal`, `Icon`. **No new shared components, no new icons, no new chart
   primitives, no token changes.**
-- **Dark mode:** light-primary; hero visual + interactive stage use generic
-  tokens (map via the fixed `--dark-*` palette). `FinalTakeaways` is the one
-  `data-theme="dark"` band. `npm run contrast` passes unchanged.
+- **Dark mode:** light-primary throughout — hero visual + interactive stage use
+  generic tokens (map via the fixed `--dark-*` palette). No forced-dark band any
+  more (`FinalTakeaways` was removed). `npm run contrast` passes unchanged.
 - **Verification:** `tsc --noEmit` clean · `vite build` clean · `npm run contrast`
   all-pass · route smoke (9 routes; `/prototype` ~53 KB vs the ~10 KB placeholder;
   Sections 1–5 unchanged) · a state-machine smoke (`scripts/proto-smoke.tsx`,

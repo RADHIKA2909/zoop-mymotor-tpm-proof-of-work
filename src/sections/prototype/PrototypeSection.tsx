@@ -5,11 +5,6 @@ import { PrototypeIntro } from './PrototypeIntro'
 import { PrototypeStage } from './PrototypeStage'
 import { OtherScenarios } from './OtherScenarios'
 import { PrototypeHighlights } from './PrototypeHighlights'
-import { DesignPrinciples } from './DesignPrinciples'
-import { ControlTowerMapping } from './ControlTowerMapping'
-import { WhatThisShows } from './WhatThisShows'
-import { FinalTakeaways } from './FinalTakeaways'
-import { CaseStudySummary } from './CaseStudySummary'
 import { PrototypeClosing } from './PrototypeClosing'
 
 /**
@@ -35,11 +30,6 @@ export function PrototypeSection() {
       <PrototypeStage state={state} dispatch={dispatch} />
       <OtherScenarios dispatch={dispatch} />
       <PrototypeHighlights />
-      <DesignPrinciples />
-      <ControlTowerMapping />
-      <WhatThisShows />
-      <FinalTakeaways />
-      <CaseStudySummary />
       <PrototypeClosing />
     </article>
   )

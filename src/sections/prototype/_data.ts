@@ -639,66 +639,6 @@ export const DESIGN_PRINCIPLES: { num: string; title: string; desc: string }[] =
   { num: '05', title: 'Close the loop', desc: 'Resolution should include customer communication and a captured root cause.' },
 ]
 
-/* ---- Control Tower → Prototype mapping -------------------- */
-
-export const CT_MAPPING: { concept: string; prototype: string }[] = [
-  { concept: 'Detect', prototype: 'Incident list' },
-  { concept: 'Understand', prototype: 'Incident details' },
-  { concept: 'Diagnose', prototype: 'Diagnostics tab' },
-  { concept: 'Assign', prototype: 'Owner selection' },
-  { concept: 'Escalate', prototype: 'Escalation action' },
-  { concept: 'Resolve', prototype: 'Resolution flow' },
-  { concept: 'Communicate', prototype: 'Customer status update' },
-  { concept: 'Learn', prototype: 'RCA / product improvement' },
-]
-
-/* ---- What this shows ------------------------------------- */
-
-export const WHAT_THIS_SHOWS = {
-  eyebrow: 'What this shows',
-  title: 'From analysis to a working experience',
-  supporting:
-    'This prototype brings together everything from the previous sections — the ecosystem, journey, user feedback, reliability analysis and Control Tower — into one operational workflow.',
-  takeaways: [
-    { icon: 'users' as IconName, title: 'Customer-centric', desc: 'Starts with the customer journey and impact.' },
-    { icon: 'server' as IconName, title: 'Technical', desc: 'Accounts for system states and dependencies.' },
-    { icon: 'gauge' as IconName, title: 'Operational', desc: 'Makes ownership, escalation and resolution explicit.' },
-    { icon: 'target' as IconName, title: 'Product-led', desc: 'Turns recurring problems into measurable workflows.' },
-  ],
-}
-
-export const CENTRAL_QUOTE = {
-  quote: ['A good product doesn’t just show you the problem.', 'It helps you solve it.'],
-  sub: 'That’s the goal of the Control Tower — and this prototype shows how it could work in practice.',
-  label: 'Proposed product principle',
-}
-
-/* ---- Final takeaways (dark) --------------------------- */
-
-export const FINAL_TAKEAWAYS = {
-  eyebrow: 'Final thoughts',
-  title: 'A more reliable EV future',
-  supporting:
-    'By combining user insights, reliability analysis and operational execution, we can create a better, more reliable experience for every EV driver.',
-  cards: [
-    { num: '01', icon: 'users' as IconName, title: 'Happier customers', desc: 'Fewer failures, better experiences.' },
-    { num: '02', icon: 'route' as IconName, title: 'More reliable journeys', desc: 'Confidence to go electric.' },
-    { num: '03', icon: 'trend' as IconName, title: 'Data-driven decisions', desc: 'From feedback to measurable impact.' },
-    { num: '04', icon: 'eye' as IconName, title: 'Proactive operations', desc: 'Detect problems before they become repeated customer pain.' },
-  ],
-}
-
-/* ---- Case study recap -------------------------------- */
-
-export const CASE_STUDY_RECAP: { num: string; verb: string; label: string; path: string }[] = [
-  { num: '01', verb: 'Understand', label: 'ZOOP + MyMotor ecosystem', path: '/context' },
-  { num: '02', verb: 'Map', label: 'Consumer journey', path: '/journey' },
-  { num: '03', verb: 'Listen', label: 'Public customer feedback', path: '/feedback' },
-  { num: '04', verb: 'Prioritise', label: 'Reliability problems', path: '/reliability' },
-  { num: '05', verb: 'Design', label: 'Control Tower', path: '/control-tower' },
-  { num: '06', verb: 'Prototype', label: 'Working operational workflow', path: '/prototype' },
-]
-
 /* ---- Closing ---------------------------------------- */
 
 export const CLOSING = {

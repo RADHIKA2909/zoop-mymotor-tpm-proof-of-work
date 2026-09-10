@@ -156,8 +156,7 @@ export const SECTIONS: SectionDef[] = [
       'A proposed role model with request → approve for financially sensitive actions',
       'A live illustrative audit log, a resolution state and an RCA / closure step',
       'Four further scenarios (charger, vehicle data, high-impact, vendor)',
-      'Prototype highlights, design principles, the Control Tower → prototype mapping',
-      'What the prototype demonstrates and a full case-study recap',
+      'One compact "what this prototype demonstrates" section — the highlights + the design principles that guided it',
     ],
     absorbs: [
       'Brief §11 — Interactive prototype',

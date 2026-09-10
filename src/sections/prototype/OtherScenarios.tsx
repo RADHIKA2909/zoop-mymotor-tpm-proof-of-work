@@ -18,10 +18,6 @@ export function OtherScenarios({ dispatch }: { dispatch: Dispatch<PrototypeActio
       <Container size="wide">
         <Eyebrow>Other scenarios in the prototype</Eyebrow>
         <h2 className={s.title}>The same workflow, different failures</h2>
-        <p className={s.lead}>
-          The payment scenario is the most detailed. These are lighter, but run through
-          the same detect → investigate → act → resolve → learn flow.
-        </p>
 
         <ScrollReveal className={s.grid}>
           {OTHER_SCENARIOS.map((c) => (
