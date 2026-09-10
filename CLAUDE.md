@@ -453,8 +453,9 @@ ZOOP's internal architecture, vendors, SLAs, metrics or workflow.**
   `KeyInsights` (dark band: 4 insight cards + the "uncertainty, not an API
   failure" statement + conceptual reliability model) · `ProblemFlow` (NodeFlow +
   4 problem cards) · `PrioritizationMatrix` (2×2, no scores, 2 highlighted) ·
-  `FeedbackTpmLens` (before/after + Detect/Diagnose/Assign/Recover) ·
-  `FeedbackTransition` → `/reliability`. All copy + the local review dataset in
+  `FeedbackTpmLens` (before/after only — the Detect/Diagnose/Assign/Recover
+  card grid was later removed) · `FeedbackTransition` → `/reliability`. All copy
+  + the local review dataset in
   `_data.ts`; hero slot in `_assets.ts`.
 - **New shared:** `Icon.tsx` gained `star, filter, thumb-up, thumb-down, message,
   grid`. No token changes; no Section 1/2 changes.

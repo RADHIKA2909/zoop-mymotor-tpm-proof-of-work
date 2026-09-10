@@ -576,40 +576,6 @@ export const TPM_HEADER = {
     'Where does the customer journey lose reliability, and how can we detect and recover from it?',
 } as const
 
-export interface TpmQuestion {
-  num: string
-  title: string
-  body: string
-  icon: IconName
-}
-
-export const TPM_QUESTIONS: TpmQuestion[] = [
-  {
-    num: '01',
-    title: 'Detect',
-    body: 'How quickly can we know that a transaction or service has failed?',
-    icon: 'activity',
-  },
-  {
-    num: '02',
-    title: 'Diagnose',
-    body: 'Can we distinguish a customer issue from a vendor, API or upstream-system issue?',
-    icon: 'eye',
-  },
-  {
-    num: '03',
-    title: 'Assign',
-    body: 'Does every exception have a clear owner and escalation path?',
-    icon: 'users',
-  },
-  {
-    num: '04',
-    title: 'Recover',
-    body: 'Can we communicate the right status and resolution path to the customer?',
-    icon: 'refresh',
-  },
-]
-
 export const TRANSITION = {
   eyebrow: 'Next: from feedback to reliability',
   heading: 'The reviews point to a bigger problem: reliability needs visibility.',
