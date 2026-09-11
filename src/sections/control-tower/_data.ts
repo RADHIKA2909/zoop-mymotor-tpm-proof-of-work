@@ -586,6 +586,13 @@ export const NORTH_STAR = {
   label: 'Proposed metric framework — not ZOOP’s official North Star.',
 } as const
 
+/* ---- Key takeaway (dark) ------------------------------- */
+
+export const CENTRAL_INSIGHT = [
+  'A control tower should not just tell us that something failed.',
+  'It should tell us: what happened, who is affected, who owns it, what happens next, and whether the customer has recovered.',
+]
+
 export const TRANSITION = {
   eyebrow: 'Next: from concept to experience',
   heading: 'A control tower is only useful if people can act through it.',

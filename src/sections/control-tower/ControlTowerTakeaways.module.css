@@ -1,0 +1,22 @@
+.section {
+  background: var(--dark-bg);
+  color: var(--dark-text-primary);
+  padding: var(--section-pad-y) 0;
+}
+
+.statement {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  color: var(--dark-text-primary);
+  max-width: 44ch;
+}
+.statementAccent {
+  margin-top: var(--space-3);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+  color: var(--dark-accent);
+  max-width: 60ch;
+}

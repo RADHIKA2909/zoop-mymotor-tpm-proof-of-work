@@ -7,6 +7,7 @@ import { ExceptionQueue } from './ExceptionQueue'
 import { VendorHealth } from './VendorHealth'
 import { Architecture } from './Architecture'
 import { ControlTowerMetrics } from './ControlTowerMetrics'
+import { ControlTowerTakeaways } from './ControlTowerTakeaways'
 import { ControlTowerTransition } from './ControlTowerTransition'
 import { DetailDrawer, type DetailEntity } from './DetailDrawer'
 import {
@@ -53,6 +54,7 @@ export function ControlTowerSection() {
       <VendorHealth onOpen={(id) => setDetail({ kind: 'vendor', id })} />
       <Architecture />
       <ControlTowerMetrics />
+      <ControlTowerTakeaways />
       <ControlTowerTransition />
 
       <DetailDrawer entity={detail} onClose={() => setDetail(null)} />
