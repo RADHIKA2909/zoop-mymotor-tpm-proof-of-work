@@ -606,24 +606,29 @@ proof of work — not an existing ZOOP system.
   category; `HBars` issues by region; persistent illustrative-data `Callout`;
   category tabs + time-window control) · `TransactionMonitoring` (`DataTable` →
   `DetailDrawer`) · `ExceptionQueue` (P0–P3 filter; `DataTable` → `DetailDrawer`;
-  two compact sub-blocks: the proposed P0–P3 severity model + dimensions, and the
-  escalation logic — SLA threshold / trigger / owner / state `DataTable` +
-  `Time elapsed + Customer impact + Issue severity` formula) · `DiagnosisSection`
-  + `DiagnosisCard` (worked conceptual incident diagnosis; card reused inside the
-  drawer) · `VendorHealth` (`DataTable` → `DetailDrawer`; 4 metric `KpiCard`s;
-  proposed vendor-governance framework) · `Architecture` (`DiagramFrame`
-  conceptual flow only) · `ControlTowerMetrics` (5 metric categories, no
-  values + primary outcome / candidate north star) · `ControlTowerTakeaways`
-  (dark band + 4 cards + central insight) · `ControlTowerTransition` →
-  `/prototype`. All copy + mock data in `_data.ts`; hero slot in `_assets.ts`.
-  **A later structural trim removed** `ValidationQuestions`, the
-  `Architecture` "system components" + "data model" panels, the
-  `TransactionMonitoring` transaction-state-model sub-block, `CustomerImpact`,
-  the `IncidentWorkflow` 8-step workflow (its escalation table moved into
-  `ExceptionQueue`), `OperatorActions` (+ its audit-log / control-considerations —
-  `AUDIT_LOG` is still used by the incident `DetailDrawer`), `Alerting`, and
-  `BeforeAfter`. `DetailDrawer` is unchanged (transaction timeline + diagnosis;
-  incident diagnosis + audit log; vendor reliability + recent incidents).
+  one compact sub-block "How is severity determined?" — the 7 severity factors
+  framed as "inputs to issue severity", then the escalation formula
+  `Time elapsed + Customer impact + Issue severity = Escalation priority` with
+  the "Issue severity" term visually tied back to the factors above) ·
+  `DiagnosisSection` + `DiagnosisCard` (worked conceptual incident diagnosis;
+  card reused inside the drawer) · `VendorHealth` (`DataTable` → `DetailDrawer`;
+  4 metric `KpiCard`s; proposed vendor-governance framework) · `Architecture`
+  (`DiagramFrame` conceptual flow only) · `ControlTowerMetrics` (5 metric
+  categories, no values + primary outcome / candidate north star) ·
+  `ControlTowerTakeaways` (dark band + 4 cards + central insight) ·
+  `ControlTowerTransition` → `/prototype`. All copy + mock data in `_data.ts`;
+  hero slot in `_assets.ts`.
+  **Structural trims removed:** `ValidationQuestions`, the `Architecture`
+  "system components" + "data model" panels, the `TransactionMonitoring`
+  transaction-state-model sub-block, `CustomerImpact`, the `IncidentWorkflow`
+  8-step workflow, `OperatorActions` (+ its audit-log / control-considerations —
+  `AUDIT_LOG` is still used by the incident `DetailDrawer`), `Alerting`,
+  `BeforeAfter`, the P0–P3 severity cards (`SEVERITY_META.desc` removed — the
+  table still uses `.label`/`.tone`), and the "When should we escalate?"
+  issue-type/SLA/owner/state table (`EscalationRow` / `ESCALATION_ROWS` /
+  `ESCALATION_LABEL` removed — only `ESCALATION_FORMULA` remains). `DetailDrawer`
+  is unchanged (transaction timeline + diagnosis; incident diagnosis + audit
+  log; vendor reliability + recent incidents).
 - **New chart primitives (additive to `src/components/charts/Charts.tsx`):**
   - `LineChart` — small multi-series line chart (`series: {label, data, color?,
     dashed?}[]`, optional `min` / `max`), used for the reliability trend.

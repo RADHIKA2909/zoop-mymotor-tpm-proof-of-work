@@ -125,7 +125,7 @@ export const SECTIONS: SectionDef[] = [
     planned: [
       'The control-tower job — detect / understand / act / learn — and a proposed user model (ops, product, support, vendor management)',
       'Conceptual reliability dashboard — KPI header, reliability trend, issues by category and region (illustrative data, labelled "not internal ZOOP data")',
-      'Transaction monitoring; an exception queue with a proposed P0–P3 severity model and compact escalation logic (SLA threshold, customer impact, issue severity, owner)',
+      'Transaction monitoring; an exception queue with the factors that determine issue severity and a compact escalation formula (time elapsed + customer impact + issue severity = escalation priority)',
       'A worked, conceptual incident diagnosis (expected vs actual state, signals, dependency, owner, next action)',
       'Vendor & dependency health + a proposed vendor-governance framework',
       'A conceptual control-tower architecture flow (labelled "not internal ZOOP architecture")',

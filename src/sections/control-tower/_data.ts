@@ -423,11 +423,11 @@ export const EXCEPTIONS: Exception[] = [
   },
 ]
 
-export const SEVERITY_META: Record<Severity, { label: string; tone: 'error' | 'warning' | 'info' | 'neutral'; desc: string }> = {
-  P0: { label: 'P0 — Critical', tone: 'error', desc: 'Widespread customer impact or major transaction disruption.' },
-  P1: { label: 'P1 — High', tone: 'error', desc: 'Significant customer or operational impact.' },
-  P2: { label: 'P2 — Medium', tone: 'warning', desc: 'Limited impact with a workaround available.' },
-  P3: { label: 'P3 — Low', tone: 'neutral', desc: 'Minor, non-blocking issue.' },
+export const SEVERITY_META: Record<Severity, { label: string; tone: 'error' | 'warning' | 'info' | 'neutral' }> = {
+  P0: { label: 'P0 — Critical', tone: 'error' },
+  P1: { label: 'P1 — High', tone: 'error' },
+  P2: { label: 'P2 — Medium', tone: 'warning' },
+  P3: { label: 'P3 — Low', tone: 'neutral' },
 }
 
 export const SEVERITY_DIMENSIONS = [
@@ -537,23 +537,7 @@ export const VENDOR_FRAMEWORK_NOTE =
 
 /* ---- Escalation logic ---------------------------------------- */
 
-export interface EscalationRow {
-  type: string
-  expected: string
-  trigger: string
-  owner: string
-  state: 'Normal' | 'At risk' | 'SLA breached'
-}
-
-export const ESCALATION_ROWS: EscalationRow[] = [
-  { type: 'Payment pending', expected: 'Defined by business / vendor SLA', trigger: 'Approaching threshold', owner: 'Payments Ops', state: 'At risk' },
-  { type: 'Charging session failure', expected: 'Defined by business / vendor SLA', trigger: 'Customer blocked', owner: 'Partner Ops', state: 'SLA breached' },
-  { type: 'Data sync issue', expected: 'Defined by freshness threshold', trigger: 'Freshness threshold exceeded', owner: 'Data Ops', state: 'At risk' },
-  { type: 'Document error', expected: 'Defined by support SLA', trigger: 'Multiple customers affected', owner: 'Support', state: 'Normal' },
-]
-
 export const ESCALATION_FORMULA = ['Time elapsed', 'Customer impact', 'Issue severity']
-export const ESCALATION_LABEL = 'Proposed escalation logic'
 
 /* ---- Audit log (incident detail drawer) --------------------- */
 

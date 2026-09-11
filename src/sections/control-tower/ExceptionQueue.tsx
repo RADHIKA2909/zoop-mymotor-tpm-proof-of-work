@@ -9,26 +9,16 @@ import { DataTable, type Column } from '@/components/ui/DataTable'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import {
   ESCALATION_FORMULA,
-  ESCALATION_LABEL,
-  ESCALATION_ROWS,
   EXCEPTIONS,
   SEVERITY_DIMENSIONS,
   SEVERITY_LABEL,
   SEVERITY_META,
-  type EscalationRow,
   type Exception,
-  type Severity,
 } from './_data'
 import s from './ExceptionQueue.module.css'
 
 const FILTERS = ['All', 'P0', 'P1', 'P2', 'P3'] as const
 type Filter = (typeof FILTERS)[number]
-
-const STATE_TONE = {
-  Normal: 'success',
-  'At risk': 'warning',
-  'SLA breached': 'error',
-} as const
 
 interface Props {
   onOpen: (id: string) => void
@@ -55,22 +45,6 @@ export function ExceptionQueue({ onOpen }: Props) {
     { key: 'age', header: 'Age', align: 'right', hideOnMobile: true },
     { key: 'owner', header: 'Owner', hideOnMobile: true },
     { key: 'nextAction', header: 'Next action', render: (r) => <span className={s.action}>{r.nextAction}</span> },
-  ]
-
-  const escColumns: Column<EscalationRow>[] = [
-    { key: 'type', header: 'Issue type', render: (r) => <span className={s.issue}>{r.type}</span> },
-    { key: 'expected', header: 'SLA threshold', hideOnMobile: true },
-    { key: 'trigger', header: 'Escalation trigger' },
-    { key: 'owner', header: 'Owner', hideOnMobile: true },
-    {
-      key: 'state',
-      header: 'State',
-      render: (r) => (
-        <Pill tone={STATE_TONE[r.state]} size="sm" dot>
-          {r.state}
-        </Pill>
-      ),
-    },
   ]
 
   return (
@@ -109,40 +83,23 @@ export function ExceptionQueue({ onOpen }: Props) {
 
         <div className={s.model}>
           <div className={s.modelHead}>
-            <span className={s.modelTitle}>Proposed incident severity model</span>
+            <span className={s.modelTitle}>How is severity determined?</span>
             <Pill tone="proposed" caps size="sm">
               {SEVERITY_LABEL}
             </Pill>
           </div>
-          <div className={s.sevGrid}>
-            {(Object.keys(SEVERITY_META) as Severity[]).map((k) => (
-              <div className={s.sevCard} key={k} data-tone={SEVERITY_META[k].tone}>
-                <span className={s.sevLabel}>{SEVERITY_META[k].label}</span>
-                <p className={s.sevDesc}>{SEVERITY_META[k].desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className={s.dimsTitle}>Severity should consider:</p>
-          <CheckList columns={2} items={[...SEVERITY_DIMENSIONS]} />
-        </div>
 
-        <div className={s.model}>
-          <div className={s.modelHead}>
-            <span className={s.modelTitle}>When should we escalate?</span>
-            <Pill tone="proposed" caps size="sm">
-              {ESCALATION_LABEL}
-            </Pill>
-          </div>
-          <DataTable
-            columns={escColumns}
-            rows={ESCALATION_ROWS}
-            getRowId={(r) => r.type}
-            density="compact"
-          />
+          <p className={s.dimsTitle}>Inputs to issue severity:</p>
+          <CheckList columns={2} items={[...SEVERITY_DIMENSIONS]} />
+
           <div className={s.formula}>
             {ESCALATION_FORMULA.map((f, i) => (
               <span key={f}>
-                <span className={s.formulaItem}>{f}</span>
+                <span
+                  className={cn(s.formulaItem, f === 'Issue severity' && s.formulaItemLinked)}
+                >
+                  {f}
+                </span>
                 {i < ESCALATION_FORMULA.length - 1 ? (
                   <span className={s.op}>+</span>
                 ) : (
@@ -154,6 +111,7 @@ export function ExceptionQueue({ onOpen }: Props) {
               </span>
             ))}
           </div>
+          <p className={s.formulaNote}>Issue severity is set by the factors above.</p>
         </div>
       </Container>
     </section>
