@@ -4,7 +4,6 @@ import { PrototypeHero } from './PrototypeHero'
 import { PrototypeIntro } from './PrototypeIntro'
 import { PrototypeStage } from './PrototypeStage'
 import { OtherScenarios } from './OtherScenarios'
-import { PrototypeHighlights } from './PrototypeHighlights'
 import { PrototypeClosing } from './PrototypeClosing'
 
 /**
@@ -29,7 +28,6 @@ export function PrototypeSection() {
       <PrototypeIntro />
       <PrototypeStage state={state} dispatch={dispatch} />
       <OtherScenarios dispatch={dispatch} />
-      <PrototypeHighlights />
       <PrototypeClosing />
     </article>
   )

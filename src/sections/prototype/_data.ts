@@ -620,23 +620,17 @@ export const OTHER_SCENARIOS: { scenarioId: ScenarioId; icon: IconName; title: s
   { scenarioId: 'vendor', icon: 'network', title: 'Vendor issue', desc: 'Explore how a regional provider issue could be investigated and governed.' },
 ]
 
-/* ---- Prototype highlights ---------------------------------- */
+export const OTHER_SCENARIOS_LEAD =
+  'The same operator workflow can be applied across different reliability problems, with the right actions and ownership for each case.'
 
-export const HIGHLIGHTS: { icon: IconName; title: string; desc: string }[] = [
-  { icon: 'activity', title: 'Illustrative data', desc: 'Based on common reliability themes from public user feedback, using illustrative data.' },
-  { icon: 'bolt', title: 'Interactive experience', desc: 'Click, explore and follow a real workflow end to end.' },
-  { icon: 'layers', title: 'Responsive experience', desc: 'Designed to adapt across desktop, tablet and mobile.' },
-  { icon: 'lock', title: 'Role-based actions', desc: 'Shows how operational actions can be permission-controlled.' },
-]
+/* ---- Design principles (compact) ---------------------------- */
 
-/* ---- Design principles ------------------------------------ */
-
-export const DESIGN_PRINCIPLES: { num: string; title: string; desc: string }[] = [
-  { num: '01', title: 'Show state clearly', desc: 'The operator should immediately understand what happened and the current state.' },
-  { num: '02', title: 'Surface customer impact', desc: 'Issues affecting customers should be easy to identify and prioritise.' },
-  { num: '03', title: 'Make ownership explicit', desc: 'Every active incident should have a clear owner and escalation path.' },
-  { num: '04', title: 'Actions should be safe', desc: 'Financially sensitive actions should require appropriate approval.' },
-  { num: '05', title: 'Close the loop', desc: 'Resolution should include customer communication and a captured root cause.' },
+export const DESIGN_PRINCIPLES = [
+  'Show state clearly',
+  'Surface customer impact',
+  'Make ownership explicit',
+  'Actions should be safe',
+  'Close the loop',
 ]
 
 /* ---- Closing ---------------------------------------- */

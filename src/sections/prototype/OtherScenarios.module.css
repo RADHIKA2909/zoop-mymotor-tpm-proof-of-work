@@ -6,7 +6,14 @@
 .title {
   font-size: var(--text-2xl);
   letter-spacing: var(--tracking-tight);
+}
+.lead {
+  margin-top: var(--space-2);
   margin-bottom: var(--space-6);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+  max-width: 62ch;
 }
 
 .grid {
@@ -67,4 +74,20 @@
 }
 .card:hover .arrow {
   color: var(--brand-green-strong);
+}
+
+.principlesLabel {
+  margin-top: var(--space-7);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-green-strong);
+}
+
+.principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
 }

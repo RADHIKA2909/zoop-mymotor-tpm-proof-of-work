@@ -154,8 +154,7 @@ export const SECTIONS: SectionDef[] = [
       'Action panel — owner assignment, escalation, provider contact, customer status',
       'A proposed role model with request → approve for financially sensitive actions',
       'A live illustrative audit log, a resolution state and an RCA / closure step',
-      'Four further scenarios (charger, vehicle data, high-impact, vendor)',
-      'One compact "what this prototype demonstrates" section — the highlights + the design principles that guided it',
+      'Four further scenarios (charger, vehicle data, high-impact, vendor), with a compact row of the design principles that guided the prototype',
     ],
     absorbs: [
       'Brief §11 — Interactive prototype',

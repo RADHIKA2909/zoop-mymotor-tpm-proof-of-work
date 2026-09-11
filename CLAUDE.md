@@ -765,24 +765,27 @@ operator workflow tangible. No real customer data, no financial values.
   the incident state model, the role model + approval flow, the action set, the
   audit log, the severity handling, the RCA / closure flow, every screen and
   every data value.
-- **Static blocks (after a later structural trim):** `OtherScenarios` (4 cards →
-  select + scroll; the explanatory paragraph was removed), `PrototypeHighlights`
-  (one merged section "What this prototype demonstrates" = the 4 highlight cards
-  + the 5 design principles), `PrototypeClosing` ("Building products that work
+- **Static blocks (after later structural trims):** `OtherScenarios` — now a
+  single merged section "The same workflow, different failures": eyebrow +
+  heading + a short lead (`OTHER_SCENARIOS_LEAD`) + the 4 scenario cards
+  (select + scroll), then a compact "Design principles" row of 5 outline
+  `Pill`s (`DESIGN_PRINCIPLES`, titles only — the longer per-principle
+  descriptions were dropped); `PrototypeClosing` ("Building products that work
   when the real world gets messy." + Back to overview / View prototype again).
-  **Removed in that trim:** `DesignPrinciples` (merged into `PrototypeHighlights`),
-  `ControlTowerMapping` (§5→§6 mapping table), `WhatThisShows`
-  ("From analysis to a working experience" + central quote), `FinalTakeaways`
-  ("A more reliable EV future" dark band), `CaseStudySummary` (01→06 recap) —
-  plus `ProductionValidation` removed earlier.
+  **Removed across trims:** `PrototypeHighlights` (the "What this prototype
+  demonstrates" heading + 4 highlight cards — `HIGHLIGHTS` data deleted) and the
+  standalone `DesignPrinciples`, `ControlTowerMapping` (§5→§6 mapping table),
+  `WhatThisShows` ("From analysis to a working experience" + central quote),
+  `FinalTakeaways` ("A more reliable EV future" dark band), `CaseStudySummary`
+  (01→06 recap), and `ProductionValidation`.
 - **Components:** `PrototypeSection` (orchestrator) · `PrototypeHero` +
   `PrototypeHeroVisual` (light laptop + phone conceptual mockup, generic tokens) ·
   `PrototypeIntro` · `PrototypeStage` (`id="prototype-app"`) + `ScenarioBar`
   (scenario `<select>` + role tabs + reset) + `ScenarioStepper` + `DetectPanel` +
   `IncidentDetailPanel` + `ActionPanel` + `ResolvePanel` + `LearnPanel` +
-  `AuditLogPanel` (sticky rail) + `StageModals` · `OtherScenarios` ·
-  `PrototypeHighlights` · `PrototypeClosing`. Data + copy in `_data.ts`, reducer
-  in `_state.ts`, `STATUS_TONE` + `scrollToApp` in `_shared.ts`, hero slot in
+  `AuditLogPanel` (sticky rail) + `StageModals` · `OtherScenarios` (merged, see
+  above) · `PrototypeClosing`. Data + copy in `_data.ts`, reducer in
+  `_state.ts`, `STATUS_TONE` + `scrollToApp` in `_shared.ts`, hero slot in
   `_assets.ts`.
 - **Reused primitives only** — `Tabs` (controlled, `variant="pill"`), `Modal`,
   `DataTable`, `Timeline`, `Callout`, `Pill`, `Button`, `Eyebrow`, `Container`,

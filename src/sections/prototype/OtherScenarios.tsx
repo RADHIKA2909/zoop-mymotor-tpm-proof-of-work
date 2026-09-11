@@ -1,9 +1,10 @@
 import type { Dispatch } from 'react'
 import { Container } from '@/components/ui/Container'
 import { Eyebrow } from '@/components/ui/Eyebrow'
+import { Pill } from '@/components/ui/Pill'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Icon } from '@/components/ui/Icon'
-import { OTHER_SCENARIOS } from './_data'
+import { DESIGN_PRINCIPLES, OTHER_SCENARIOS, OTHER_SCENARIOS_LEAD } from './_data'
 import type { PrototypeAction } from './_state'
 import s from './OtherScenarios.module.css'
 
@@ -18,6 +19,7 @@ export function OtherScenarios({ dispatch }: { dispatch: Dispatch<PrototypeActio
       <Container size="wide">
         <Eyebrow>Other scenarios in the prototype</Eyebrow>
         <h2 className={s.title}>The same workflow, different failures</h2>
+        <p className={s.lead}>{OTHER_SCENARIOS_LEAD}</p>
 
         <ScrollReveal className={s.grid}>
           {OTHER_SCENARIOS.map((c) => (
@@ -33,6 +35,15 @@ export function OtherScenarios({ dispatch }: { dispatch: Dispatch<PrototypeActio
             </button>
           ))}
         </ScrollReveal>
+
+        <p className={s.principlesLabel}>Design principles</p>
+        <div className={s.principles}>
+          {DESIGN_PRINCIPLES.map((p) => (
+            <Pill key={p} variant="outline" size="sm">
+              {p}
+            </Pill>
+          ))}
+        </div>
       </Container>
     </section>
   )
