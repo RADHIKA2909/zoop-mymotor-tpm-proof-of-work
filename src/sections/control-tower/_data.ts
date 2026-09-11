@@ -35,30 +35,14 @@ export const HERO = {
 export interface Persona {
   icon: IconName
   role: string
-  needs: string[]
+  summary: string
 }
 
 export const PERSONAS: Persona[] = [
-  {
-    icon: 'gauge',
-    role: 'Operations / Control Tower',
-    needs: ['Monitor transactions', 'Identify exceptions', 'Assign & escalate', 'Track resolution'],
-  },
-  {
-    icon: 'target',
-    role: 'Product Managers',
-    needs: ['Spot recurring problems', 'Understand customer impact', 'Prioritise improvements', 'Watch post-release impact'],
-  },
-  {
-    icon: 'headset',
-    role: 'Support / Customer Experience',
-    needs: ['See current transaction state', 'Know customer-impacting incidents', 'Know ownership', 'Communicate accurate status'],
-  },
-  {
-    icon: 'network',
-    role: 'Vendor / Partner Management',
-    needs: ['Monitor partner performance', 'Spot SLA breaches', 'Track recurring vendor issues', 'Review reliability trends'],
-  },
+  { icon: 'gauge', role: 'Operations', summary: 'Monitor, assign, resolve.' },
+  { icon: 'target', role: 'Product', summary: 'Spot trends, prioritise improvements.' },
+  { icon: 'headset', role: 'Support', summary: 'Understand customer impact, communicate status.' },
+  { icon: 'network', role: 'Vendor Management', summary: 'Track partner health, SLAs.' },
 ]
 
 export const JOB = {

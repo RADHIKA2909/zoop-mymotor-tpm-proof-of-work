@@ -2,7 +2,6 @@ import { Container } from '@/components/ui/Container'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { FeatureCard } from '@/components/ui/FeatureCard'
 import { Pill } from '@/components/ui/Pill'
-import { CheckList } from '@/components/ui/CheckList'
 import { IconChip } from '@/components/ui/IconChip'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { JOB, PERSONAS } from './_data'
@@ -42,7 +41,7 @@ export function ControlTowerJob() {
                   <IconChip icon={p.icon} size="sm" />
                   <span className={s.personaRole}>{p.role}</span>
                 </div>
-                <CheckList marker="dot" items={[...p.needs]} />
+                <p className={s.personaSummary}>{p.summary}</p>
               </div>
             ))}
           </div>

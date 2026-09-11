@@ -81,3 +81,9 @@
   font-weight: var(--weight-semibold);
   color: var(--text-primary);
 }
+
+.personaSummary {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-secondary);
+}
