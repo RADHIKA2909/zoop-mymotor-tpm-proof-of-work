@@ -614,7 +614,6 @@ proof of work — not an existing ZOOP system.
   4 metric `KpiCard`s; proposed vendor-governance framework) · `Architecture`
   (`DiagramFrame` conceptual flow only) · `ControlTowerMetrics` (5 metric
   categories, no values + primary outcome / candidate north star) ·
-  `ControlTowerTakeaways` (dark band + 4 cards + central insight) ·
   `ControlTowerTransition` → `/prototype`. All copy + mock data in `_data.ts`;
   hero slot in `_assets.ts`.
   **Structural trims removed:** `ValidationQuestions`, the `Architecture`
@@ -625,11 +624,15 @@ proof of work — not an existing ZOOP system.
   `BeforeAfter`, the P0–P3 severity cards (`SEVERITY_META.desc` removed — the
   table still uses `.label`/`.tone`), the "When should we escalate?"
   issue-type/SLA/owner/state table (`EscalationRow` / `ESCALATION_ROWS` /
-  `ESCALATION_LABEL` removed — only `ESCALATION_FORMULA` remains), and the
-  standalone `DiagnosisSection` ("Turning an exception into a diagnosis").
-  `DiagnosisCard` + `DIAGNOSIS_LABEL` stay — still used inside `DetailDrawer`
-  (transaction timeline + diagnosis; incident diagnosis + audit log; vendor
-  reliability + recent incidents), which is otherwise unchanged.
+  `ESCALATION_LABEL` removed — only `ESCALATION_FORMULA` remains), the
+  standalone `DiagnosisSection` ("Turning an exception into a diagnosis" —
+  `DiagnosisCard` + `DIAGNOSIS_LABEL` stay, still used inside `DetailDrawer`),
+  and `ControlTowerTakeaways` ("What this means for a TPM" dark band + 4 cards
+  + central insight — `TAKEAWAYS_HEADER` / `TAKEAWAYS` / `CENTRAL_INSIGHT`
+  removed). `DetailDrawer` itself is otherwise unchanged (transaction timeline
+  + diagnosis; incident diagnosis + audit log; vendor reliability + recent
+  incidents). **§5 no longer has a forced-dark band** — only
+  `ControlTowerHeroVisual`'s laptop mockup still uses `data-theme="dark"`.
 - **New chart primitives (additive to `src/components/charts/Charts.tsx`):**
   - `LineChart` — small multi-series line chart (`series: {label, data, color?,
     dashed?}[]`, optional `min` / `max`), used for the reliability trend.
@@ -669,9 +672,9 @@ proof of work — not an existing ZOOP system.
 - **Open / validation questions:** §5's `ValidationQuestions` panel and §6's
   `ProductionValidation` panel were both built then later removed — the case
   study no longer surfaces a "what I'd validate first" list in-UI.
-- **Dark mode:** `ControlTowerHeroVisual` (laptop mockup) + `ControlTowerTakeaways`
-  band = `data-theme="dark"` + `--dark-*`. Everything else generic tokens.
-  `npm run contrast` passes (unchanged).
+- **Dark mode:** `ControlTowerHeroVisual` (laptop mockup) = `data-theme="dark"` +
+  `--dark-*`. Everything else generic tokens (no forced-dark band any more —
+  `ControlTowerTakeaways` was removed). `npm run contrast` passes (unchanged).
 
 ---
 
