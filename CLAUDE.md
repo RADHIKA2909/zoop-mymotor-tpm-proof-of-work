@@ -392,9 +392,11 @@ capabilities and is NOT claimed to represent ZOOP's internal workflow.**
   `JourneyHero` + `JourneyHeroVisual` (conceptual charging scene: ZOOP pillar + EV
   silhouette + route arc) · `JourneyFlow` + `JourneyStage` (6-stage timeline + local
   `ModeToggle`) · `AppShowcase` + `JourneyAppScreen` (find / navigate / session) ·
-  `BreakMap` + `RiskChip` · `MomentThatMatters` · `TpmQuestions` (uses `FeatureCard`) ·
+  `MomentThatMatters` · `TpmQuestions` (uses `FeatureCard`) ·
   `JourneyTransition`. Copy in `_data.ts`; image slots in `_assets.ts`
-  (`heroScene`, `showcaseFigure` — both conceptual).
+  (`heroScene`, `showcaseFigure` — both conceptual). `BreakMap` + `RiskChip`
+  ("Where the journey can break" — the 5-step experience model / 6-row
+  dependency model panel) were built then later removed.
 - **New shared:** `Icon.tsx` gained `sliders, navigation, bulb, database, eye, quote`.
   No token changes; no Section 1 changes.
 - **Journey stages (proposed model):** 01 Discover · 02 Evaluate · 03 Navigate ·
@@ -405,25 +407,24 @@ capabilities and is NOT claimed to represent ZOOP's internal workflow.**
   filtering, multi-network charging, single wallet. Rendered as the "One app. Many
   networks." card with a "Publicly observed" pill.
 - **Proposed / conceptual / illustrative (labelled in-UI):** the 6-stage journey and
-  its mechanics; the 5-step **proposed experience model** with emotional states
-  (Curious/Confident/Hopeful/Waiting/Satisfied); the 6-row **conceptual dependency
-  model**; all breakpoints / risk chips — all phrased as hypotheticals ("Potential
+  its mechanics; all per-stage breakpoints — phrased as hypotheticals ("Potential
   availability mismatch", "Potential compatibility issue", "Potential location or
   access issue", "Potential session-state failure", "Potential session-status
-  mismatch", "Potential transaction-state mismatch", "Potential resolution delay") —
-  carried by the hero pill "Publicly observed + proposed journey
-  model", the two column pills, the breakpoints banner "Illustrative breakpoint model
-  — not measured failure rates", `Callout kind="source"` on the app screens, and
-  `Callout kind="assumption"` under the dependency column.
+  mismatch", "Potential transaction-state mismatch") — carried by the hero pill
+  "Publicly observed + proposed journey model", the breakpoints banner
+  "Illustrative breakpoint model — not measured failure rates", and
+  `Callout kind="source"` on the app screens. (The 5-step proposed experience
+  model and the 6-row conceptual dependency model — "Where the journey can
+  break" — were removed; see above.)
 - **The pull-quote** ("A great EV charging experience feels effortless…") is labelled
   "Working design principle" — no fabricated attribution.
 - **Interactions:** `ModeToggle` (Happy path ⇄ Breakpoints) reveals per-stage risk
   markers + issue captions + the disclaimer banner in place (no layout switch —
-  confirmed with user); stage hover/focus tooltip; phone hover; dependency-row +
-  risk-chip hover; `ScrollReveal` on blocks; CTA → `/feedback`.
+  confirmed with user); stage hover/focus tooltip; phone hover; `ScrollReveal`
+  on blocks; CTA → `/feedback`.
 - **Responsive:** hero 2-col → stacked < 940px (right script hidden on mobile);
   timeline horizontal → vertical cards < 720px (tooltips inline on mobile); app
-  showcase 3-up → column < 560px; BreakMap 2-col → 1-col < 860px; TPM 4 → 2 → 1.
+  showcase 3-up → column < 560px; TPM 4 → 2 → 1.
 - **Dark mode:** Section 2 uses only generic tokens → maps via the fixed `--dark-*`
   palette. `npm run contrast` still passes; `JourneyHeroVisual` has a
   `[data-theme="dark"]` panel override.
