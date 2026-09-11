@@ -610,8 +610,7 @@ proof of work — not an existing ZOOP system.
   framed as "inputs to issue severity", then the escalation formula
   `Time elapsed + Customer impact + Issue severity = Escalation priority` with
   the "Issue severity" term visually tied back to the factors above) ·
-  `DiagnosisSection` + `DiagnosisCard` (worked conceptual incident diagnosis;
-  card reused inside the drawer) · `VendorHealth` (`DataTable` → `DetailDrawer`;
+  `VendorHealth` (`DataTable` → `DetailDrawer`;
   4 metric `KpiCard`s; proposed vendor-governance framework) · `Architecture`
   (`DiagramFrame` conceptual flow only) · `ControlTowerMetrics` (5 metric
   categories, no values + primary outcome / candidate north star) ·
@@ -624,11 +623,13 @@ proof of work — not an existing ZOOP system.
   8-step workflow, `OperatorActions` (+ its audit-log / control-considerations —
   `AUDIT_LOG` is still used by the incident `DetailDrawer`), `Alerting`,
   `BeforeAfter`, the P0–P3 severity cards (`SEVERITY_META.desc` removed — the
-  table still uses `.label`/`.tone`), and the "When should we escalate?"
+  table still uses `.label`/`.tone`), the "When should we escalate?"
   issue-type/SLA/owner/state table (`EscalationRow` / `ESCALATION_ROWS` /
-  `ESCALATION_LABEL` removed — only `ESCALATION_FORMULA` remains). `DetailDrawer`
-  is unchanged (transaction timeline + diagnosis; incident diagnosis + audit
-  log; vendor reliability + recent incidents).
+  `ESCALATION_LABEL` removed — only `ESCALATION_FORMULA` remains), and the
+  standalone `DiagnosisSection` ("Turning an exception into a diagnosis").
+  `DiagnosisCard` + `DIAGNOSIS_LABEL` stay — still used inside `DetailDrawer`
+  (transaction timeline + diagnosis; incident diagnosis + audit log; vendor
+  reliability + recent incidents), which is otherwise unchanged.
 - **New chart primitives (additive to `src/components/charts/Charts.tsx`):**
   - `LineChart` — small multi-series line chart (`series: {label, data, color?,
     dashed?}[]`, optional `min` / `max`), used for the reliability trend.

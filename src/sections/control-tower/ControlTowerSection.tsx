@@ -4,7 +4,6 @@ import { ControlTowerJob } from './ControlTowerJob'
 import { Dashboard } from './Dashboard'
 import { TransactionMonitoring } from './TransactionMonitoring'
 import { ExceptionQueue } from './ExceptionQueue'
-import { DiagnosisSection } from './DiagnosisSection'
 import { VendorHealth } from './VendorHealth'
 import { Architecture } from './Architecture'
 import { ControlTowerMetrics } from './ControlTowerMetrics'
@@ -52,7 +51,6 @@ export function ControlTowerSection() {
         onOpen={(id) => setDetail({ kind: 'transaction', id })}
       />
       <ExceptionQueue onOpen={(id) => setDetail({ kind: 'incident', id })} />
-      <DiagnosisSection />
       <VendorHealth onOpen={(id) => setDetail({ kind: 'vendor', id })} />
       <Architecture />
       <ControlTowerMetrics />
