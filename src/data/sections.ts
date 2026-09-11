@@ -105,7 +105,7 @@ export const SECTIONS: SectionDef[] = [
     planned: [
       'Three-way analysis — reliability signals / inferred root causes / customer impact',
       'A proposed exception-management model (detect → classify → assign → escalate → resolve → communicate)',
-      'Why transaction reliability deserves the deepest look → hand-off to the Control Tower',
+      'What this means for a TPM → hand-off to the Control Tower',
     ],
     absorbs: [
       'Brief §4 — Problem prioritization',

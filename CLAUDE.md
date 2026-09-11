@@ -532,11 +532,12 @@ internal system.**
   `ReliabilityHero` + `ReliabilityHeroVisual` · `ThreeWayAnalysis` (signals /
   inferred causes / impact — 3 col) ·
   `ExceptionModel` (7-step Event→Detect→Classify→Assign→Escalate→Resolve→Communicate
-  with the payment worked example) · `TransactionFocus`
-  (Customer intent → … → Trust impact chain) · `TpmTakeaways` (dark band + 4 cards
+  with the payment worked example) · `TpmTakeaways` (dark band + 4 cards
   + the central "visible, understandable, recoverable" insight + Prevent→Detect→
   Diagnose→Resolve→Recover) · `ReliabilityTransition` → `/control-tower`. All copy in
-  `_data.ts`; hero slot in `_assets.ts`.
+  `_data.ts`; hero slot in `_assets.ts`. `TransactionFocus` ("Why transaction
+  reliability deserves deeper investigation" — the Customer intent → … → Trust
+  impact chain, `TXN_FOCUS`) was built then later removed.
 - **Shared extraction:** `src/components/diagrams/PriorityPlot.tsx` (+ `.module.css`)
   — data-agnostic 2×2 scatter, lifted from Section 3's matrix. Section 3's
   `feedback/PrioritizationMatrix` refactored to use it (visual output preserved).

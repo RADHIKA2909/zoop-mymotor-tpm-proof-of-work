@@ -175,23 +175,6 @@ export const EXCEPTION = {
   label: "Proposed exception management model — not ZOOP's current workflow.",
 } as const
 
-/* ---- Why transaction reliability ------------------------ */
-
-export const TXN_FOCUS = {
-  title: 'Why transaction reliability deserves deeper investigation',
-  chain: [
-    { label: 'Customer intent', value: 'Complete charging & pay.' },
-    { label: 'System action', value: 'Charging completed, payment initiated.' },
-    { label: 'Expected state', value: 'Payment successful, transaction confirmed.' },
-    { label: 'Potential reality', value: 'Pending / Failed / Unknown.' },
-    { label: 'Customer question', value: '“Did it work?”' },
-    { label: 'Trust impact', value: 'Confidence in the product drops.' },
-  ],
-  statement:
-    'The key problem is knowing the actual transaction state — and communicating it clearly to the customer.',
-  label: 'Proposed product hypothesis — not a measured business result.',
-} as const
-
 /* ---- TPM takeaways (dark) ------------------------------ */
 
 export const TAKEAWAYS_HEADER = {
