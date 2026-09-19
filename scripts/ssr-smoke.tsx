@@ -11,6 +11,7 @@ import { JourneySection } from '../src/sections/journey/JourneySection'
 import { FeedbackSection } from '../src/sections/feedback/FeedbackSection'
 import { ReliabilitySection } from '../src/sections/reliability/ReliabilitySection'
 import { ControlTowerSection } from '../src/sections/control-tower/ControlTowerSection'
+import { ControlTowerDeepDiveSection } from '../src/sections/control-tower-deep-dive/ControlTowerDeepDiveSection'
 import { PrototypeSection } from '../src/sections/prototype/PrototypeSection'
 import { StyleGuideSection } from '../src/sections/StyleGuideSection'
 import { NotFoundSection } from '../src/sections/NotFoundSection'
@@ -25,6 +26,7 @@ const routes = [
       { path: 'feedback', element: createElement(FeedbackSection) },
       { path: 'reliability', element: createElement(ReliabilitySection) },
       { path: 'control-tower', element: createElement(ControlTowerSection) },
+      { path: 'control-tower-deep-dive', element: createElement(ControlTowerDeepDiveSection) },
       { path: 'prototype', element: createElement(PrototypeSection) },
       { path: 'styleguide', element: createElement(StyleGuideSection) },
       { path: '*', element: createElement(NotFoundSection) },
@@ -32,7 +34,7 @@ const routes = [
   },
 ]
 
-const paths = ['/', '/context', '/journey', '/feedback', '/reliability', '/control-tower', '/prototype', '/styleguide', '/nonsense']
+const paths = ['/', '/context', '/journey', '/feedback', '/reliability', '/control-tower', '/control-tower-deep-dive', '/prototype', '/styleguide', '/nonsense']
 
 let failures = 0
 for (const p of paths) {

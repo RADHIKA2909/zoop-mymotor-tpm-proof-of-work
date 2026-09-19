@@ -2,9 +2,9 @@ import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { IconChip } from '@/components/ui/IconChip'
 import { TRANSITION } from './_data'
-import s from './ControlTowerTransition.module.css'
+import s from './DeepDiveTransition.module.css'
 
-export function ControlTowerTransition() {
+export function DeepDiveTransition() {
   return (
     <section className={s.section}>
       <Container size="wide">
@@ -15,7 +15,7 @@ export function ControlTowerTransition() {
             <p className={s.heading}>{TRANSITION.heading}</p>
             <p className={s.supporting}>{TRANSITION.supporting}</p>
           </div>
-          <Button to="/control-tower-deep-dive" iconRight="arrow-right" size="lg" className={s.cta}>
+          <Button to="/prototype" iconRight="arrow-right" size="lg" className={s.cta}>
             {TRANSITION.ctaLabel}
           </Button>
         </div>

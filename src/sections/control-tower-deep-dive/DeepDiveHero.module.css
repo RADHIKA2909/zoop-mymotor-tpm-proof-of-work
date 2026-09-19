@@ -1,0 +1,36 @@
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-9) 0 var(--space-8);
+}
+
+.text {
+  max-width: 68ch;
+}
+
+.title {
+  margin-top: var(--space-1);
+  font-size: var(--text-5xl);
+  line-height: 1.03;
+  letter-spacing: var(--tracking-tighter);
+}
+
+.subtitle {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  color: var(--brand-green-deep);
+  line-height: var(--leading-snug);
+}
+
+.supporting {
+  margin-top: var(--space-4);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+.disclaimer {
+  margin-top: var(--space-6);
+  max-width: 68ch;
+}

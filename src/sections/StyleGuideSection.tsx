@@ -205,7 +205,7 @@ export function StyleGuideSection() {
             <KpiCard label="Vendor health" value="—" tone="info" />
           </StatGrid>
           <div className={s.cluster} style={{ marginTop: 'var(--space-5)' }}>
-            <Stat label="Sections" value="6" hint="in this walkthrough" />
+            <Stat label="Sections" value="7" hint="in this walkthrough" />
             <Stat label="Claim labels" value="4" hint="observed / inferred / proposed / assumption" />
           </div>
         </Row>

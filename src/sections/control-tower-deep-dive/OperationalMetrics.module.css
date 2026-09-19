@@ -1,0 +1,37 @@
+.section {
+  padding: var(--section-pad-y) 0;
+}
+
+.title {
+  margin-top: var(--space-2);
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-tight);
+  max-width: 34ch;
+}
+
+.lead {
+  margin-top: var(--space-3);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+  max-width: 66ch;
+}
+
+.strip {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.relationship {
+  margin-top: var(--space-7);
+  max-width: 380px;
+}
+
+.note {
+  margin-top: var(--space-5);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  max-width: 60ch;
+}

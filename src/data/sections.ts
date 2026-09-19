@@ -9,6 +9,10 @@
  *   public user evidence -> problem discovery -> prioritization -> product
  *   proposal -> operational workflow -> technical design -> metrics -> prototype
  *   -> rollout / UAT / monitoring
+ *
+ * CTO deep-dive branch only (feature/mymotor-cto-deep-dive, not on `main`):
+ * a 7th section, "control-tower-deep-dive", is inserted between Control Tower
+ * and Prototype — see CLAUDE.md §22.
  */
 
 export type SectionStatus = 'planned' | 'in-progress' | 'done'
@@ -138,8 +142,28 @@ export const SECTIONS: SectionDef[] = [
     ],
   },
   {
-    id: 'prototype',
+    id: 'control-tower-deep-dive',
     num: '06',
+    path: '/control-tower-deep-dive',
+    navLabel: 'Deep Dive',
+    title: 'Behind the Control Tower',
+    tagline:
+      'CTO deep-dive: the transaction-reliability operating model behind the Control Tower — the multi-system flow behind one transaction, illustrative failure modes, the metrics that would show system health, and the detect → diagnose → act → verify → learn loop.',
+    phase: 'Technical + operational deep dive',
+    status: 'done',
+    planned: [
+      'One transaction, multiple failure points — a condensed product + technical flow',
+      'Where can the journey fail? — five illustrative failure modes with detection, customer impact and operational response',
+      'How I would know the system is healthy — proposed metric names and how they relate',
+      'From detection to resolution — the proposed Control Tower operating loop',
+    ],
+    absorbs: [
+      'CTO deep-dive branch only — extends the proposed Control Tower (Brief §5, §6, §9) with a transaction-reliability operating model walkthrough',
+    ],
+  },
+  {
+    id: 'prototype',
+    num: '07',
     path: '/prototype',
     navLabel: 'Prototype',
     title: 'Interactive Prototype',
@@ -192,7 +216,7 @@ export const NARRATIVE_FLOW: string[] = [
   'Rollout / UAT / monitoring',
 ]
 
-/** Progress across the six buildable sections. */
+/** Progress across the buildable sections (7 on this branch, 6 on `main`). */
 export function buildProgress(): { done: number; total: number } {
   return {
     done: SECTIONS.filter((s) => s.status === 'done').length,

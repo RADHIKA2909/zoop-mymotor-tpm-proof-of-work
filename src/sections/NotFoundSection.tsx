@@ -10,7 +10,7 @@ export function NotFoundSection() {
         <Eyebrow>404</Eyebrow>
         <h1 className={s.title}>That page isn't part of the walkthrough.</h1>
         <p className={s.text}>
-          The case study has six sections plus an overview. Head back to the start.
+          The case study has seven sections plus an overview. Head back to the start.
         </p>
         <Button to="/" iconRight="arrow-right">
           Back to overview

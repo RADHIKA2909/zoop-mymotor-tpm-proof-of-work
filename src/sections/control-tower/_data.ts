@@ -594,9 +594,9 @@ export const CENTRAL_INSIGHT = [
 ]
 
 export const TRANSITION = {
-  eyebrow: 'Next: from concept to experience',
+  eyebrow: 'Next: behind the control tower',
   heading: 'A control tower is only useful if people can act through it.',
   supporting:
-    "Next, I'll turn this operational model into an interactive product experience — showing how an operator would monitor an issue, investigate it, take action and close the loop.",
-  ctaLabel: 'Explore Interactive Prototype',
+    "Next, I'll go one layer deeper into the transaction-reliability operating model behind this — the flow behind one transaction, where it can fail, and how it would be detected, diagnosed and resolved.",
+  ctaLabel: 'Go behind the Control Tower',
 } as const

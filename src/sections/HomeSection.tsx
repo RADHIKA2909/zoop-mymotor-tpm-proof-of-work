@@ -114,9 +114,9 @@ export function HomeSection() {
         <Container size="wide">
           <ScrollReveal>
             <Eyebrow>The case study</Eyebrow>
-            <h2 className={s.bandTitle}>Six sections, one argument.</h2>
+            <h2 className={s.bandTitle}>Seven sections, one argument.</h2>
             <p className={s.bandLede}>
-              The reference layout uses a six-part walkthrough. The brief's deeper
+              The reference layout uses a seven-part walkthrough. The brief's deeper
               artefacts — PRD, RCA, KPI framework, vendor scorecards — live inside
               these sections rather than as separate pages.
             </p>
