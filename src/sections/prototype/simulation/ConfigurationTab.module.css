@@ -1,0 +1,80 @@
+.wrap {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.card {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  max-width: 380px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+}
+.key {
+  color: var(--text-secondary);
+}
+.val {
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.editRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border);
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 120px;
+}
+.fieldLabel {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--brand-green-strong);
+}
+.input {
+  font: inherit;
+  font-size: var(--text-sm);
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.permNote {
+  margin: 0;
+}
+
+.saved {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--status-success);
+}
+
+.note {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}

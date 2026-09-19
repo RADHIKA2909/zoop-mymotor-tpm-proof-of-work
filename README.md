@@ -50,6 +50,17 @@ Each currently shows its **planned contents** — sections are built one at a ti
 from their own detailed brief. See [`CLAUDE.md`](./CLAUDE.md) for the full project
 memory, content rules, and the workflow for adding a section.
 
+## Branches
+
+- **`main`** — the finalized 6-section proof of work above, built for a TPM /
+  Solution-Architect interview round.
+- **`feature/mymotor-cto-deep-dive`** — an enhanced variant for a follow-up CTO
+  / co-founder round. Adds a 7th section, **"Behind the Control Tower"**
+  (`/control-tower-deep-dive`), and an interactive RBAC + Control-Tower ↔
+  MyMotor shared-state simulation inside the Prototype section. Built
+  additively on top of `main` and deployed separately, with its own URL. See
+  [`CLAUDE.md`](./CLAUDE.md) §22 for the full breakdown.
+
 ## Deploy
 
 `vercel.json` is included (SPA rewrite). `vercel deploy` — or point any static host

@@ -1,0 +1,29 @@
+.toggle {
+  flex: none;
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.option:hover {
+  color: var(--text-primary);
+}
+.optionActive {
+  background: var(--surface);
+  color: var(--brand-green-deep);
+  box-shadow: var(--shadow-xs);
+}

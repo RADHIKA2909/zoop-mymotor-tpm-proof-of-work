@@ -861,3 +861,183 @@ npm run typecheck     # tsc --noEmit only
 
 Route `/styleguide` renders every primitive in both themes — use it to QA visual
 consistency after each section.
+
+---
+
+## 22. CTO deep-dive branch (`feature/mymotor-cto-deep-dive`)
+
+**This section describes work on a branch, not on `main`.** `main` stays the
+finalized 6-section TPM / Solution-Architect proof of work described in §1–§21
+above, unchanged. `feature/mymotor-cto-deep-dive` is a second, more technical
+artifact for a follow-up **CTO / co-founder round** — built additively on top of
+`main`, deployed separately, with its own URL. Everything below is branch-only.
+
+**Purpose:** go one layer deeper on Control Tower mechanics, vendor monitoring,
+RBAC and transaction reconciliation than the base case study does — while
+staying compact (one new content page + an enhanced prototype, not a
+restructure) and never claiming ZOOP-internal facts. Same OBSERVED / INFERRED /
+PROPOSED / ASSUMPTION labeling as the rest of the app (`src/data/claims.ts`).
+
+### IA change (branch-only)
+
+A 7th section, **"Behind the Control Tower"** (`control-tower-deep-dive`), is
+inserted between Control Tower (05) and Prototype (renumbered 06 → 07) in
+`src/data/sections.ts` and `src/routes.tsx`. Nav label **"Deep Dive"**.
+`ControlTowerTransition` (§5's CTA) now points to `/control-tower-deep-dive`
+instead of `/prototype`; the deep-dive page's own transition points to
+`/prototype`. `TopNav` / `MobileNav` / `SectionProgress` / the landing page's
+section-card grid needed no code changes — all are data-driven off `SECTIONS`.
+A handful of hardcoded "six sections" copy spots were updated to "seven"
+(`HomeSection.tsx`'s "Six sections, one argument.", `NotFoundSection.tsx`,
+`StyleGuideSection.tsx`'s `<Stat value="6">`) — branch-only, reverted implicitly
+by not existing on `main`.
+
+### Section 06 — "Behind the Control Tower" (new)
+
+**Route / files:** `/control-tower-deep-dive` → `src/sections/control-tower-deep-dive/`.
+Bespoke page, no `SectionScaffold`, light-theme tokens only (no new dark
+surfaces, no `contrast-check` changes). No hero illustration — kept to a
+~1–2 minute read. Reuses `Container`, `Eyebrow`, `Callout`, `Pill`,
+`DiagramFrame`, `NodeFlow`, `DisclosureRow`, `Icon`, `ScrollReveal`, `Button`,
+`IconChip` — no new shared primitives, icons or tokens.
+
+- **`DeepDiveHero`** — eyebrow "06 — Behind the Control Tower"; H1 "Behind the
+  Control Tower"; subtitle "From customer failure → detection → diagnosis →
+  resolution"; a `Callout kind="proposed"` carrying the disclaimer that these
+  flows/metrics/incidents are illustrative — a proposed TPM operating model,
+  not ZOOP's internal architecture.
+- **`TransactionFlow`** (Block 1) — "One transaction, multiple failure points".
+  A condensed 6-node `NodeFlow` (Customer → MyMotor app → Payment & vendor
+  APIs → Transaction state → Charging service / CPO → Customer outcome, tone
+  bookended brand/muted/brand) in a `DiagramFrame`, disclaimer "simplified…not
+  an engineering architecture diagram."
+- **`FailureModes`** (Block 2) — "Where can the journey fail?". 5 compact cards
+  (title / detection / customer impact / operational response): missing
+  payment webhook, payment provider degradation, duplicate webhook (idempotency
+  check), charger availability mismatch, payment successful but wallet not
+  updated. Labelled "Proposed — illustrative failure-mode examples, not
+  observed ZOOP incidents" (distinct from §3's OBSERVED review evidence).
+- **`OperationalMetrics`** (Block 3) — "How I would know the system is
+  healthy". 7 metric **names only** (transaction success rate, payment failure
+  rate, webhook success rate, P95/P99 API latency, vendor SLA adherence,
+  pending transaction age, charger availability accuracy) — no values here; a
+  small vertical `NodeFlow` relating customer outcome → success rate →
+  latency/error/webhook health → vendor/service reliability.
+- **`OperatingLoop`** (Block 4) — "From detection to resolution". Detect →
+  Diagnose → Act → Verify → Learn (icon + one example line each, patterned on
+  §4's `ExceptionModel`), using the Provider-A-degradation example.
+- **`ArchitectureReveal`** — a `DisclosureRow` "View architecture" (`id="architecture"`
+  on the section) expanding a small vertical `NodeFlow`: MyMotor → API/Backend
+  → Transaction Service → Payment Provider → Webhook/Event → Transaction State
+  → Control Tower → Ops/Product/Support, labelled "Illustrative architecture —
+  proposed for this case study", plus the note that the Control Tower is an
+  operational layer and "should not become the source of truth for every
+  domain." Opens (and scrolls into view) automatically when reached via a
+  `#architecture` deep link — used by the prototype simulation below.
+- **`DeepDiveTransition`** — CTA "Explore the interactive prototype" → `/prototype`.
+
+### Section 07 — Interactive Prototype: "Operate the Control Tower" (additive)
+
+**Additive only.** The existing 5-scenario incident stepper (`src/sections/prototype/_state.ts`,
+`_data.ts`, `PrototypeStage.tsx` and its panels) is **unchanged** — it still
+works exactly as before. A second, self-contained module,
+`src/sections/prototype/simulation/`, is mounted as one new block in
+`PrototypeSection.tsx` between `<PrototypeStage>` and `<OtherScenarios>`. It has
+its own reducer (`_simState.ts`) so the two interactive systems never interfere.
+
+**Why this exists:** the base prototype demonstrates an operator workflow. This
+module demonstrates the CTO-round asks that the base prototype doesn't cover —
+**RBAC** (different roles see and can do different things) and a **Control
+Tower ↔ MyMotor shared-state link** (a Control Tower action visibly changes the
+customer-facing MyMotor experience, in the same render tree, from the same
+state) — without duplicating or risking the already-shipped stepper.
+
+**Shared state (`_simState.ts`)** — one `useReducer` in `ControlTowerSimulation`,
+consumed by both the Control Tower panel and the MyMotor mini app:
+
+```ts
+interface SimState {
+  role: SimRole            // 'operations' | 'product' | 'support' | 'finance' | 'marketing'
+  view: SimView             // 'control-tower' | 'mymotor'
+  ctTab: CtTab              // 'overview' | 'transactions' | 'vendors' | 'incidents' | 'configuration'
+  pricing: { providerA: number }               // default 12 (₹/kWh)
+  incidentStatus: 'investigating' | 'resolved'
+  incidentDrawerOpen: boolean
+  transaction: { id: 'TXN-10482'; providerStatus: 'success'; internalStatus: 'pending' | 'success'; amount: 1000 }
+  wallet: { balance: number }                  // default 0
+  reconciling: boolean
+}
+```
+Actions: `SELECT_ROLE`, `SELECT_VIEW`, `SELECT_CT_TAB`, `UPDATE_PRICING`,
+`OPEN_INCIDENT_DRAWER` / `CLOSE_INCIDENT_DRAWER`, `START_RECONCILE` →
+(a component-local `useEffect` + `setTimeout`, ~900ms, cleaned up on unmount) →
+`RECONCILE_DONE` (flips the transaction to success, credits the wallet, marks
+the incident resolved), `RESET_SIMULATION`.
+
+**Components** (`src/sections/prototype/simulation/`): `ControlTowerSimulation`
+(orchestrator — intro, disclaimer, "Reset simulation") · `RoleSwitcher` ("View
+as" pill row, proposed-role-model caption) · `ViewToggle` (`[Control Tower] /
+[MyMotor]` segmented control) · `ControlTowerPanel` (`Tabs`, `variant="pill"`,
+over the 5 `CtTab`s — a tab a role has no access to is omitted from the tab
+list; a link at the bottom deep-links to `/control-tower-deep-dive#architecture`
+instead of duplicating that diagram) → `OverviewTab` / `TransactionsTab` /
+`VendorsTab` / `IncidentsTab` / `ConfigurationTab` · `MyMotorPanel` (`PhoneFrame`
++ an internal Home / Charger Detail / Wallet / Transaction Status screen
+switcher) → `MyMotorScreenBody` (conceptual phone-screen mockups, patterned on
+`journey/JourneyAppScreen.tsx`, deliberately using fixed hex colours for the
+"device screen" look rather than theme tokens — same established convention).
+All reused primitives only (`Tabs`, `Drawer`, `Timeline`, `Callout`, `Pill`,
+`Button`, `KpiCard`, `StatGrid`, `PhoneFrame`) — no new shared components, no
+new icons, no new chart primitives, no token changes.
+
+**Role → tab permission matrix** (`SIM_PERMISSIONS` in `_simData.ts`; a tab
+absent for a role is hidden entirely, not shown disabled):
+
+| Role | Overview | Transactions | Vendors | Incidents | Configuration |
+|---|---|---|---|---|---|
+| Operations (default) | view | view | view | **execute** | view |
+| Product | view | view | view | hidden | **edit** |
+| Support | view | view | hidden | view | hidden |
+| Finance | view | view | hidden | hidden | view |
+| Marketing | view | hidden | hidden | hidden | hidden |
+
+The existing scenario stepper's Team-Lead retry-approval flow already
+demonstrates an approve-gated action well, so this module deliberately uses
+only View / Edit / Execute (no duplicate "Approve" mechanic).
+
+**The two end-to-end demo loops** (the point of the module — Control Tower and
+MyMotor are never "two apps side by side," both read one state):
+1. **Config → product change:** Configuration tab (role: Product) — change
+   Provider A from ₹12 to ₹13/kWh → Save Configuration → toggle to MyMotor →
+   Charger Detail shows ₹13/kWh.
+2. **Failure → recovery:** Incidents tab (role: Operations) — Investigate the
+   Provider A degradation incident → Reconcile Transaction → brief loading
+   state → success + an RCA block appears → toggle to MyMotor → Wallet goes
+   ₹0 → ₹1,000 ("₹1,000 added to your wallet."), the Transaction Status screen
+   updates, and the charging button switches from "Charging unavailable until
+   payment is confirmed" to "Start Charging".
+
+**Illustrative-data policy:** `INC-10490`, `TXN-10482`, "Provider A/B/C", every
+metric, timestamp and RCA line in `_simData.ts` are fictional — a persistent
+"Interactive simulation — illustrative data, not connected to ZOOP systems."
+`Callout` sits at the top of the module; per-tab notes repeat this where a
+number is shown (vendors, KPIs).
+
+**Must NOT claim:** any real ZOOP failure rate, SLA, vendor name, API,
+incident, transaction volume or customer data — same rule as the rest of the
+app (§18), extended to this module's simulation data.
+
+**Verification (branch):** `tsc --noEmit` clean · `vite build` clean ·
+`npm run contrast` all-pass (no new dark tokens) · SSR smoke extended to 10
+routes (`scripts/ssr-smoke.tsx`, `/control-tower-deep-dive` added) — all pass ·
+a standalone reducer/permission-matrix smoke test (both demo loops, reset,
+idempotent reconciliation, all 5×5 role/tab combinations) — all pass, script
+removed after.
+
+### Deploying the branch
+
+`git push -u origin feature/mymotor-cto-deep-dive` (no PR, no merge to `main`).
+If the Vercel project is git-connected, this alone produces a branch preview
+deployment with its own URL. Otherwise: `vercel link && vercel deploy` (preview,
+not `--prod`) from the branch. Never push directly to `main` for this work, and
+never merge this branch into `main` without being asked.

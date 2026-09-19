@@ -1,0 +1,63 @@
+.wrap {
+  display: grid;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 280px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.groupLabel {
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--text-tertiary);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tab {
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.tab:hover {
+  color: var(--text-primary);
+}
+.tabActive {
+  background: var(--brand-green);
+  color: #0c2110;
+}
+
+.caption {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-secondary);
+}
+.note {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 720px) {
+  .tabs {
+    flex-wrap: nowrap;
+  }
+}
