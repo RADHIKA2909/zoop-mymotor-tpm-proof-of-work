@@ -17,6 +17,7 @@ export function TopNav() {
       <div className={s.inner}>
         <Link to="/" className={s.brand} aria-label="Home">
           <LogoLockup />
+          <span className={s.tagline}>Building a more reliable EV future</span>
         </Link>
 
         <nav className={s.nav} aria-label="Case study sections">
@@ -33,9 +34,6 @@ export function TopNav() {
         </nav>
 
         <div className={s.right}>
-          <div className={s.badge}>
-            <span className={s.badgeSub}>Building a more reliable EV future</span>
-          </div>
           <ThemeToggle className={s.themeToggle} />
           <button
             type="button"
