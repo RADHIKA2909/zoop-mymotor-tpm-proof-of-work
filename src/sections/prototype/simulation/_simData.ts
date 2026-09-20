@@ -107,14 +107,17 @@ export const INCIDENT = {
   detectedThrough: 'Payment success-rate alert',
 } as const
 
+/** Static part of the timeline — always shown, ends at "still pending". The
+ * "Reconciliation triggered" / "Transaction = Success" steps are appended
+ * dynamically in IncidentsTab only once the operator clicks Reconcile. */
 export const INCIDENT_TIMELINE: { time: string; label: string; tone: StatusTone }[] = [
   { time: '10:24', label: 'Payment initiated', tone: 'info' },
   { time: '10:24', label: 'Provider payment successful', tone: 'success' },
   { time: '10:26', label: 'Webhook delayed / missing', tone: 'warning' },
   { time: '10:26', label: 'Internal transaction = Pending', tone: 'warning' },
-  { time: '10:42', label: 'Reconciliation triggered', tone: 'info' },
 ]
 
+export const RECONCILE_TRIGGERED_LABEL = 'Reconciliation triggered'
 export const RECONCILE_STEP_LABEL = 'Reconciling provider and internal state…'
 export const RECONCILE_SUCCESS_LABEL = 'Transaction reconciled successfully.'
 

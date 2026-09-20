@@ -12,6 +12,7 @@ import {
   RCA_LABEL,
   RECONCILE_STEP_LABEL,
   RECONCILE_SUCCESS_LABEL,
+  RECONCILE_TRIGGERED_LABEL,
   type PermissionLevel,
 } from './_simData'
 import type { SimAction, SimState } from './_simState'
@@ -39,8 +40,11 @@ export function IncidentsTab({ state, dispatch, perm }: Props) {
     title: t.label,
     tone: t.tone,
   }))
-  if (state.reconciling) {
-    timeline.push({ marker: '—', title: RECONCILE_STEP_LABEL, tone: 'info' })
+  // "Reconciliation triggered" only appears once the operator has actually
+  // clicked Reconcile — never before, even though the incident itself starts
+  // in a degraded/pending state.
+  if (state.reconciling || resolved) {
+    timeline.push({ marker: '10:42', title: RECONCILE_TRIGGERED_LABEL, tone: 'info' })
   }
   if (resolved) {
     timeline.push({ marker: '—', title: 'Transaction = Success', tone: 'success' })
