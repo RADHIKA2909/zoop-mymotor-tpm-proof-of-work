@@ -148,7 +148,7 @@ export const SECTIONS: SectionDef[] = [
     navLabel: 'Deep Dive',
     title: 'Behind the Control Tower',
     tagline:
-      'CTO deep-dive: the transaction-reliability operating model behind the Control Tower — the multi-system flow behind one transaction, illustrative failure modes, the metrics that would show system health, and the detect → diagnose → act → verify → learn loop.',
+      'The transaction-reliability operating model behind the Control Tower — the multi-system flow behind one transaction, illustrative failure modes, the metrics that would show system health, and the detect → diagnose → act → verify → learn loop.',
     phase: 'Technical + operational deep dive',
     status: 'done',
     planned: [
@@ -158,7 +158,7 @@ export const SECTIONS: SectionDef[] = [
       'From detection to resolution — the proposed Control Tower operating loop',
     ],
     absorbs: [
-      'CTO deep-dive branch only — extends the proposed Control Tower (Brief §5, §6, §9) with a transaction-reliability operating model walkthrough',
+      'Extends the proposed Control Tower (Brief §5, §6, §9) with a transaction-reliability operating model walkthrough',
     ],
   },
   {
