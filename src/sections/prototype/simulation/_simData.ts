@@ -162,4 +162,5 @@ export const PAYMENT_PENDING_COPY = {
 
 export const PAYMENT_SUCCESS_COPY = '₹1,000 added to your wallet.'
 
-export const ARCHITECTURE_LINK_LABEL = 'See the illustrative architecture this simulation is based on'
+// Kept short deliberately — Button (incl. variant="link") is white-space: nowrap.
+export const ARCHITECTURE_LINK_LABEL = 'View the illustrative architecture'

@@ -56,9 +56,12 @@ export function ControlTowerSimulation() {
           </div>
         </div>
 
-        <Pill tone="proposed" variant="outline" caps size="sm" className={s.footNote}>
+        <p className={s.footNote}>
+          <Pill tone="proposed" caps size="sm">
+            Proposed
+          </Pill>{' '}
           Control Tower and MyMotor read the same simulated state — a change on one side shows up on the other.
-        </Pill>
+        </p>
       </Container>
     </section>
   )

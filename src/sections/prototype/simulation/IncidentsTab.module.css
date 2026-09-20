@@ -33,25 +33,38 @@
 .metrics {
   display: grid;
   gap: 0.3rem;
+  min-width: 0;
 }
 .metrics > div {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, max-content);
   justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
   font-size: var(--text-xs);
+  min-width: 0;
 }
 .metrics dt {
   color: var(--text-secondary);
 }
 .metrics dd {
+  min-width: 0;
   margin: 0;
   font-weight: var(--weight-semibold);
   color: var(--text-primary);
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
+/* Every direct child of this grid gets min-width: 0 — without it, a grid
+   item's automatic minimum size defaults to its own max-content size, which
+   can silently force the whole drawer body wider than the drawer itself. */
 .drawerBody {
   display: grid;
   gap: var(--space-2);
+  min-width: 0;
+}
+.drawerBody > * {
   min-width: 0;
 }
 
@@ -59,20 +72,20 @@
   display: grid;
   gap: 0.4rem;
   margin-bottom: var(--space-2);
+  min-width: 0;
 }
 .fields > div {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
   align-items: baseline;
-  justify-content: space-between;
   gap: var(--space-2);
   font-size: var(--text-xs);
+  min-width: 0;
 }
 .fields dt {
-  flex: none;
   color: var(--text-tertiary);
 }
 .fields dd {
-  flex: 1;
   min-width: 0;
   margin: 0;
   font-weight: var(--weight-medium);
@@ -98,21 +111,25 @@
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   background: var(--surface-2);
+  min-width: 0;
+}
+.txnCard > * {
+  min-width: 0;
 }
 .txnRow {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, max-content);
   justify-content: space-between;
+  align-items: center;
   gap: var(--space-2);
   font-size: var(--text-xs);
   color: var(--text-secondary);
-}
-.txnRow > span:first-child {
-  flex: none;
+  min-width: 0;
 }
 .mono {
   min-width: 0;
   overflow-wrap: anywhere;
+  text-align: right;
   font-family: var(--font-mono);
   color: var(--text-primary);
 }

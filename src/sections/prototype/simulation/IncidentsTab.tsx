@@ -148,7 +148,7 @@ export function IncidentsTab({ state, dispatch, perm }: Props) {
                   </dd>
                 </div>
               </dl>
-              <Pill tone="proposed" variant="outline" caps size="sm">{RCA_LABEL}</Pill>
+              <Callout kind="proposed">{RCA_LABEL}</Callout>
             </>
           )}
         </div>
